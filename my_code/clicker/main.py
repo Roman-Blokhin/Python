@@ -1,8 +1,22 @@
 from tkinter import *
 
-root = Tk ()
-root.title ('')
-root.geometry ('350x350+200+200')
-root.config (bg = '')
+count = 0
 
-root.mainloop ()
+
+def click():
+    global count
+    count += 1
+    counter.config(text=count)
+
+root = Tk()
+root.title('Кликер')
+root.geometry('250x250+200+200')
+root.config(bg='black')
+
+counter = Label(root, text='0', font=('Arial 55'), bg='black', fg='white')
+counter.pack()
+
+clicker = Button(root, text='Нажми', font=('Arial 20'), command=click)
+clicker.pack()
+
+root.mainloop()
