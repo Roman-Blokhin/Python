@@ -20,6 +20,13 @@ def start_tick():
     tick()  # вызываем функцию для запуска секундомера
 
 
+def stop_tick():
+    root.after_cancel(after_id)
+    btn_stop.pack_forget()
+    btn_continue.pack()  # вывели новые кнопки
+    btn_reset.pack()
+
+
 root = Tk()
 root.title('')
 root.geometry('450x480+200+200')
@@ -31,7 +38,7 @@ label_1.pack()
 btn_start = Button(root, text='Старт', bg='black', fg='white', font=('Arial 20'), width=15, command=start_tick)
 btn_start.pack()
 
-btn_stop = Button(root, text='Стоп', bg='black', fg='white', font=('Arial 20'), width=15)
+btn_stop = Button(root, text='Стоп', bg='black', fg='white', font=('Arial 20'), width=15, command=stop_tick)
 btn_continue = Button(root, text='Продолжить', bg='black', fg='white', font=('Arial 20'), width=15)
 btn_reset = Button(root, text='Сбросить', bg='black', fg='white', font=('Arial 20'), width=15)
 
