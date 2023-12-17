@@ -38,6 +38,8 @@ def continue_tick():
 
 def reset_tick():
     global temp
+    label_4 = Label(root, text=(f'Прошло секунд: {temp - 1}'), bg='black', fg='red', font=('Arial 20'))
+    label_4.place(x=100, y=200)
     temp = 0  # обнуляем наш секундомер
     label_1.config(text='00:00')  # выводим надпись на место секундомера
     btn_reset.pack_forget()
@@ -74,6 +76,9 @@ label_2.place(x=250, y=300)
 
 label_3 = Label(root, text='Время:', bg='black', fg='white', font=('Arial 30'))
 label_3.place(x=50, y=300)
+
+label_4 = Label(root, text='', bg='black', fg='red', font=('Arial 30'))
+label_4.place(x=50, y=200)
 
 show_time()
 
