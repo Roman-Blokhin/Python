@@ -1,5 +1,7 @@
+import datetime
 from tkinter import *
 from datetime import *
+import time
 
 temp = 0
 after_id = ''
@@ -43,6 +45,12 @@ def reset_tick():
     btn_start.pack()
 
 
+def show_time():  # функция, которая показывает время сейчас
+    now = time.strftime('%H:%M:%S')
+    root.after(1000, show_time)
+    label_2.config(text=now)
+
+
 root = Tk()
 root.title('')
 root.geometry('450x480+200+200')
@@ -58,5 +66,15 @@ btn_stop = Button(root, text='Стоп', bg='black', fg='white', font=('Arial 20
 btn_continue = Button(root, text='Продолжить', bg='black', fg='white', font=('Arial 20'), width=15,
                       command=continue_tick)
 btn_reset = Button(root, text='Сбросить', bg='black', fg='white', font=('Arial 20'), width=15, command=reset_tick)
+
+# ------------------------------ Время сейчас ------------------------------
+
+label_2 = Label(root, text='00:00:00', bg='black', fg='white', font=('Arial 30'))
+label_2.place(x=250, y=300)
+
+label_3 = Label(root, text='Время:', bg='black', fg='white', font=('Arial 30'))
+label_3.place(x=50, y=300)
+
+show_time()
 
 root.mainloop()
