@@ -27,6 +27,22 @@ def stop_tick():
     btn_reset.pack()
 
 
+def continue_tick():
+    btn_continue.pack_forget()
+    btn_reset.pack_forget()
+    btn_stop.pack()
+    tick()
+
+
+def reset_tick():
+    global temp
+    temp = 0  # обнуляем наш секундомер
+    label_1.config(text='00:00')  # выводим надпись на место секундомера
+    btn_reset.pack_forget()
+    btn_continue.pack_forget()
+    btn_start.pack()
+
+
 root = Tk()
 root.title('')
 root.geometry('450x480+200+200')
@@ -39,7 +55,8 @@ btn_start = Button(root, text='Старт', bg='black', fg='white', font=('Arial
 btn_start.pack()
 
 btn_stop = Button(root, text='Стоп', bg='black', fg='white', font=('Arial 20'), width=15, command=stop_tick)
-btn_continue = Button(root, text='Продолжить', bg='black', fg='white', font=('Arial 20'), width=15)
-btn_reset = Button(root, text='Сбросить', bg='black', fg='white', font=('Arial 20'), width=15)
+btn_continue = Button(root, text='Продолжить', bg='black', fg='white', font=('Arial 20'), width=15,
+                      command=continue_tick)
+btn_reset = Button(root, text='Сбросить', bg='black', fg='white', font=('Arial 20'), width=15, command=reset_tick)
 
 root.mainloop()
