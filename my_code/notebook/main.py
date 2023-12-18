@@ -15,6 +15,7 @@ def change_theme(color):
     f_text['fg'] = themes[color]['fg_color']
     f_text['selectbackground'] = themes[color]['selectbackground_color']
     f_text['insertbackground'] = themes[color]['insertbackground_color']
+    f_text['selectforeground'] = themes[color]['selectforeground_color']
 
 # ---------------------------------- ОКНО ----------------------------------
 
@@ -30,14 +31,16 @@ root.protocol('WM_DELETE_WINDOW', notebook_exit)  # выйти, нажав кр�
 
 themes = {
     'dark': {
-        'bg_color': 'black', 'fg_color': 'lime', 'selectbackground_color': 'LightYellow', 'insertbackground_color':
-            'brown',
+        'bg_color': 'black', 'fg_color': 'lime', 'selectbackground_color': 'Gainsboro', 'insertbackground_color':
+            'brown', 'selectforeground_color': 'red',
     },
     'light': {
-        'bg_color': 'white', 'fg_color': 'black', 'selectbackground_color': 'grey', 'insertbackground_color': 'black',
+        'bg_color': 'white', 'fg_color': 'black', 'selectbackground_color': 'grey', 'insertbackground_color':
+            'black', 'selectforeground_color': 'white',
     },
     'grey': {
         'bg_color': 'grey', 'fg_color': 'white', 'selectbackground_color': 'pink', 'insertbackground_color': 'black',
+        'selectforeground_color': 'black',
     }
 }
 
@@ -67,10 +70,11 @@ f_text = Text(frame_block,
               padx=10, pady=10,
               wrap=WORD,
               selectbackground='grey',
+              selectforeground='white',
               cursor='arrow',
               insertbackground='black',
               spacing3=10,
-              width=30)
+              )
 f_text.pack(fill=BOTH, expand=1)
 
 # ---------------------------------- МЕНЮ ----------------------------------
@@ -89,9 +93,9 @@ main_menu.add_cascade(label='Файл', menu=file_menu)
 settings_menu = Menu(main_menu)  # 4 -------------------------------
 
 settings_menu_theme = Menu(settings_menu)  # 4.1 theme
-settings_menu_theme.add_command(label='Темная')
-settings_menu_theme.add_command(label='Светлая')
-settings_menu_theme.add_command(label='Серая')
+settings_menu_theme.add_command(label='Темная', command=lambda: change_theme('dark'))
+settings_menu_theme.add_command(label='Светлая', command=lambda: change_theme('light'))
+settings_menu_theme.add_command(label='Серая', command=lambda: change_theme('grey'))
 settings_menu.add_cascade(menu=settings_menu_theme, label='Тема')
 
 settings_menu_font = Menu(settings_menu)  # 4.2 fonts
