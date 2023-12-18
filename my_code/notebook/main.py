@@ -28,8 +28,16 @@ f_text = Text(frame_block,
               wrap=WORD,
               selectbackground='grey',
               cursor='arrow',
-              insertbackground='black')
+              insertbackground='black',
+              spacing3=10,
+              width=30)
 f_text.pack(fill=BOTH, expand=1)
+
+# ---------------------------------- SCROLLBAR ----------------------------------
+
+scroll = Scrollbar(f_text, orient='vertical', command=f_text.yview)
+scroll.pack(side=RIGHT, fill=Y)
+f_text['yscrollcommand'] = scroll.set  # f_text.config(yscrollcommand=scroll.set)
 
 # ---------------------------------- ВАЖНОЕ ----------------------------------
 
