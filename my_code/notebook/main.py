@@ -13,6 +13,20 @@ root.config (bg = 'white')
 root.resizable(width=True, height=True)
 root.iconbitmap(default='logo.ico')
 
+# ---------------------------------- Словари ----------------------------------
+
+themes = {
+    'dark': {
+        'bg': 'black', 'fg': 'lime', 'selectbackground': 'LightYellow', 'insertbackground': 'brown',
+    },
+    'light': {
+        'bg': 'white', 'fg': 'black', 'selectbackground': 'grey', 'insertbackground': 'black',
+    },
+    'grey': {
+        'bg': 'grey', 'fg': 'white', 'selectbackground': 'pink', 'insertbackground': 'black',
+    }
+}
+
 # ---------------------------------- КОНТЕЙНЕРЫ ----------------------------------
 
 frame_block = Frame(root)
