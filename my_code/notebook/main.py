@@ -10,12 +10,16 @@ def notebook_exit():  # 1
         root.destroy()
 
 
-def change_theme(color):
+def change_theme(color):  # 2
     f_text['bg'] = themes[color]['bg_color']
     f_text['fg'] = themes[color]['fg_color']
     f_text['selectbackground'] = themes[color]['selectbackground_color']
     f_text['insertbackground'] = themes[color]['insertbackground_color']
     f_text['selectforeground'] = themes[color]['selectforeground_color']
+
+
+def change_font(num):
+    f_text['font'] = fonts[num]['other_font']
 
 # ---------------------------------- ОКНО ----------------------------------
 
@@ -46,13 +50,13 @@ themes = {
 
 fonts = {
     'Arial': {
-        'font': 'Arial 14 normal'
+        'other_font': 'Arial 14 normal'
     },
     'CSMS': {
-        'font': ('Comic Sans MS', 14, 'normal')
+        'other_font': ('Comic Sans MS', 14, 'normal')
     },
     'TNR': {
-        'font': ('Times New Roman', 14, 'normal')
+        'other_font': ('Times New Roman', 14, 'normal')
     }
 }
 
@@ -99,9 +103,9 @@ settings_menu_theme.add_command(label='Серая', command=lambda: change_theme
 settings_menu.add_cascade(menu=settings_menu_theme, label='Тема')
 
 settings_menu_font = Menu(settings_menu)  # 4.2 fonts
-settings_menu_font.add_command(label='Arial')
-settings_menu_font.add_command(label='Comic Sans MS')
-settings_menu_font.add_command(label='Times New Roman')
+settings_menu_font.add_command(label='Arial', command=lambda : change_font('Arial'))
+settings_menu_font.add_command(label='Comic Sans MS', command=lambda : change_font('CSMS'))
+settings_menu_font.add_command(label='Times New Roman', command=lambda : change_font('TNR'))
 settings_menu.add_cascade(menu=settings_menu_font, label='Шрифт')
 
 settings_menu.add_command(label='Курсор')  # 4.3 cursor
