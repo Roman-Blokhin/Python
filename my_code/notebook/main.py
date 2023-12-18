@@ -49,13 +49,29 @@ f_text.pack(fill=BOTH, expand=1)
 
 # ---------------------------------- МЕНЮ ----------------------------------
 
-main_menu = Menu()
+root.option_add('*tearOff', FALSE)  # 6 отключает пунктирную линию в меню
+main_menu = Menu(tearoff=0) # 1
 
-main_menu.add_cascade(label='Файл')
-main_menu.add_cascade(label='Настройки')
-main_menu.add_cascade(label='Инфо')
+file_menu = Menu(activeforeground='red') # 3
+file_menu.add_command(label='Открыть')
+file_menu.add_command(label='Сохранить')
+file_menu.add_command(label='Новое окно')
+file_menu.add_separator()
+file_menu.add_command(label='Выход')
+main_menu.add_cascade(label='Файл', menu=file_menu)
 
-root.config(menu=main_menu)
+settings_menu = Menu()  # 4
+settings_menu.add_command(label='Тема')
+settings_menu.add_command(label='Шрифт')
+settings_menu.add_command(label='Курсор')
+main_menu.add_cascade(label='Настройки', menu=settings_menu)
+
+info_menu = Menu()  # 5
+info_menu.add_command(label='Информация')
+main_menu.add_cascade(label='Инфо', menu=info_menu)
+
+
+root.config(menu=main_menu)  # 2
 
 # ---------------------------------- SCROLLBAR ----------------------------------
 
