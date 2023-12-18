@@ -47,6 +47,16 @@ f_text = Text(frame_block,
               width=30)
 f_text.pack(fill=BOTH, expand=1)
 
+# ---------------------------------- МЕНЮ ----------------------------------
+
+main_menu = Menu()
+
+main_menu.add_cascade(label='Файл')
+main_menu.add_cascade(label='Настройки')
+main_menu.add_cascade(label='Инфо')
+
+root.config(menu=main_menu)
+
 # ---------------------------------- SCROLLBAR ----------------------------------
 
 scroll = Scrollbar(f_text, orient='vertical', command=f_text.yview)
