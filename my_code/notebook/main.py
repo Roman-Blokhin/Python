@@ -20,7 +20,15 @@ frame_block.pack(fill=BOTH, expand=1)
 
 # ---------------------------------- ТЕКСТОВОЕ ПОЛЕ ----------------------------------
 
-f_text = Text(frame_block, bg='white', fg='black', font=('Comic Sans MS', 14))
+f_text = Text(frame_block,
+              bg='white',
+              fg='black',
+              font=('Comic Sans MS', 14),
+              padx=10, pady=10,
+              wrap=WORD,
+              selectbackground='grey',
+              cursor='arrow',
+              insertbackground='black')
 f_text.pack(fill=BOTH, expand=1)
 
 # ---------------------------------- ВАЖНОЕ ----------------------------------
