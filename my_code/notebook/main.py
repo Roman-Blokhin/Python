@@ -1,19 +1,21 @@
 from tkinter import *
 from tkinter import messagebox
 
+
 # ---------------------------------- ФУНКЦИИ ----------------------------------
 
-def notebook_exit():
+def notebook_exit():  # 1
     answer = messagebox.askokcancel('Выход', 'Вы хотите выйти из программы?')
     if answer:
         root.destroy()
 
+
 # ---------------------------------- ОКНО ----------------------------------
 
-root = Tk ()
-root.title ('Блокнот')
-root.geometry ('750x550+200+200')
-root.config (bg = 'white')
+root = Tk()
+root.title('Блокнот')
+root.geometry('750x550+200+200')
+root.config(bg='white')
 root.resizable(width=True, height=True)
 root.iconbitmap(default='logo.ico')
 root.protocol('WM_DELETE_WINDOW', notebook_exit)  # выйти, нажав крестик
@@ -29,6 +31,18 @@ themes = {
     },
     'grey': {
         'bg': 'grey', 'fg': 'white', 'selectbackground': 'pink', 'insertbackground': 'black',
+    }
+}
+
+fonts = {
+    'Arial': {
+        'font': 'Arial 14 normal'
+    },
+    'CSMS': {
+        'font': ('Comic Sans MS', 14, 'normal')
+    },
+    'TNR': {
+        'font': ('Times New Roman', 14, 'normal')
     }
 }
 
@@ -55,9 +69,9 @@ f_text.pack(fill=BOTH, expand=1)
 # ---------------------------------- МЕНЮ ----------------------------------
 
 root.option_add('*tearOff', FALSE)  # 6 отключает пунктирную линию в меню
-main_menu = Menu(tearoff=0) # 1
+main_menu = Menu(tearoff=0)  # 1
 
-file_menu = Menu(activeforeground='red') # 3
+file_menu = Menu(activeforeground='red')  # 3
 file_menu.add_command(label='Открыть')
 file_menu.add_command(label='Сохранить')
 file_menu.add_command(label='Новое окно')
@@ -75,7 +89,6 @@ info_menu = Menu()  # 5
 info_menu.add_command(label='Информация')
 main_menu.add_cascade(label='Инфо', menu=info_menu)
 
-
 root.config(menu=main_menu)  # 2
 
 # ---------------------------------- SCROLLBAR ----------------------------------
@@ -86,4 +99,4 @@ f_text['yscrollcommand'] = scroll.set  # f_text.config(yscrollcommand=scroll.set
 
 # ---------------------------------- ВАЖНОЕ ----------------------------------
 
-root.mainloop ()
+root.mainloop()
