@@ -1,8 +1,12 @@
 from tkinter import *
+from tkinter import messagebox
 
 # ---------------------------------- ФУНКЦИИ ----------------------------------
 
-
+def notebook_exit():
+    answer = messagebox.askokcancel('Выход', 'Вы хотите выйти из программы?')
+    if answer:
+        root.destroy()
 
 # ---------------------------------- ОКНО ----------------------------------
 
@@ -12,6 +16,7 @@ root.geometry ('750x550+200+200')
 root.config (bg = 'white')
 root.resizable(width=True, height=True)
 root.iconbitmap(default='logo.ico')
+root.protocol('WM_DELETE_WINDOW', notebook_exit)  # выйти, нажав крестик
 
 # ---------------------------------- Словари ----------------------------------
 
@@ -57,7 +62,7 @@ file_menu.add_command(label='Открыть')
 file_menu.add_command(label='Сохранить')
 file_menu.add_command(label='Новое окно')
 file_menu.add_separator()
-file_menu.add_command(label='Выход')
+file_menu.add_command(label='Выход', command=notebook_exit)
 main_menu.add_cascade(label='Файл', menu=file_menu)
 
 settings_menu = Menu()  # 4
