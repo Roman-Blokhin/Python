@@ -25,6 +25,26 @@ def change_font(num):
 def change_cursor(var):
     f_text['cursor'] = cursors[var]['curs']
 
+
+def change_transparent_1():
+    root.attributes('-alpha', 0.9)
+
+
+def change_transparent_2():
+    root.attributes('-alpha', 0.8)
+
+
+def change_transparent_3():
+    root.attributes('-alpha', 0.7)
+
+
+def change_transparent_4():
+    root.attributes('-alpha', 0.6)
+
+
+def change_transparent_5():
+    root.attributes('-alpha', 0.5)
+
 # ---------------------------------- ОКНО ----------------------------------
 
 root = Tk()
@@ -75,6 +95,7 @@ cursors = {
         'curs': 'umbrella'
     }
 }
+
 # ---------------------------------- КОНТЕЙНЕРЫ ----------------------------------
 
 frame_block = Frame(root)
@@ -99,7 +120,7 @@ f_text.pack(fill=BOTH, expand=1)
 # ---------------------------------- МЕНЮ ----------------------------------
 
 root.option_add('*tearOff', FALSE)  # 6 отключает пунктирную линию в меню
-main_menu = Menu(font=('Times New Roman', 12))  # 1
+main_menu = Menu()  # 1
 
 file_menu = Menu(font=('Times New Roman', 12))  # 3 -------------------------------
 
@@ -130,8 +151,14 @@ settings_menu_cursor.add_command(label='Стрелка', command=lambda : change
 settings_menu_cursor.add_command(label='Зонтик', command=lambda : change_cursor('umbrella'))
 settings_menu.add_cascade(menu=settings_menu_cursor, label='Курсор')
 
+settings_menu_shadow = Menu(settings_menu, font=('Times New Roman', 12))  # 4.4 transparency
+settings_menu_shadow.add_command(label='10%', command=change_transparent_1)
+settings_menu_shadow.add_command(label='20%', command=change_transparent_2)
+settings_menu_shadow.add_command(label='30%', command=change_transparent_3)
+settings_menu_shadow.add_command(label='40%', command=change_transparent_4)
+settings_menu_shadow.add_command(label='50%', command=change_transparent_5)
+settings_menu.add_cascade(menu=settings_menu_shadow, label='Прозрачность')
 
-settings_menu.add_command(label='Прозрачность')  # 4.4 transparency
 main_menu.add_cascade(label='Настройки', menu=settings_menu)
 
 info_menu = Menu(font=('Times New Roman', 12))  # 5 -------------------------------
