@@ -21,6 +21,10 @@ def change_theme(color):  # 2
 def change_font(num):
     f_text['font'] = fonts[num]['other_font']
 
+
+def change_cursor(var):
+    f_text['cursor'] = cursors[var]['curs']
+
 # ---------------------------------- ОКНО ----------------------------------
 
 root = Tk()
@@ -62,13 +66,13 @@ fonts = {
 
 cursors = {
     'star': {
-        'cursor': 'star'
+        'curs': 'star'
     },
     'arrow': {
-        'cursor': 'arrow'
+        'curs': 'arrow'
     },
     'umbrella': {
-        'cursor': 'umbrella'
+        'curs': 'umbrella'
     }
 }
 # ---------------------------------- КОНТЕЙНЕРЫ ----------------------------------
@@ -121,8 +125,10 @@ settings_menu_font.add_command(label='Times New Roman', command=lambda : change_
 settings_menu.add_cascade(menu=settings_menu_font, label='Шрифт')
 
 settings_menu_cursor = Menu(settings_menu, font=('Times New Roman', 12))  # 4.3 cursor
-
-settings_menu.add_cascade(label='Курсор')
+settings_menu_cursor.add_command(label='Звезда', command=lambda : change_cursor('star'))
+settings_menu_cursor.add_command(label='Стрелка', command=lambda : change_cursor('arrow'))
+settings_menu_cursor.add_command(label='Зонтик', command=lambda : change_cursor('umbrella'))
+settings_menu.add_cascade(menu=settings_menu_cursor, label='Курсор')
 
 
 settings_menu.add_command(label='Прозрачность')  # 4.4 transparency
