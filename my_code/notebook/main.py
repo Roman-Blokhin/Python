@@ -60,6 +60,17 @@ fonts = {
     }
 }
 
+cursors = {
+    'star': {
+        'cursor': 'star'
+    },
+    'arrow': {
+        'cursor': 'arrow'
+    },
+    'umbrella': {
+        'cursor': 'umbrella'
+    }
+}
 # ---------------------------------- КОНТЕЙНЕРЫ ----------------------------------
 
 frame_block = Frame(root)
@@ -84,9 +95,10 @@ f_text.pack(fill=BOTH, expand=1)
 # ---------------------------------- МЕНЮ ----------------------------------
 
 root.option_add('*tearOff', FALSE)  # 6 отключает пунктирную линию в меню
-main_menu = Menu(tearoff=0)  # 1
+main_menu = Menu(font=('Times New Roman', 12))  # 1
 
-file_menu = Menu(activeforeground='red')  # 3 -------------------------------
+file_menu = Menu(font=('Times New Roman', 12))  # 3 -------------------------------
+
 file_menu.add_command(label='Открыть')
 file_menu.add_command(label='Сохранить')
 file_menu.add_command(label='Новое окно')
@@ -94,25 +106,29 @@ file_menu.add_separator()
 file_menu.add_command(label='Выход', command=notebook_exit)
 main_menu.add_cascade(label='Файл', menu=file_menu)
 
-settings_menu = Menu(main_menu)  # 4 -------------------------------
+settings_menu = Menu(main_menu, font=('Times New Roman', 12))  # 4 -------------------------------
 
-settings_menu_theme = Menu(settings_menu)  # 4.1 theme
+settings_menu_theme = Menu(settings_menu, font=('Times New Roman', 12))  # 4.1 theme
 settings_menu_theme.add_command(label='Темная', command=lambda: change_theme('dark'))
 settings_menu_theme.add_command(label='Светлая', command=lambda: change_theme('light'))
 settings_menu_theme.add_command(label='Серая', command=lambda: change_theme('grey'))
 settings_menu.add_cascade(menu=settings_menu_theme, label='Тема')
 
-settings_menu_font = Menu(settings_menu)  # 4.2 fonts
+settings_menu_font = Menu(settings_menu, font=('Times New Roman', 12))  # 4.2 fonts
 settings_menu_font.add_command(label='Arial', command=lambda : change_font('Arial'))
 settings_menu_font.add_command(label='Comic Sans MS', command=lambda : change_font('CSMS'))
 settings_menu_font.add_command(label='Times New Roman', command=lambda : change_font('TNR'))
 settings_menu.add_cascade(menu=settings_menu_font, label='Шрифт')
 
-settings_menu.add_command(label='Курсор')  # 4.3 cursor
+settings_menu_cursor = Menu(settings_menu, font=('Times New Roman', 12))  # 4.3 cursor
+
+settings_menu.add_cascade(label='Курсор')
+
+
 settings_menu.add_command(label='Прозрачность')  # 4.4 transparency
 main_menu.add_cascade(label='Настройки', menu=settings_menu)
 
-info_menu = Menu()  # 5 -------------------------------
+info_menu = Menu(font=('Times New Roman', 12))  # 5 -------------------------------
 info_menu.add_command(label='Информация')
 main_menu.add_cascade(label='Инфо', menu=info_menu)
 
