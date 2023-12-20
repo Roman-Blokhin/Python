@@ -55,14 +55,25 @@ def open_file():
         f_text.insert('1.0', open(filepath, encoding='utf-8').read())
 
 
-
 def save_file():
     filepath = filedialog.asksaveasfilename(title='Сохранить файл',
-                                          filetypes=(('Текстовый файл', '*.txt'), ('Все файлы', '*.*')))
+                                            filetypes=(('Текстовый файл', '*.txt'), ('Все файлы', '*.*')))
     file_open = open(filepath, 'w', encoding='utf-8')
     text = f_text.get('1.0', END)
     file_open.write(text)
     file_open.close()
+
+
+def show_info():
+    def info_close():
+        info_frame.destroy()
+
+    info_frame = Frame(f_text, borderwidth=150, bg='lightgrey')
+    info_frame.pack(anchor=CENTER, expand=1)
+    info_label = Label(info_frame, text='Roman is a hero', font=('Comic Sans MS', 14), bg='lightgrey')
+    info_label.pack()
+    info_button = Button(info_frame, text='Закрыть', font=('Comic Sans MS', 12), command=info_close)
+    info_button.place(x=150, y=100)
 
 
 # ---------------------------------- ОКНО ----------------------------------
@@ -189,7 +200,7 @@ main_menu.add_cascade(label='Настройки', menu=settings_menu)
 
 # 5 -------------------------------
 info_menu = Menu(font=('Times New Roman', 12))
-info_menu.add_command(label='Информация')
+info_menu.add_command(label='Информация', command=show_info)
 main_menu.add_cascade(label='Инфо', menu=info_menu)
 
 # 2
