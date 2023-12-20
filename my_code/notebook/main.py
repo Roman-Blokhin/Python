@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from tkinter import filedialog
 
 
 # ---------------------------------- ФУНКЦИИ ----------------------------------
@@ -44,6 +45,15 @@ def change_transparent_4():
 
 def change_transparent_5():
     root.attributes('-alpha', 0.5)
+
+
+def open_file():
+    filepath = filedialog.askopenfilename(title='Открыть файл',
+                                          filetypes=(('Текстовый файл', '*.txt'),('Все файлы', '*.*')))
+    if filepath:
+        f_text.delete('1.0', END)
+        f_text.insert('1.0', open(filepath, encoding='utf-8').read())
+
 
 # ---------------------------------- ОКНО ----------------------------------
 
@@ -119,19 +129,25 @@ f_text.pack(fill=BOTH, expand=1)
 
 # ---------------------------------- МЕНЮ ----------------------------------
 
-root.option_add('*tearOff', FALSE)  # 6 отключает пунктирную линию в меню
-main_menu = Menu()  # 1
+# 6
+root.option_add('*tearOff', FALSE)  # отключает пунктирную линию в меню
 
-file_menu = Menu(font=('Times New Roman', 12))  # 3 -------------------------------
+# 1
+main_menu = Menu()
 
-file_menu.add_command(label='Открыть')
+# 3 -------------------------------
+file_menu = Menu(font=('Times New Roman', 12))
+
+file_menu.add_command(label='Открыть', command=open_file)
 file_menu.add_command(label='Сохранить')
 file_menu.add_command(label='Новое окно')
 file_menu.add_separator()
 file_menu.add_command(label='Выход', command=notebook_exit)
+
 main_menu.add_cascade(label='Файл', menu=file_menu)
 
-settings_menu = Menu(main_menu, font=('Times New Roman', 12))  # 4 -------------------------------
+# 4 -------------------------------
+settings_menu = Menu(main_menu, font=('Times New Roman', 12))
 
 settings_menu_theme = Menu(settings_menu, font=('Times New Roman', 12))  # 4.1 theme
 settings_menu_theme.add_command(label='Темная', command=lambda: change_theme('dark'))
@@ -140,15 +156,15 @@ settings_menu_theme.add_command(label='Серая', command=lambda: change_theme
 settings_menu.add_cascade(menu=settings_menu_theme, label='Тема')
 
 settings_menu_font = Menu(settings_menu, font=('Times New Roman', 12))  # 4.2 fonts
-settings_menu_font.add_command(label='Arial', command=lambda : change_font('Arial'))
-settings_menu_font.add_command(label='Comic Sans MS', command=lambda : change_font('CSMS'))
-settings_menu_font.add_command(label='Times New Roman', command=lambda : change_font('TNR'))
+settings_menu_font.add_command(label='Arial', command=lambda: change_font('Arial'))
+settings_menu_font.add_command(label='Comic Sans MS', command=lambda: change_font('CSMS'))
+settings_menu_font.add_command(label='Times New Roman', command=lambda: change_font('TNR'))
 settings_menu.add_cascade(menu=settings_menu_font, label='Шрифт')
 
 settings_menu_cursor = Menu(settings_menu, font=('Times New Roman', 12))  # 4.3 cursor
-settings_menu_cursor.add_command(label='Звезда', command=lambda : change_cursor('star'))
-settings_menu_cursor.add_command(label='Стрелка', command=lambda : change_cursor('arrow'))
-settings_menu_cursor.add_command(label='Зонтик', command=lambda : change_cursor('umbrella'))
+settings_menu_cursor.add_command(label='Звезда', command=lambda: change_cursor('star'))
+settings_menu_cursor.add_command(label='Стрелка', command=lambda: change_cursor('arrow'))
+settings_menu_cursor.add_command(label='Зонтик', command=lambda: change_cursor('umbrella'))
 settings_menu.add_cascade(menu=settings_menu_cursor, label='Курсор')
 
 settings_menu_shadow = Menu(settings_menu, font=('Times New Roman', 12))  # 4.4 transparency
@@ -161,11 +177,13 @@ settings_menu.add_cascade(menu=settings_menu_shadow, label='Прозрачнос
 
 main_menu.add_cascade(label='Настройки', menu=settings_menu)
 
-info_menu = Menu(font=('Times New Roman', 12))  # 5 -------------------------------
+# 5 -------------------------------
+info_menu = Menu(font=('Times New Roman', 12))
 info_menu.add_command(label='Информация')
 main_menu.add_cascade(label='Инфо', menu=info_menu)
 
-root.config(menu=main_menu)  # 2
+# 2
+root.config(menu=main_menu)
 
 # ---------------------------------- SCROLLBAR ----------------------------------
 
