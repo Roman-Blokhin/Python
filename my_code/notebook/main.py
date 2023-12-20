@@ -49,10 +49,20 @@ def change_transparent_5():
 
 def open_file():
     filepath = filedialog.askopenfilename(title='Открыть файл',
-                                          filetypes=(('Текстовый файл', '*.txt'),('Все файлы', '*.*')))
+                                          filetypes=(('Текстовый файл', '*.txt'), ('Все файлы', '*.*')))
     if filepath:
         f_text.delete('1.0', END)
         f_text.insert('1.0', open(filepath, encoding='utf-8').read())
+
+
+
+def save_file():
+    filepath = filedialog.asksaveasfilename(title='Сохранить файл',
+                                          filetypes=(('Текстовый файл', '*.txt'), ('Все файлы', '*.*')))
+    file_open = open(filepath, 'w', encoding='utf-8')
+    text = f_text.get('1.0', END)
+    file_open.write(text)
+    file_open.close()
 
 
 # ---------------------------------- ОКНО ----------------------------------
@@ -139,7 +149,7 @@ main_menu = Menu()
 file_menu = Menu(font=('Times New Roman', 12))
 
 file_menu.add_command(label='Открыть', command=open_file)
-file_menu.add_command(label='Сохранить')
+file_menu.add_command(label='Сохранить', command=save_file)
 file_menu.add_command(label='Новое окно')
 file_menu.add_separator()
 file_menu.add_command(label='Выход', command=notebook_exit)
