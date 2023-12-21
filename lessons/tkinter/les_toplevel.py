@@ -8,6 +8,7 @@ def open_toplevel():
     l1 = Label(win, text='Toplevel', font='Arial 15 bold', fg='brown')
     l1.pack()
     win.overrideredirect(1)  # убирает верхнюю панель с функциями у дочернего окна, значение (0), возвращает панель
+    win.after(3000, lambda: win.destroy())  # добавил автоматическое закрытие через 3 секунды
 
 
 root = Tk()
