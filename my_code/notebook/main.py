@@ -1,6 +1,4 @@
-from tkinter import *
-from tkinter import messagebox
-from tkinter import filedialog
+from button_new_page import *
 
 
 # ---------------------------------- ФУНКЦИИ ----------------------------------
@@ -161,7 +159,7 @@ file_menu = Menu(font=('Times New Roman', 12))
 
 file_menu.add_command(label='Открыть', command=open_file)
 file_menu.add_command(label='Сохранить', command=save_file)
-file_menu.add_command(label='Новое окно')
+file_menu.add_command(label='Новое окно', command=new_page)
 file_menu.add_separator()
 file_menu.add_command(label='Выход', command=notebook_exit)
 
