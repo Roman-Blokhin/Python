@@ -4,9 +4,10 @@ from tkinter import *
 def open_toplevel():
     win = Toplevel()  # виджет, который создает новое окно поверх первого, с его же настройками
     win.geometry('200x200+700+400')
-    win.grab_set()  # не позволяет закрывать программу, если открыто новое окно
+    # win.grab_set()  # не позволяет закрывать программу, если открыто новое окно
     l1 = Label(win, text='Toplevel', font='Arial 15 bold', fg='brown')
     l1.pack()
+    win.overrideredirect(1)  # убирает верхнюю панель с функциями у дочернего окна, значение (0), возвращает панель
 
 
 root = Tk()
