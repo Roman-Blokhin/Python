@@ -2,6 +2,13 @@ from tkinter import *
 from tkinter import messagebox
 import PIL
 from PIL import Image, ImageDraw
+from random import randint
+
+
+def save():
+    filename = f'Image_{randint(0, 10000)}.png'  # прописали, как будет называться сохраненный файл
+    image_1.save(filename)
+    messagebox.showinfo('Сохранение', f'Файл {filename} сохранен')
 
 
 def activate_point(event):
@@ -25,7 +32,7 @@ draw = PIL.ImageDraw.Draw(image_1)  # 3. инструмент для рисов�
 cv.bind('<B1-Motion>', activate_point)  # подключили левую кнопку для использования, команды пока нет
 cv.pack(expand=1, fill=BOTH)
 
-btn_save = Button(root, text='Сохранить', bg='black', fg='white', font=('Comic Sans MS', 30))
+btn_save = Button(root, text='Сохранить', bg='black', fg='white', font=('Comic Sans MS', 30), command=save)
 btn_save.pack()
 
 root.mainloop()
