@@ -12,5 +12,13 @@ tranlator = Translator
 lbl_1 = Label(root, fg='white', bg='black', font='Arial 15 bold', text='Введите текст:')
 lbl_1.pack()
 
+text_field_1 = Text(root, bg='white', fg='black', font='Arial 15 bold', width=35, height=5)
+text_field_1.pack()
+
+btn_translate = Button(root, text='Перевести')
+btn_translate.pack()
+
+text_field_2 = Text(root, bg='white', fg='black', font='Arial 15 bold', width=35, height=5)
+text_field_2.pack()
 
 root.mainloop ()
