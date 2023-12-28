@@ -15,7 +15,7 @@ def yes(event):
 root = Tk()
 root.title('Бегающая кнопка')
 root.geometry('300x300+200+200')
-root.config(bg='')
+root.config(bg='white')
 root.resizable(False, False)
 
 info = Label(root, text='Хочешь ли ты повышения зарплаты?', font='Arial 10 bold')
