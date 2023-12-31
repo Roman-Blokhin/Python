@@ -1,4 +1,5 @@
 from tkinter import *
+from random import randint
 
 
 # ------------------------- Функции ------------------------
@@ -9,12 +10,13 @@ def popup(event):  # функция для создания всплывающе
     y = event.y
     popup_menu.post(event.x_root, event.y_root)
 
+
 def circle():
-    pass
+    c.create_oval(randint(10, 380), randint(10, 380), randint(10, 380), randint(10, 380), fill='red')
 
 
 def square():
-    pass
+    c.create_rectangle(randint(10, 380), randint(10, 380), randint(10, 380), randint(10, 380), fill='lime')
 
 
 # ------------------------- Переменные ------------------------
