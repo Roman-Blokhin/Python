@@ -3,9 +3,11 @@ from tkinter import *
 
 # ------------------------- Функции ------------------------
 
-def popup():
-    pass
-
+def popup(event):  # функция для создания всплывающего контекстного меню в месте нажатия ПКМ
+    global x, y
+    x = event.x
+    y = event.y
+    popup_menu.post(event.x_root, event.y_root)
 
 def circle():
     pass
@@ -14,6 +16,11 @@ def circle():
 def square():
     pass
 
+
+# ------------------------- Переменные ------------------------
+
+x = 0
+y = 0
 
 # ------------------------- Окно ------------------------
 
@@ -36,6 +43,10 @@ popup_menu = Menu(tearoff=0)
 
 popup_menu.add_command(label='Круг', command=circle)
 popup_menu.add_command(label='Квадрат', command=square)
+popup_menu.add_command(label='Открыть', command=circle)
+popup_menu.add_command(label='Создать', command=square)
+popup_menu.add_command(label='Отправить', command=circle)
+popup_menu.add_command(label='Удалить', command=square)
 
 # ------------------------- Важное ------------------------
 
