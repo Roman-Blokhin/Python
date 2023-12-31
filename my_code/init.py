@@ -1,9 +1,14 @@
 from tkinter import *
 
-root = Tk ()
-root.title ('')
-root.geometry ('350x350+200+200')
-root.config (bg = '')
+
+def first():
+    pass
+
+
+root = Tk()
+root.title('')
+root.geometry('400x400+200+200')
+root.config(bg='')
 root.resizable(False, False)
 
-root.mainloop ()
+root.mainloop()
