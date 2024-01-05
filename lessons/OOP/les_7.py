@@ -4,9 +4,11 @@ from math import sqrt
 
 
 class Point:
+    list_points = []  # список, куда будут добавляться все точки, к которым можно обращаться по индексу
 
     def __init__(self, coord_x=0, coord_y=0):
         self.move_to(coord_x, coord_y)
+        Point.list_points.append(self)  # добавляем каждый новый атрибут в список
 
     def move_to(self, new_x, new_y):  # метод будет менять значение точки
         self.x = new_x
@@ -34,3 +36,4 @@ print(p3.x, p3.y)
 
 p1.go_home()
 print(p1.x, p1.y)
+
