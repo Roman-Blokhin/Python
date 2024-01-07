@@ -16,3 +16,25 @@ account_1.print_account()  # получаем данные внутри банк
 print(account_1.name)  # получаем данные ВНЕ банка
 print(account_1.balance)
 print(account_1.password)
+
+print('--------------------')
+
+# 2. защищенные данные, используются на уровне разработки для согласования(для нужд внутри класса)
+class BankAccount_2:
+    def __init__(self, name, balance, password):
+        self._name = name
+        self._balance = balance
+        self._password = password
+
+    def print_protected_account(self):
+        print(self._name, self._balance, self._password)
+
+account_2 = BankAccount_2('Bob', 100000, '1234')
+account_2.print_protected_account()
+
+print(account_2._name)
+print(account_2._balance)
+print(account_2._password)
+
+print('--------------------')
+
