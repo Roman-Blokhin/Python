@@ -38,3 +38,19 @@ print(account_2._password)
 
 print('--------------------')
 
+# 3. приватные данные, можно внутри класса, но нельзя ВНЕ класса(инкапсуляция - сокрытие данных)
+class BankAccount_3:
+    def __init__(self, name, balance, password):
+        self.__name = name
+        self.__balance = balance
+        self.__password = password
+
+    def print_private_account(self):
+        print(self.__name, self.__balance, self.__password)
+
+account_3 = BankAccount_3('Bob', 100000, '1234')
+account_3.print_private_account()
+
+print(account_3.__name)  # вне класса уже нельзя вызвать, возникает ошибка
+print(account_3.__balance)
+print(account_3.__password)
