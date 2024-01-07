@@ -72,3 +72,22 @@ class BankAccount_4:
 
 account_4 = BankAccount_4('Bob', 100000, '1234')
 account_4.print_public_account()
+
+print('5 --------------------')
+
+# 5. до конца скрыть данные в python невозможно, вызываем через список имен - dir (смотрим, копируем и выводим названия)
+class BankAccount_5:
+    def __init__(self, name, balance, password):
+        self.__name = name
+        self.__balance = balance
+        self.__password = password
+
+    def __print_private_account(self):
+        print(self.__name, self.__balance, self.__password)
+
+# чтобы вызвать защищенный метод вне класса, нужно посмотреть список имен через - dir, у нашего экземпляра
+account_5 = BankAccount_5('Bob', 100000, '1234')
+print(dir(account_5))
+print('Результат: ')
+account_5._BankAccount_5__print_private_account()  # вызываем защищенные данные через список имен - dir
+print(account_5._BankAccount_5__balance)
