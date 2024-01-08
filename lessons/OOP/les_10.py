@@ -9,9 +9,11 @@ class BankAccount:
         return self.__balance
 
     def set_balance(self, value):  # 3. устанавливаем новое значение приватному атрибуту
+        if not isinstance(value, (int, float)):  # 4. проверка, принадлежит ли новое значение к числу или флоат
+            raise ValueError ('Недопустимое значение')
         self.__balance = value
 
 a = BankAccount('Roman', 100)
 print('начальный баланс:', a.get_balance())
-a.set_balance(200)
+a.set_balance('200')
 print('измененный баланс:', a.get_balance())
