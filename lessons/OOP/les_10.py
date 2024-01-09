@@ -13,6 +13,10 @@ class BankAccount:
             raise ValueError ('Недопустимое значение')
         self.__balance = value
 
+    # 5. мы прописали свойство, которое помогает нам использовать геттер и сеттер для вывода баланса и его изменения
+    bal = property(fget=get_balance, fset=set_balance)
+
+
 a = BankAccount('Roman', 100)
 print('начальный баланс:', a.get_balance())
 a.set_balance('200')
