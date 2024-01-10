@@ -19,4 +19,9 @@ class BankAccount:
         print('del')
         del self.__balance
 
-    bal = property(fget=get_balance, fset=set_balance, fdel=delete_balance)
+    # 1. мы прописываем свойство - property, централизованно, через переменную
+    my_balance = property(get_balance)  # геттер можно прописать сразу
+    my_balance = my_balance.setter(set_balance)  # сеттер
+    my_balance = my_balance.deleter(delete_balance)  # делитер
+
+
