@@ -5,7 +5,8 @@ class BankAccount:
         self.name = name
         self.__balance = balance
 
-    def get_balance(self):
+    @property  # 2. декоратор позволяет использовать одно и то же имя для метода и свойства
+    def my_balance(self):
         print('get')
         return self.__balance
 
@@ -20,7 +21,7 @@ class BankAccount:
         del self.__balance
 
     # 1. мы прописываем свойство - property, централизованно, через переменную
-    my_balance = property(get_balance)  # геттер можно прописать сразу
+    # my_balance = property(get_balance)  # геттер можно прописать сразу
     my_balance = my_balance.setter(set_balance)  # сеттер
     my_balance = my_balance.deleter(delete_balance)  # делитер
 
