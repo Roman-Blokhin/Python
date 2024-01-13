@@ -2,8 +2,17 @@
 
 class Square:
     def __init__(self, side):
-        self.side = side
+        self.__side = side
         self.__area = None  # 2. создали приватную переменную для определения площади. По умолчанию = None
+
+    @property  # геттер для нашего значения стороны
+    def side(self):
+        return self.__side
+
+    @side.setter  # сеттер для изменения значения стороны
+    def side(self, value):
+        self.__side = value
+        self.__area = None
 
     @property  # 1. делаем из метода свойство, чтобы мы вызывали его ни как метод, а как атрибут - a.area
     def area(self):
