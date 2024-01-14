@@ -10,3 +10,7 @@ class Example:
     @staticmethod  # 3. навешиваем декоратор, чтобы функцию можно было вызывать и от класса, и от экземпляра
     def static_hello():  # 4. функцию можно вызвать только от экземпляра
         print('static_hello')
+
+    @classmethod
+    def class_hello(cls):  # 5. функцию можно вызвать от целого класса
+        print('class_hello')
