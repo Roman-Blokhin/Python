@@ -6,3 +6,6 @@ class Lion:
 
     def __repr__(self):  # 1. отвечает за то, как отображается объект в системе, для разработчиков
         return f"Lion - {self.name}"
+
+    def __str__(self):  # 2. отвечает за то, как отображается объект для пользователя
+        return f"Lion name is {self.name}"
