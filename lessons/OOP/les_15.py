@@ -6,7 +6,9 @@ from string import digits
 class User:
     def __init__(self, login, password):
         self.login = login
-        self.__password = password  # 1. аргумент должен быть защищенным/приватным
+        self.password = password  # 1. аргумент должен быть защищенным/приватным
+        # 1.1 но после установки проверок и свойства @password.setter, обращение должно быть именно как к свойству
+        # поэтому мы меняем self.__password на self.password
 
     @staticmethod  # 5. проверка, содержит ли пароль цифры
     def is_include_digit(password):
