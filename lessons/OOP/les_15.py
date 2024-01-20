@@ -13,6 +13,15 @@ class User:
         self.password = password  # 1. аргумент должен быть защищенным/приватным
         # 1.1 но после установки проверок и свойства @password.setter, обращение должно быть именно как к свойству
         # поэтому мы меняем self.__password на self.password
+        self.__secret = 'abracadabra'  # 7. установили секретный аргумент для определенного доступа
+
+    @property
+    def secret(self):
+        s = input('Введите пароль: ')
+        if s == self.password:
+            return self.__secret
+        else:
+            raise ValueError('Доступ закрыт')
 
     @staticmethod  # 5. проверка, содержит ли пароль цифры
     def is_include_digit(password):
