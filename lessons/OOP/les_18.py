@@ -26,3 +26,22 @@ class BankAccount:
 
     def __radd__(self, other):  # 5. позволяет избежать ошибки, когда число складываем с объектом self - (12 + w)
         return self + other  # 5.1 меняет местами объекты для корректного сложения
+
+
+# --------------------------------------------
+# создаем новый класс, где будем выводить не значение при сложении, а новый объект
+
+class User:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+
+    def __repr__(self):
+        return f'Клиент банка: {self.name}, с балансом: {self.balance}'
+
+    def __add__(self, other):
+        if isinstance(other, (int, float)):
+            return User(self.name, self.balance+other)
+        if isinstance(other, User):
+            return self.balance + other.balance
+        raise NotImplemented
