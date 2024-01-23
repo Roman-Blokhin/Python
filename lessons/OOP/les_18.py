@@ -14,5 +14,15 @@ class BankAccount:
             return self.balance + other.balance
         raise NotImplemented  # 4. если проверки не проходят, мы не можем сделать вычисление
 
+    # 6. умножение
+    def __mul__(self, other):
+        if isinstance(other, (int, float)):
+            return self.balance * other
+        if isinstance(other, BankAccount):
+            return self.balance * other.balance
+        if isinstance(other, str):
+            return self.name + other
+        raise NotImplemented
+
     def __radd__(self, other):  # 5. позволяет избежать ошибки, когда число складываем с объектом self - (12 + w)
         return self + other  # 5.1 меняет местами объекты для корректного сложения
