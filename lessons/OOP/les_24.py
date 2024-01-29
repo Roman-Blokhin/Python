@@ -13,3 +13,10 @@ class Vector:
             return self.values[item]
         else:
             raise IndexError('Индекс за границами вселенной')  # 5. исключение, если индекс не входит
+
+    # 6. если нам нужно по индексу заменить значение элемента, то используем __setitem__
+    def __setitem__(self, key, value):  # 7. key - индекс, value: - новое значение
+        if 0 <= key <= len(self.values):
+            self.values[key] = value
+        else:
+            raise IndexError('Индекс за границами вселенной')
