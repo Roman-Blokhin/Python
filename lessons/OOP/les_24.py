@@ -27,3 +27,20 @@ class Vector:
             del (self.values[item])
         else:
             raise IndexError('Индекс за границами вселенной')
+
+
+# ----------------------------------------------------------------
+
+# если нужно изменить порядок вызова индекса, не с 0, а с 1, к примеру
+class Vector_2:
+    def __init__(self, *args):
+        self.values = list(args)
+
+    def __repr__(self):
+        return str(self.values)
+
+    def __getitem__(self, item):
+        if 1 <= item <= len(self.values):  # 1. если мы хотим, чтобы наши индексы начинались не с 0, а с 1
+            return self.values[item-1]  # 2. добавляем -1
+        else:
+            raise IndexError('Индекс за границами вселенной')
