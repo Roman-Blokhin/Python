@@ -20,3 +20,10 @@ class Vector:
             self.values[key] = value
         else:
             raise IndexError('Индекс за границами вселенной')
+
+    # 7. если нам нужно удалить значение элемента по индексу, то используем __delitem__
+    def __delitem__(self, item):
+        if 0 <= item <= len(self.values):
+            del (self.values[item])
+        else:
+            raise IndexError('Индекс за границами вселенной')
