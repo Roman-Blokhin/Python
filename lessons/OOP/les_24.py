@@ -44,3 +44,14 @@ class Vector_2:
             return self.values[item-1]  # 2. добавляем -1
         else:
             raise IndexError('Индекс за границами вселенной')
+
+    # 3. создаем разряженный список с пустыми элементами
+    def __setitem__(self, key, value):
+        if 1 <= key <= len(self.values):
+            self.values[key-1] = value
+        elif key > len(self.values):  # 4. если пришло число, которое больше длины нашего списка
+            diff = key - len(self.values)  # 5. проверяем разницу между числом и длиной списка
+            self.values.extend([0]*diff)  # 6. заполняем недостающие индексы нулями, расширяя список
+            self.values[key-1] = value  # 7. присваиваем новому числу индекс
+        else:
+            raise IndexError('Индекс за границами вселенной')
