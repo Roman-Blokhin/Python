@@ -12,7 +12,16 @@ class User:
 
     # 2. если есть __iter__, то __getitem__ игнорируется
     def __iter__(self):
-        return iter(self.surname)
+        self.index = 0  # 4. обозначение начала индекса
+        return self
+
+    # 3. делаем итерацию по символам у нашего элемента surname
+    def __next__(self):
+        if self.index >= len(self.name):  # 8. чтобы не было ошибок и итерация заканчивалась на посл. символе
+            raise StopIteration
+        letter = self.name[self.index]  # 5. чтобы итерация начиналась с первого символа
+        self.index += 1  # 6. смещаем индекс вправо, прибавляя + 1 до окончания количества символов
+        return letter  # 7. возвращаем с первого символа и до конца
 
 person = User('Roman', 'Ivanov', [1, 2, 44, 3, 4])
 for i in person:
