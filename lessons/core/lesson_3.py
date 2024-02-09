@@ -24,3 +24,37 @@ print(a.startswith('Hello'))
 print(a.endswith('Brown'))
 print(a.endswith('Roman'))
 
+# 4. split - преобразует строку в список из отдельных элементов
+print('4.')
+
+phrases = 'Do you remember me?'
+print('I am going to the museum'.split())
+print(phrases.split())
+
+# 5. max and min - находят минимальное и максимальное значение
+print('5.')
+
+num = [1, 2, 4, -90, 895, 50, 65]
+print(max(num))
+print(min(num))
+
+# 5. sum - находит сумму
+print('6.')
+
+num = [1, 2, 4, 90, 895, 50, 65]
+print(sum(num))
+
+# 6. abs - делает число положительным
+print('7.')
+
+print(abs(-900))
+
+# 5. round - округляет число до определенного количества знаков после запятой
+print('8.')
+
+n = 12.06594729239875
+print(round(n, 2))
+print(round(n, 5))
+
+
+
