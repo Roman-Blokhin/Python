@@ -38,23 +38,41 @@ num = [1, 2, 4, -90, 895, 50, 65]
 print(max(num))
 print(min(num))
 
-# 5. sum - находит сумму
+# 6. sum - находит сумму
 print('6.')
 
 num = [1, 2, 4, 90, 895, 50, 65]
 print(sum(num))
 
-# 6. abs - делает число положительным
+# 7. abs - делает число положительным
 print('7.')
 
 print(abs(-900))
 
-# 5. round - округляет число до определенного количества знаков после запятой
+# 8. round - округляет число до определенного количества знаков после запятой
 print('8.')
 
 n = 12.06594729239875
 print(round(n, 2))
 print(round(n, 5))
 
+# 9. all and any - можно использовать в условиях в ключе: "если все" или "если какой-нибудь аргумент"
+print('9.')
 
+num = [1, 2, 3, 5, 67, 89]
+if all(i > 0 for i in num):
+    print(num)
+else:
+    print(False)
 
+if any(i < 0 for i in num):
+    print(num)
+else:
+    print(False)
+
+# 10. enumerate - пронумеровать все элементы списка по индексу, к примеру
+print('10.')
+
+words = ['roman', 'rob', 'daria', 'bag']
+for i in enumerate(words, 1):
+    print(i)
