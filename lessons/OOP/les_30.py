@@ -30,7 +30,7 @@ class Settler(User):
 
     def __init__(self, name, surname, age):
         super().__init__(name, surname)  # 2. чтобы не было повторения кода, лучше вызывать перед новыми атрибутами
-        self.age = age
+        self.age = age  # 2.1 писать после super(), чтобы значение не перезаписывалось
 
 
 a = User('Roman', 'Romanovich')
