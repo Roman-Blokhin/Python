@@ -16,3 +16,25 @@ class Rect:
     @property
     def area(self):
         return self.width * self.height
+
+
+# --------------------------------------------------------------
+# Мы можем сделать из свойств геттеры и сеттеры, чтобы изменять значения атрибутов
+
+class Rect_2:
+
+    __slots__ = ('__width', 'height')  # 1. делаем один атрибут защищенным
+
+    def __init__(self, a, b):
+        self.width = a
+        self.height = b
+
+    @property  # геттер
+    def width(self):  # 2. меняем название метода
+        return self.__width
+
+    @width.setter  # 3. прописываем свойство сеттера по названию геттера
+    def width(self, value):  # 4. меняем название метода, относительно названия свойства геттера
+        print('setter called')
+        self.__width = value
+        # при изменения значения, оно меняется через сеттер
