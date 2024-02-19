@@ -11,3 +11,19 @@ except NameError:  # 3. обработка исключений идет све�
 except ValueError:  # 2. исключений может быть несколько
     print('ValueError')
 
+# 3. исключения это классы, поэтому можно обрабатывать их, указывая на родительский класс
+# к примеру: lookupError = IndexError and KeyError
+
+s = 'hello'
+
+try:
+    print(s[8])
+except LookupError:  # родительский класс исключения
+    print('LookupError')
+
+try:
+    print(s[8])
+except IndexError:  # 2. дочерний класс
+    print('IndexError')
+except LookupError:
+    print('LookupError')
