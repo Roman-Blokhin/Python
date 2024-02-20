@@ -23,7 +23,28 @@ except LookupError:  # родительский класс исключения
 
 try:
     print(s[8])
-except IndexError:  # 2. дочерний класс
+except IndexError:  # дочерний класс
     print('IndexError')
 except LookupError:
     print('LookupError')
+
+# 4. если мы не указываем название исключения, то будут обрабатываться все исключения без опознания
+try:
+    print(s[8])
+except:
+    print('Error')
+# 5. блок, который обрабатывается всегда после обработки исключений, только 1 раз, помогает в работе с файлами
+finally:
+    print('Roman number one')
+
+# 6. можно использовать else, но должен быть хотя бы 1 except, сработает, если в try нет ошибок(исключений)
+try:
+    1/5
+except (IndexError, KeyError):
+    print('Error')
+else:  # сработает, если не сработало исключение
+    print('good')
+finally:
+    print('Roman the first')
+
+
