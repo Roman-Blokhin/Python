@@ -51,6 +51,27 @@ btn9.grid(row=3, column=2, sticky='swen', padx=3, pady=3)
 btn0 = Button(root, text='0', font=('Comic Sans MS', 15, 'bold'))
 btn0.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
+# ------------------------------- КНОПКИ ДЕЙСТВИЙ -------------------------------
+
+btn11 = Button(root, text='/', font=('Comic Sans MS', 15, 'bold'))
+btn11.grid(row=1, column=3, sticky='swen', padx=3, pady=3)
+
+btn12 = Button(root, text='*', font=('Comic Sans MS', 15, 'bold'))
+btn12.grid(row=2, column=3, sticky='swen', padx=3, pady=3)
+
+btn13 = Button(root, text='-', font=('Comic Sans MS', 15, 'bold'))
+btn13.grid(row=3, column=3, sticky='swen', padx=3, pady=3)
+
+btn14 = Button(root, text='+', font=('Comic Sans MS', 15, 'bold'))
+btn14.grid(row=4, column=3, sticky='swen', padx=3, pady=3)
+
+btn15 = Button(root, text='.', font=('Comic Sans MS', 15, 'bold'))
+btn15.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
+
+btn16 = Button(root, text='=', font=('Comic Sans MS', 15, 'bold'))
+btn16.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
+
+
 # ------------------------------- ВАЖНОЕ -------------------------------
 
 root.mainloop()
