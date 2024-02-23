@@ -1,6 +1,12 @@
 from tkinter import *
+from tkinter import messagebox
 
 # ------------------------------- ФУНКЦИИ -------------------------------
+
+def calculate_exit():
+    answer = messagebox.askokcancel('Выход', 'Действительно выйти?')
+    if answer:
+        root.destroy()
 
 def first():
     pass
@@ -13,11 +19,12 @@ root.title('Калькулятор')
 root.geometry('400x400+200+200')
 root.config(bg='Grey')
 root.resizable(False, False)
+root.protocol('WM_DELETE_WINDOW', calculate_exit)
 
 # ------------------------------- ОКНО ВЫВОДА -------------------------------
 
-entry = Entry(root, width=15, font=('Comic Sans MS', 15, 'bold'))
-entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+entry = Entry(root, width=15, font=('Comic Sans MS', 20, 'bold'))
+entry.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
 # ------------------------------- КНОПКИ -------------------------------
 
