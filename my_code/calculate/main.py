@@ -1,9 +1,28 @@
 from tkinter import *
+from tkinter import messagebox
+
 
 # ------------------------------- ФУНКЦИИ -------------------------------
 
-def first():
-    pass
+def calculate_exit():
+    answer = messagebox.askokcancel('Выход', 'Действительно выйти?')
+    if answer:
+        root.destroy()
+
+
+# прописывает значение в окно вывода
+def first(digit):
+    value = entry.get() + str(digit)  # добавляет цифру в окошко
+    if value[0] == '0':
+        value = value[1:]  # заменяет первоначальный 0 на цифру
+    entry.delete(0, END)  # очищает окно
+    entry.insert(0, value)  # вставляет цифру
+    print('1')
+
+
+# создаем шаблон кнопки, в которой одинаковые значения для всех цифр, цифру указываем - digit
+def make_button(digit):
+    return Button(root, text=digit, font=('Comic Sans MS', 15, 'normal'), command=lambda: first(digit))
 
 
 # ------------------------------- ОКНО -------------------------------
@@ -13,6 +32,7 @@ root.title('Калькулятор')
 root.geometry('400x400+200+200')
 root.config(bg='Grey')
 root.resizable(False, False)
+# root.protocol('WM_DELETE_WINDOW', calculate_exit)
 
 # ------------------------------- ОКНО ВЫВОДА -------------------------------
 
@@ -21,35 +41,16 @@ entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
 # ------------------------------- КНОПКИ -------------------------------
 
-btn1 = Button(root, text='1', font=('Comic Sans MS', 15, 'bold'))
-btn1.grid(row=1, column=0, sticky='swen', padx=3, pady=3)
-
-btn2 = Button(root, text='2', font=('Comic Sans MS', 15, 'bold'))
-btn2.grid(row=1, column=1, sticky='swen', padx=3, pady=3)
-
-btn3 = Button(root, text='3', font=('Comic Sans MS', 15, 'bold'))
-btn3.grid(row=1, column=2, sticky='swen', padx=3, pady=3)
-
-btn4 = Button(root, text='4', font=('Comic Sans MS', 15, 'bold'))
-btn4.grid(row=2, column=0, sticky='swen', padx=3, pady=3)
-
-btn5 = Button(root, text='5', font=('Comic Sans MS', 15, 'bold'))
-btn5.grid(row=2, column=1, sticky='swen', padx=3, pady=3)
-
-btn6 = Button(root, text='6', font=('Comic Sans MS', 15, 'bold'))
-btn6.grid(row=2, column=2, sticky='swen', padx=3, pady=3)
-
-btn7 = Button(root, text='7', font=('Comic Sans MS', 15, 'bold'))
-btn7.grid(row=3, column=0, sticky='swen', padx=3, pady=3)
-
-btn8 = Button(root, text='8', font=('Comic Sans MS', 15, 'bold'))
-btn8.grid(row=3, column=1, sticky='swen', padx=3, pady=3)
-
-btn9 = Button(root, text='9', font=('Comic Sans MS', 15, 'bold'))
-btn9.grid(row=3, column=2, sticky='swen', padx=3, pady=3)
-
-btn0 = Button(root, text='0', font=('Comic Sans MS', 15, 'bold'))
-btn0.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
+make_button(1).grid(row=1, column=0, sticky='swen', padx=3, pady=3)
+make_button(2).grid(row=1, column=1, sticky='swen', padx=3, pady=3)
+make_button(3).grid(row=1, column=2, sticky='swen', padx=3, pady=3)
+make_button(4).grid(row=2, column=0, sticky='swen', padx=3, pady=3)
+make_button(5).grid(row=2, column=1, sticky='swen', padx=3, pady=3)
+make_button(6).grid(row=2, column=2, sticky='swen', padx=3, pady=3)
+make_button(7).grid(row=3, column=0, sticky='swen', padx=3, pady=3)
+make_button(8).grid(row=3, column=1, sticky='swen', padx=3, pady=3)
+make_button(9).grid(row=3, column=2, sticky='swen', padx=3, pady=3)
+make_button(0).grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
 # ------------------------------- КНОПКИ ДЕЙСТВИЙ -------------------------------
 
@@ -70,7 +71,6 @@ btn15.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
 
 btn16 = Button(root, text='=', font=('Comic Sans MS', 15, 'bold'))
 btn16.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
-
 
 # ------------------------------- ВАЖНОЕ -------------------------------
 
