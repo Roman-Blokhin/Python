@@ -1,7 +1,8 @@
 import pygame
 
-# 1. переменная с размерами для окна
-size = [400, 600]
+FRAME_COLOR = (0, 255, 204)  # 7. window color
+
+size = [400, 600]  # 1. переменная с размерами для окна
 
 
 # 2. создаем окно для игры
@@ -15,3 +16,7 @@ while True:
         if event.type == pygame.QUIT:  # 6. если это крестик, то выход
             print('exit')
             pygame.quit()
+
+    # 8. создаем заливку нашего окна
+    screen.fill(FRAME_COLOR)
+    pygame.display.flip()  # 9. экран переворачивается к нам лицом и мы видим результат работы
