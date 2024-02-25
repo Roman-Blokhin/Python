@@ -8,6 +8,7 @@ BLUE = (121, 167, 232)  # 15. rect color
 
 SIZE_BLOCK = 20  # 12. rectangle's size
 COUNT_BLOCKS = 20  # 13. сколько у нас будет квадратиков на экране
+MARGIN = 1  # 17. отступ
 
 size = [400, 600]  # 1. переменная с размерами для окна
 
@@ -40,6 +41,7 @@ while True:
             color = WHITE
         # 11. рисуем квадратики нашего поля(место, цвет, [расположение и размер квадрата])
         # пишем формулу в координате х - нач. точку координат умножаем на колонку и количество квадратов
-        pygame.draw.rect(screen, color, [10+column*COUNT_BLOCKS, 20, SIZE_BLOCK, SIZE_BLOCK])
+        # отступы мы используем MARGIN*column потому что много колонок
+        pygame.draw.rect(screen, color, [10+column*COUNT_BLOCKS + MARGIN*(column+1), 20, SIZE_BLOCK, SIZE_BLOCK])
 
     pygame.display.flip()  # 9. экран переворачивается к нам лицом и мы видим результат работы
