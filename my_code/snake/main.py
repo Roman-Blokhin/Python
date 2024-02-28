@@ -42,8 +42,8 @@ while True:
             # пишем формулу в координате х - нач. точку координат умножаем на колонку и количество квадратов
             # отступы мы используем MARGIN*column потому что много колонок
             pygame.draw.rect(screen, color, [10 + column * COUNT_BLOCKS + MARGIN * (column + 1),
-                            20 + row * COUNT_BLOCKS + MARGIN * (row + 1),  # 19. формула рядов
-                            SIZE_BLOCK,
-                            SIZE_BLOCK])
+                                             20 + row * COUNT_BLOCKS + MARGIN * (row + 1),  # 19. формула рядов
+                                             SIZE_BLOCK,
+                                             SIZE_BLOCK])
 
     pygame.display.flip()  # 9. экран переворачивается к нам лицом и мы видим результат работы
