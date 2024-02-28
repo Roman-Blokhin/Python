@@ -14,12 +14,15 @@ WHITE = (255, 255, 255)
 
 size = (400, 600)
 
+FPS = 60
+
 # ---------------------- window ------------------------
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption('Running bloks')
 img = pygame.image.load('space_logo.png')
 pygame.display.set_icon(img)
+clock = pygame.time.Clock()
 
 # ---------------------- cycle ------------------------
 
@@ -27,4 +30,10 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             quit()
+
+    clock.tick(FPS)
+
+    screen.fill(FRAME_COLOR)
+
+    pygame.display.update()
 
