@@ -12,12 +12,15 @@ WHITE = (255, 255, 255)
 
 size = (400, 400)
 
+FPS = 60
+
 # ------------------------------------------ WINDOW ------------------------------------------
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption('')
 # img = pygame.image.load('logo.png')
 # pygame.display.set_icon(img)
+clock = pygame.time.Clock()
 
 # ------------------------------------------ CYCLE ------------------------------------------
 
@@ -25,6 +28,8 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+
+    clock.tick(FPS)
 
     screen.fill(FRAME_COLOR)
 
