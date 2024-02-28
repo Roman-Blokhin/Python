@@ -23,6 +23,10 @@ FPS = 60
 direct_x = 1
 direct_y = 1
 
+score = 0
+score_x = 300
+score_y = 30
+
 # ---------------------- window ------------------------
 
 screen = pygame.display.set_mode(size)
@@ -34,6 +38,7 @@ font = pygame.font.SysFont('Comic Sans MS', 30)
 
 # ---------------------- objects ------------------------
 
+score_text = font.render(f'Score: {score}', 1, WHITE)
 
 # ---------------------- cycle ------------------------
 
@@ -46,6 +51,8 @@ while True:
 
     screen.fill(FRAME_COLOR)
 
+    screen.blit(score_text, (score_x, score_y))
+
     for row in range(3):
         for column in range(count_blocks):
             if (row + column) % 2 == 0:
@@ -53,8 +60,8 @@ while True:
             else:
                 color = RED
 
-            pygame.draw.rect(screen, color, [50 + column * count_blocks + MARGIN * (column + 1),
-                                             50 + row * count_blocks + MARGIN * (row + 1),
+            pygame.draw.rect(screen, color, [30 + column * count_blocks + MARGIN * (column + 1),
+                                             100 + row * count_blocks + MARGIN * (row + 1),
                                              block_size,
                                              block_size])
 
