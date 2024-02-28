@@ -18,10 +18,12 @@ block_size = 20
 count_blocks = 10
 MARGIN = 20
 
-FPS = 60
+FPS = 1
 
 direct_x = 1
 direct_y = 1
+x = 30
+y = 100
 
 score = 0
 score_x = 300
@@ -60,9 +62,12 @@ while True:
             else:
                 color = RED
 
-            pygame.draw.rect(screen, color, [30 + column * count_blocks + MARGIN * (column + 1),
-                                             100 + row * count_blocks + MARGIN * (row + 1),
+            pygame.draw.rect(screen, color, [x + column * count_blocks + MARGIN * (column + 1),
+                                             y + row * count_blocks + MARGIN * (row + 1),
                                              block_size,
                                              block_size])
+            x += direct_x
+
+
 
     pygame.display.update()
