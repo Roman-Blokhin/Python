@@ -1,6 +1,15 @@
 import pygame
 pygame.init()
 
+# ------------------------------------------ VARIABLES ------------------------------------------
+
+FRAME_COLOR = (100, 100, 100)
+RED = (155, 0, 0)
+GREEN = (0, 155, 0)
+BLUE = (0, 0, 155)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+
 size = (400, 400)
 
 # ------------------------------------------ WINDOW ------------------------------------------
@@ -16,5 +25,7 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+
+    screen.fill(FRAME_COLOR)
 
     pygame.display.update()
