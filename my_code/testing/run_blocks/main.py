@@ -18,7 +18,7 @@ block_size = 20
 count_blocks = 10
 MARGIN = 20
 
-FPS = 1
+FPS = 3
 
 direct_x = 1
 direct_y = 1
@@ -67,6 +67,12 @@ while True:
                                              block_size,
                                              block_size])
             x += direct_x
+
+            if x + (count_blocks * block_size) >= 370 or x == 0:
+                direct_x = -direct_x
+                # y -= direct_y
+                # score += 1
+                # print(score)
 
 
 
