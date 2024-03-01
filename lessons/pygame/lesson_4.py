@@ -1,6 +1,7 @@
 # Как создать игровое поле для своей игры
 
 import pygame
+
 pygame.init()
 
 # ------------------------------------------ VARIABLES ------------------------------------------
@@ -12,7 +13,12 @@ BLUE = (0, 0, 155)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-size = (400, 400)
+size = (510, 510)
+width = height = 40  # размер квадратика
+x = 0
+y = 0
+count_blocks = 10
+margin = 10
 
 FPS = 60
 
@@ -30,7 +36,11 @@ while True:
             pygame.quit()
 
     clock.tick(FPS)
-
     screen.fill(FRAME_COLOR)
 
+    # 3. цикл для обработки квадратов по горизонтали
+    for column in range(count_blocks):
+        x = column * width + margin * (column+1)
+        # 2. рисуем квадрат на экране
+        pygame.draw.rect(screen, RED, (x, 0, width, height))
     pygame.display.update()
