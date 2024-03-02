@@ -40,7 +40,10 @@ while True:
 
     # 3. цикл для обработки квадратов по горизонтали
     for column in range(count_blocks):
-        x = column * width + margin * (column+1)
-        # 2. рисуем квадрат на экране
-        pygame.draw.rect(screen, RED, (x, 0, width, height))
+        # 4. цикл для обработки квадратов по вертикалиД
+        for row in range(count_blocks):
+            x = column * width + margin * (column + 1)
+            y = row * height + margin * (row + 1)
+            # 2. рисуем квадрат на экране
+            pygame.draw.rect(screen, RED, (x, y, width, height))
     pygame.display.update()
