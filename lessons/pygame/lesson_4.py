@@ -22,6 +22,9 @@ margin = 10
 
 FPS = 60
 
+# 8. создаем двухмерный массив для определения квадрата, на который мы кликнули
+mas = [[0] * 10 for i in range(10)]
+
 # ------------------------------------------ WINDOW ------------------------------------------
 
 screen = pygame.display.set_mode(size)
@@ -38,16 +41,27 @@ while True:
         elif event.type == pygame.MOUSEBUTTONDOWN:  # 6. если тип - нажатие клавиши
             x_mouse, y_mouse = pygame.mouse.get_pos()  # 7. присваиваем нажатию считывание координат
             print(f'x = {x_mouse}, y = {y_mouse}')
+            # 9. вычисляем колонку и ряд, на который кликнули
+            column = x_mouse // (width + margin)
+            row = y_mouse // (height + margin)
+            mas[row][column] ^= 1  # 10. клик на квадрат, то значение = 1, если кликнули еще раз, значение возвращается
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
 
-    # 3. цикл для обработки квадратов по горизонтали
-    for column in range(count_blocks):
-        # 4. цикл для обработки квадратов по вертикалиД
-        for row in range(count_blocks):
+    # 4. цикл для обработки квадратов по вертикалиД
+    for row in range(count_blocks):
+        # 3. цикл для обработки квадратов по горизонтали
+        for column in range(count_blocks):
+            # 11. устанавливаем цвет для нажатого квадрата
+            if mas[row][column] == 1:
+                color = RED
+            else:
+                color = WHITE
+
             x = column * width + margin * (column + 1)
             y = row * height + margin * (row + 1)
             # 2. рисуем квадрат на экране
-            pygame.draw.rect(screen, RED, (x, y, width, height))
+            pygame.draw.rect(screen, color, (x, y, width, height))
+
     pygame.display.update()
