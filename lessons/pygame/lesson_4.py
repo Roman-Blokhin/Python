@@ -34,6 +34,10 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+        # 5. обрабатываем нажатие клавиши мыши
+        elif event.type == pygame.MOUSEBUTTONDOWN:  # 6. если тип - нажатие клавиши
+            x_mouse, y_mouse = pygame.mouse.get_pos()  # 7. присваиваем нажатию считывание координат
+            print(f'x = {x_mouse}, y = {y_mouse}')
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
