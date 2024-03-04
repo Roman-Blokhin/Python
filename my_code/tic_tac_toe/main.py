@@ -26,7 +26,7 @@ img = pygame.image.load('logo.png')
 pygame.display.set_icon(img)
 clock = pygame.time.Clock()
 
-mas = [[0]*3 for i in range(3)]
+mas = [[0] * 3 for i in range(3)]
 
 # ------------------------------------------ CYCLE ------------------------------------------
 
@@ -36,7 +36,12 @@ while True:
             pygame.quit()
 
     clock.tick(FPS)
-
     screen.fill(FRAME_COLOR)
+
+    for row in range(3):
+        for column in range(3):
+            x = column * block_size + margin * (column + 1)
+            y = row * block_size + margin * (row + 1)
+            pygame.draw.rect(screen, RED, (x, y, block_size, block_size))
 
     pygame.display.update()
