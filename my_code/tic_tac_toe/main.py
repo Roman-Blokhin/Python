@@ -26,6 +26,7 @@ img = pygame.image.load('logo.png')
 pygame.display.set_icon(img)
 clock = pygame.time.Clock()
 
+# 2. массив для прикрепления значений к клеткам
 mas = [[0] * 3 for i in range(3)]
 
 # ------------------------------------------ CYCLE ------------------------------------------
@@ -34,10 +35,18 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+        # 3. обработка кликов мышки и получение координат
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            x_mouse, y_mouse = pygame.mouse.get_pos()
+            column = x_mouse // (block_size + margin)
+            row = y_mouse // (block_size + margin)
+            print(x_mouse, y_mouse)
+
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
 
+    # 1. отображаем игровое поле
     for row in range(3):
         for column in range(3):
             x = column * block_size + margin * (column + 1)
