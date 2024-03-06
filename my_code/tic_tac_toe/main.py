@@ -41,6 +41,8 @@ while True:
             column = x_mouse // (block_size + margin)
             row = y_mouse // (block_size + margin)
             print(x_mouse, y_mouse)
+            # 4. присваиваем название нажатию
+            mas[row][column] = 'x'
 
 
     clock.tick(FPS)
@@ -49,8 +51,13 @@ while True:
     # 1. отображаем игровое поле
     for row in range(3):
         for column in range(3):
+            # 5. условие для первого нажатия по изменению цвета у квадрата
+            if mas[row][column] == 'x':
+                color = RED
+            else:
+                color = WHITE
             x = column * block_size + margin * (column + 1)
             y = row * block_size + margin * (row + 1)
-            pygame.draw.rect(screen, RED, (x, y, block_size, block_size))
+            pygame.draw.rect(screen, color, (x, y, block_size, block_size))
 
     pygame.display.update()
