@@ -29,6 +29,8 @@ clock = pygame.time.Clock()
 # 2. массив для прикрепления значений к клеткам
 mas = [[0] * 3 for i in range(3)]
 
+qwerty = 0  # 6. переменная, которая будет увеличиваться на один, это поможет чередовать цвета
+
 # ------------------------------------------ CYCLE ------------------------------------------
 
 while True:
@@ -42,8 +44,12 @@ while True:
             row = y_mouse // (block_size + margin)
             print(x_mouse, y_mouse)
             # 4. присваиваем название нажатию
-            mas[row][column] = 'x'
+            if qwerty % 2 == 0:
+                mas[row][column] = 'x'
+            else:
+                mas[row][column] = 'y'
 
+            qwerty += 1
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
@@ -54,8 +60,12 @@ while True:
             # 5. условие для первого нажатия по изменению цвета у квадрата
             if mas[row][column] == 'x':
                 color = RED
+            elif mas[row][column] == 'y':
+                color = GREEN
             else:
                 color = WHITE
+
+
             x = column * block_size + margin * (column + 1)
             y = row * block_size + margin * (row + 1)
             pygame.draw.rect(screen, color, (x, y, block_size, block_size))
