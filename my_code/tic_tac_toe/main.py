@@ -43,13 +43,15 @@ while True:
             column = x_mouse // (block_size + margin)
             row = y_mouse // (block_size + margin)
             print(x_mouse, y_mouse)
-            # 4. присваиваем название нажатию
-            if qwerty % 2 == 0:
-                mas[row][column] = 'x'
-            else:
-                mas[row][column] = 'y'
+            # 7. Нельзя менять цвет ячейки, если она уже занята
+            if mas[row][column] == 0:
+                # 4. присваиваем название нажатию
+                if qwerty % 2 == 0:
+                    mas[row][column] = 'x'
+                else:
+                    mas[row][column] = 'y'
 
-            qwerty += 1
+                qwerty += 1
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
