@@ -7,7 +7,7 @@ pygame.init()
 # ------------------------------------------ VARIABLES ------------------------------------------
 
 FRAME_COLOR = (100, 100, 100)
-RED = (155, 0, 0)
+RED = (255, 0, 0)
 GREEN = (0, 155, 0)
 BLUE = (0, 0, 155)
 BLACK = (0, 0, 0)
@@ -44,6 +44,11 @@ while True:
             # 4. получение координат нажатия на экране игры
             x_mouse, y_mouse = pygame.mouse.get_pos()
             print(x_mouse, y_mouse)
+            # 5. определяем, на какой квадрат мы нажали
+            col = x_mouse // (block_size + margin)
+            row = y_mouse // (block_size + margin)
+            # 6. присваиваем этому квадрату значение
+            mas[row][col] = 'x'
 
 
     clock.tick(FPS)
@@ -52,9 +57,14 @@ while True:
     # 1. прописали цикл вывода квадратов игрового поля
     for row in range(count_block):
         for col in range(count_block):
+            # 7. используем значение квадрата для определения цвета при нажатии
+            if mas[row][col] == 'x':
+                color = RED
+            else:
+                color = WHITE
 
             x = col * block_size + margin * (col + 1)
             y = row * block_size + margin * (row + 1)
-            pygame.draw.rect(screen, RED, (x, y, block_size, block_size))
+            pygame.draw.rect(screen, color, (x, y, block_size, block_size))
 
     pygame.display.update()
