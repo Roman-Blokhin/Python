@@ -20,7 +20,9 @@ width = height = block_size * 3 + margin * 4
 size = (width, height)
 
 # 2. создали массив для присваивания каждому квадрату значение - 0
-mas = [[0]*3 for i in range(count_block)]
+mas = [[0] * 3 for i in range(count_block)]
+# 8. создаем переменную для определения четности нажатия. так поймем, какой игрок ходит
+qwerty = 0
 
 FPS = 60
 
@@ -47,9 +49,14 @@ while True:
             # 5. определяем, на какой квадрат мы нажали
             col = x_mouse // (block_size + margin)
             row = y_mouse // (block_size + margin)
-            # 6. присваиваем этому квадрату значение
-            mas[row][col] = 'x'
-
+            # 8.1 определяем четность нажатия
+            if qwerty % 2 == 0:
+                # 6. присваиваем этому квадрату значение
+                mas[row][col] = 'x'
+            else:
+                mas[row][col] = 'y'
+            # 8.2 увеличиваем переменную на 1
+            qwerty += 1
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
@@ -59,6 +66,9 @@ while True:
         for col in range(count_block):
             # 7. используем значение квадрата для определения цвета при нажатии
             if mas[row][col] == 'x':
+                color = GREEN
+            # 8.3 делаем проверку на четность игрока для понимания цвета нажатия на квадрат
+            elif mas[row][col] == 'y':
                 color = RED
             else:
                 color = WHITE
