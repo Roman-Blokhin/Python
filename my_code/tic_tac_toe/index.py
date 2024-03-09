@@ -49,14 +49,16 @@ while True:
             # 5. определяем, на какой квадрат мы нажали
             col = x_mouse // (block_size + margin)
             row = y_mouse // (block_size + margin)
-            # 8.1 определяем четность нажатия
-            if qwerty % 2 == 0:
-                # 6. присваиваем этому квадрату значение
-                mas[row][col] = 'x'
-            else:
-                mas[row][col] = 'y'
-            # 8.2 увеличиваем переменную на 1
-            qwerty += 1
+            # 9. замена в ячейке может быть только, если ее значение равно 0
+            if mas [row][col] == 0:
+                # 8.1 определяем четность нажатия
+                if qwerty % 2 == 0:
+                    # 6. присваиваем этому квадрату значение
+                    mas[row][col] = 'x'
+                else:
+                    mas[row][col] = 'y'
+                # 8.2 увеличиваем переменную на 1
+                qwerty += 1
 
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
