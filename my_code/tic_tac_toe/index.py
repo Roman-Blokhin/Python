@@ -50,7 +50,7 @@ while True:
             col = x_mouse // (block_size + margin)
             row = y_mouse // (block_size + margin)
             # 9. замена в ячейке может быть только, если ее значение равно 0
-            if mas [row][col] == 0:
+            if mas[row][col] == 0:
                 # 8.1 определяем четность нажатия
                 if qwerty % 2 == 0:
                     # 6. присваиваем этому квадрату значение
@@ -84,6 +84,6 @@ while True:
                 pygame.draw.line(screen, WHITE, (x + 15, y + 15), (x + block_size - 15, y + block_size - 15), 5)
                 pygame.draw.line(screen, WHITE, (x + block_size - 15, y + 15), (x + 15, y + block_size - 15), 5)
             elif color == RED:  # 10.2 делаем нолик из круга в красном квадрате
-                pygame.draw.circle(screen, WHITE, (x+block_size/2, y+block_size/2), 40, 5)
+                pygame.draw.circle(screen, WHITE, (x + block_size // 2, y + block_size // 2), block_size // 2 - 10, 5)
 
     pygame.display.update()
