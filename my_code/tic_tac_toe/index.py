@@ -79,4 +79,11 @@ while True:
             y = row * block_size + margin * (row + 1)
             pygame.draw.rect(screen, color, (x, y, block_size, block_size))
 
+            # 10. рисуем крестики и нолики в квадратах
+            if color == GREEN:  # 10.1 делаем крестик из двух линий в зеленом квадрате
+                pygame.draw.line(screen, WHITE, (x + 15, y + 15), (x + block_size - 15, y + block_size - 15), 5)
+                pygame.draw.line(screen, WHITE, (x + block_size - 15, y + 15), (x + 15, y + block_size - 15), 5)
+            elif color == RED:  # 10.2 делаем нолик из круга в красном квадрате
+                pygame.draw.circle(screen, WHITE, (x+block_size/2, y+block_size/2), 40, 5)
+
     pygame.display.update()
