@@ -19,7 +19,7 @@ def win(mas, sign):
             return sign
 
     # 11.2 цикл для проверки колонок, можем проверять только по индексу
-    for col in mas:  # 11.3 если индекс в колонке равен следующему индексу в этой же колонке и т.д.
+    for col in range(3):  # 11.3 если индекс в колонке равен следующему индексу в этой же колонке и т.д.
         if mas[0][col] == sign and mas[1][col] == sign and mas[2][col] == sign:
             return sign
 
@@ -119,5 +119,11 @@ while True:
                 pygame.draw.line(screen, WHITE, (x + block_size - 15, y + 15), (x + 15, y + block_size - 15), 5)
             elif color == RED:  # 10.2 делаем нолик из круга в красном квадрате
                 pygame.draw.circle(screen, WHITE, (x + block_size // 2, y + block_size // 2), block_size // 2 - 10, 5)
+
+    # 13. нужно понять, какой игрок сейчас ходит, чтобы применить функцию
+    if (qwerty-1) % 2 == 0:  # 13.1 так как мы уже увеличили qwerty на 1 в цикле и поменяли игрока, возвращаем значение
+        game_over = win(mas, 'x')  # 13.2 передаем значение 1 игрока - х
+    else:
+        game_over = win(mas, 'o')  # 13.3 передаем значение 2 игрока - о
 
     pygame.display.update()
