@@ -60,6 +60,9 @@ qwerty = 0
 
 FPS = 60
 
+# 15. устанавливаем начальное значение конца игры
+game_over = False
+
 # ------------------------------------------ WINDOW ------------------------------------------
 
 screen = pygame.display.set_mode(size)
@@ -76,7 +79,7 @@ while True:
             pygame.quit()
 
         # 3. обрабатываем нажатие левой кнопки мыши
-        elif event.type == pygame.MOUSEBUTTONDOWN:
+        elif event.type == pygame.MOUSEBUTTONDOWN and not game_over:  # 15.1 and not game_over - реагирование на клик
             # 4. получение координат нажатия на экране игры
             x_mouse, y_mouse = pygame.mouse.get_pos()
             print(x_mouse, y_mouse)
@@ -97,28 +100,30 @@ while True:
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
 
-    # 1. прописали цикл вывода квадратов игрового поля
-    for row in range(count_block):
-        for col in range(count_block):
-            # 7. используем значение квадрата для определения цвета при нажатии
-            if mas[row][col] == 'x':
-                color = GREEN
-            # 8.3 делаем проверку на четность игрока для понимания цвета нажатия на квадрат
-            elif mas[row][col] == 'y':
-                color = RED
-            else:
-                color = WHITE
+    # 15.3 отрисовка игры должна быть, когда сама игра не закончена
+    if not game_over:
+        # 1. прописали цикл вывода квадратов игрового поля
+        for row in range(count_block):
+            for col in range(count_block):
+                # 7. используем значение квадрата для определения цвета при нажатии
+                if mas[row][col] == 'x':
+                    color = GREEN
+                # 8.3 делаем проверку на четность игрока для понимания цвета нажатия на квадрат
+                elif mas[row][col] == 'y':
+                    color = RED
+                else:
+                    color = WHITE
 
-            x = col * block_size + margin * (col + 1)
-            y = row * block_size + margin * (row + 1)
-            pygame.draw.rect(screen, color, (x, y, block_size, block_size))
+                x = col * block_size + margin * (col + 1)
+                y = row * block_size + margin * (row + 1)
+                pygame.draw.rect(screen, color, (x, y, block_size, block_size))
 
-            # 10. рисуем крестики и нолики в квадратах
-            if color == GREEN:  # 10.1 делаем крестик из двух линий в зеленом квадрате
-                pygame.draw.line(screen, WHITE, (x + 15, y + 15), (x + block_size - 15, y + block_size - 15), 5)
-                pygame.draw.line(screen, WHITE, (x + block_size - 15, y + 15), (x + 15, y + block_size - 15), 5)
-            elif color == RED:  # 10.2 делаем нолик из круга в красном квадрате
-                pygame.draw.circle(screen, WHITE, (x + block_size // 2, y + block_size // 2), block_size // 2 - 10, 5)
+                # 10. рисуем крестики и нолики в квадратах
+                if color == GREEN:  # 10.1 делаем крестик из двух линий в зеленом квадрате
+                    pygame.draw.line(screen, WHITE, (x + 15, y + 15), (x + block_size - 15, y + block_size - 15), 5)
+                    pygame.draw.line(screen, WHITE, (x + block_size - 15, y + 15), (x + 15, y + block_size - 15), 5)
+                elif color == RED:  # 10.2 делаем нолик из круга в красном квадрате
+                    pygame.draw.circle(screen, WHITE, (x + block_size // 2, y + block_size // 2), block_size // 2 - 10, 5)
 
     # 13. нужно понять, какой игрок сейчас ходит, чтобы применить функцию
     if (qwerty-1) % 2 == 0:  # 13.1 так как мы уже увеличили qwerty на 1 в цикле и поменяли игрока, возвращаем значение
