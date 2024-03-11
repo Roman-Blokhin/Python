@@ -97,6 +97,15 @@ while True:
                 # 8.2 увеличиваем переменную на 1
                 qwerty += 1
 
+        # 16. Прописываем условие, чтобы при нажатии пробела игра перезапускалась
+        # если тип события == нажатию клавиши и эта клавиша == ПРОБЕЛ
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            game_over = False  # 16.1 не конец игры
+            mas = [[0] * 3 for i in range(count_block)]  # 16.2 массив вновь заполняем нулями
+            qwerty += 1  # 16.3 первый игрок
+            screen.fill(BLACK)  # 16.4 закрашиваем экран черным - не понимаю зачем
+
+
     clock.tick(FPS)
     screen.fill(FRAME_COLOR)
 
