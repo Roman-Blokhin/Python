@@ -126,4 +126,14 @@ while True:
     else:
         game_over = win(mas, 'o')  # 13.3 передаем значение 2 игрока - о
 
+    # 14. прописываем условие на конец игры
+    if game_over:
+        screen.fill(BLACK)  # 14.1 закрашиваем экран черным
+        font = pygame.font.SysFont('Comic NS Sans', 60)  # 14.2 создаем шрифт
+        text_1 = font.render(game_over, True, WHITE)  # 14.3 текст прописан в переменной game_over
+        text_rect = text_1.get_rect()  # 14.4 узнаем координаты текста
+        text_x = screen.get_width() // 2 - text_rect.width // 2  # 14.5 прописываем координаты центра экрана по ширине
+        text_y = screen.get_height() // 2 - text_rect.height // 2  # 14.6 прописываем координаты центра экрана по выс.
+        screen.blit(text_1, [text_x, text_y])  # 14.7 размещаем наш текст, указывая координаты
+
     pygame.display.update()
