@@ -1,7 +1,7 @@
 # ФАЙЛ ДЛЯ ТЕСТОВ ПРОГРАММЫ
 
 import unittest  # 1. импортируем модуль для проведения тестов
-from main import get_number_from_index, get_empty_list  # 2. импортируем функцию для проверки из др. файла
+from main import get_number_from_index, get_empty_list, get_index_from_number  # 2. импортируем функцию из др. файла
 
 # 3. создаем класс проверки, наследуем от unittest.TestCase
 class Test_2048(unittest.TestCase):
@@ -41,3 +41,15 @@ class Test_2048(unittest.TestCase):
             [1, 1, 1, 1],
         ]
         self.assertEqual(get_empty_list(mas), a)  # 6. проверяем массив на полную заполненность
+
+
+    def test_6(self):
+        self.assertEqual(get_index_from_number(8), (1, 3))  # 7. проверяем число по индексу
+
+
+    def test_7(self):
+        self.assertEqual(get_index_from_number(16), (3, 3))  # 7. проверяем число по индексу
+
+
+    def test_8(self):
+        self.assertEqual(get_index_from_number(1), (0, 0))  # 7. проверяем число по индексу
