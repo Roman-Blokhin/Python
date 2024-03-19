@@ -2,7 +2,7 @@
 
 import unittest  # 1. импортируем модуль для проведения тестов
 # 2. импортируем функции из др. файла:
-from main import get_number_from_index, get_empty_list, get_index_from_number, is_zero_in_mas
+from logics import get_number_from_index, get_empty_list, get_index_from_number, is_zero_in_mas
 
 # 3. создаем класс проверки, наследуем от unittest.TestCase
 class Test_2048(unittest.TestCase):
