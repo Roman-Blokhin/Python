@@ -1,7 +1,8 @@
 # ФАЙЛ ДЛЯ ТЕСТОВ ПРОГРАММЫ
 
 import unittest  # 1. импортируем модуль для проведения тестов
-from main import get_number_from_index, get_empty_list, get_index_from_number  # 2. импортируем функцию из др. файла
+# 2. импортируем функции из др. файла:
+from main import get_number_from_index, get_empty_list, get_index_from_number, is_zero_in_mas
 
 # 3. создаем класс проверки, наследуем от unittest.TestCase
 class Test_2048(unittest.TestCase):
@@ -53,3 +54,30 @@ class Test_2048(unittest.TestCase):
 
     def test_8(self):
         self.assertEqual(get_index_from_number(1), (0, 0))  # 7. проверяем число по индексу
+
+    def test_9(self):  # 8. проверяем массив на наличие нулей
+        mas = [
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+        ]
+        self.assertEqual(is_zero_in_mas(mas), False)
+
+    def test_10(self):  # 8. проверяем массив на наличие нулей
+        mas = [
+            [1, 0, 1, 1],
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
+        ]
+        self.assertEqual(is_zero_in_mas(mas), True)
+
+    def test_11(self):  # 8. проверяем массив на наличие нулей
+        mas = [
+            [1, 0, 1, 1],
+            [1, 1, 1, 0],
+            [1, 0, 1, 1],
+            [1, 1, 0, 1],
+        ]
+        self.assertEqual(is_zero_in_mas(mas), True)
