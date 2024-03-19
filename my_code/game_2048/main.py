@@ -17,7 +17,7 @@ print(get_empty_list(mas))
 pretty_print(mas)
 
 # 8. Создаем цикл игры
-while True:
+while is_zero_in_mas(mas):
     input()
     empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
     random.shuffle(empty)  # 8.2 перемешивает элементы массива

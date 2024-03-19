@@ -1,6 +1,7 @@
 # игра 2048 на Python Pygame. Прописываем логику игры
 import random
 
+
 # 3. функция удобного вывода данных массива в консоль
 def pretty_print(mas):
     print('-' * 10)
@@ -43,4 +44,7 @@ def insert_2_or_4(mas, x, y):
 
 # 9. функция, которая проверяет, есть ли нули в массиве
 def is_zero_in_mas(mas):
-    pass
+    for row in mas:
+        if 0 in row:
+            return True
+    return False
