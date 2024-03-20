@@ -43,6 +43,13 @@ while is_zero_in_mas(mas):
             sys.exit(0)
         elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
             pygame.draw.rect(screen, WHITE, TITLE_REC)
+            # 13. рисуем квадраты игрового поля
+            for row in range(BLOCK):
+                for column in range(BLOCK):
+                    w = column * SIZE_BLOCK + (column+1) * MARGIN
+                    h = (row * SIZE_BLOCK + (row+1) * MARGIN) + 110
+                    pygame.draw.rect(screen, GRAY, (w, h, SIZE_BLOCK, SIZE_BLOCK))
+
             # 12.3 переносим данные цикла в это условие
             # input()
             empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
