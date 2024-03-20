@@ -1,5 +1,6 @@
 from logics import *
 import pygame
+import sys
 
 # 1. создаем двухмерный массив. он проиндексирован. у каждого эл. 2 индекса
 mas = [
@@ -24,7 +25,7 @@ HEIGHT = WIDTH + 110
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('2048')
-TITLE_REC = pygame.draw.rect(screen, WHITE, (0, 0, WIDTH, 110))
+TITLE_REC = pygame.Rect(0, 0, WIDTH, 110)  # 11.1 задаем координаты прямоугольника
 
 # 2. мы можем положить определенные числа в наши ячейки. берем индекс эл. по Х и У
 
@@ -36,20 +37,23 @@ pretty_print(mas)
 
 # 8. Создаем цикл игры
 while is_zero_in_mas(mas):
-    for event in pygame.event.get():
+    for event in pygame.event.get():  # 12.1 обработка события - закрытие окна
         if event.type == pygame.QUIT:
             pygame.quit()
+            sys.exit(0)
+        elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
+            pygame.draw.rect(screen, WHITE, TITLE_REC)
+            # 12.3 переносим данные цикла в это условие
+            # input()
+            empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
+            random.shuffle(empty)  # 8.2 перемешивает элементы массива
+            random_num = empty.pop()  # 8.3 удаляет последний элемент списка и возвращает его в переменную num
+            x, y = get_index_from_number(random_num)  # 8.4 получаем координаты нашего числа
+            mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
+            print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
+            pretty_print(mas)
 
     pygame.display.update()
-
-    input()
-    empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
-    random.shuffle(empty)  # 8.2 перемешивает элементы массива
-    random_num = empty.pop()  # 8.3 удаляет последний элемент списка и возвращает его в переменную num
-    x, y = get_index_from_number(random_num)  # 8.4 получаем координаты нашего числа
-    mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
-    print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
-    pretty_print(mas)
 
 # ----------------------------- COMMENTS ----------------------------
 # массив можно писать в таком виде: mas_2 = [[0]*4 for i in range(4)]
