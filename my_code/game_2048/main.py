@@ -9,14 +9,22 @@ mas = [
     [0, 0, 0, 0],
 ]
 
-
 # 10. прописываем константы и переменные
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+GRAY = (155, 155, 155)
+
 BLOCK = 4
 SIZE_BLOCK = 110
 MARGIN = 10
 WIDTH = BLOCK * SIZE_BLOCK + MARGIN * (BLOCK + 1)
 HEIGHT = WIDTH + 110
+TITLE_REC = pygame.draw.rect(0, 0, WIDTH, 110)
 
+# 11. пишем визуал на pygame
+pygame.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('2048')
 
 # 2. мы можем положить определенные числа в наши ячейки. берем индекс эл. по Х и У
 
@@ -36,7 +44,6 @@ while is_zero_in_mas(mas):
     mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
     print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
     pretty_print(mas)
-
 
 # ----------------------------- COMMENTS ----------------------------
 # массив можно писать в таком виде: mas_2 = [[0]*4 for i in range(4)]
