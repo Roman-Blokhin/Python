@@ -19,12 +19,12 @@ SIZE_BLOCK = 110
 MARGIN = 10
 WIDTH = BLOCK * SIZE_BLOCK + MARGIN * (BLOCK + 1)
 HEIGHT = WIDTH + 110
-TITLE_REC = pygame.draw.rect(0, 0, WIDTH, 110)
 
 # 11. пишем визуал на pygame
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('2048')
+TITLE_REC = pygame.draw.rect(screen, WHITE, (0, 0, WIDTH, 110))
 
 # 2. мы можем положить определенные числа в наши ячейки. берем индекс эл. по Х и У
 
@@ -36,6 +36,12 @@ pretty_print(mas)
 
 # 8. Создаем цикл игры
 while is_zero_in_mas(mas):
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+
+    pygame.display.update()
+
     input()
     empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
     random.shuffle(empty)  # 8.2 перемешивает элементы массива
