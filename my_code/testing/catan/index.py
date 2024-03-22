@@ -1,4 +1,6 @@
 import random
+import sys
+import pygame
 
 
 def pretty_print(mas):
@@ -51,5 +53,13 @@ mas = [
 print(get_empty_list(mas))
 print(get_index_from_num(2))
 pretty_print(mas)
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+
+
 
 # 16 = 3 red 5 green 4 sheep 2 grey 2 yellow
