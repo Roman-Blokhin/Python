@@ -12,8 +12,10 @@ WHITE = (255, 255, 255)
 GRAY = (155, 155, 155)
 
 COUNT_BLOCK = 4
+SIZE_BLOCK = 100
 MARGIN = 10
-WIDTH, HEIGHT = COUNT_BLOCK * 4 + MARGIN * 5
+WIDTH = SIZE_BLOCK * COUNT_BLOCK + MARGIN * (COUNT_BLOCK + 1)
+HEIGHT = WIDTH + 110
 
 mas = [
     [0, 0, 0, 0],
@@ -23,12 +25,21 @@ mas = [
 ]
 
 
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Catan')
+
+
 while is_sero_in_mas(mas):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit(0)
 
+    for row in range(COUNT_BLOCK):
+        for column in range(COUNT_BLOCK):
+            x = column * SIZE_BLOCK + MARGIN * (column + 1)
+            y = row * SIZE_BLOCK + MARGIN * (row + 1) + 110
+            pygame.draw.rect(screen, GRAY, (x, y, SIZE_BLOCK, SIZE_BLOCK))
 
     input()
     empty = get_empty_list(mas)
