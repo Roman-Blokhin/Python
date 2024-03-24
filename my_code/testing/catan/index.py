@@ -46,8 +46,11 @@ def insert_num_to_mas(mas, x, y):
     return mas
 
 
-def insert():
-    pass
+def is_sero_in_mas():
+    for row in mas:
+        if 0 in row:
+            return True
+    return False
 
 
 mas = [
@@ -57,8 +60,7 @@ mas = [
     [0, 0, 0, 0]
 ]
 
-
-while True:
+while is_sero_in_mas():
     # for event in pygame.event.get():
     #     if event.type == pygame.QUIT:
     #         pygame.quit()
