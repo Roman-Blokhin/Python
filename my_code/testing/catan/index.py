@@ -35,21 +35,23 @@ while is_sero_in_mas(mas):
             pygame.quit()
             sys.exit(0)
 
-    for row in range(COUNT_BLOCK):
-        for column in range(COUNT_BLOCK):
-            x = column * SIZE_BLOCK + MARGIN * (column + 1)
-            y = row * SIZE_BLOCK + MARGIN * (row + 1) + 110
-            pygame.draw.rect(screen, GRAY, (x, y, SIZE_BLOCK, SIZE_BLOCK))
+        elif event.type == pygame.KEYDOWN:
 
-    input()
-    empty = get_empty_list(mas)
-    random.shuffle(empty)
-    random_number = empty.pop()
-    x, y = get_index_from_num(random_number)
-    print(f'Выбрано число: {random_number}, с координатами: x = {x}, y = {y}')
-    mas = insert_num_to_mas(mas, x, y)
-    print(get_empty_list(mas))
-    pretty_print(mas)
+            for row in range(COUNT_BLOCK):
+                for column in range(COUNT_BLOCK):
+                    x = column * SIZE_BLOCK + MARGIN * (column + 1)
+                    y = row * SIZE_BLOCK + MARGIN * (row + 1) + 110
+                    pygame.draw.rect(screen, GRAY, (x, y, SIZE_BLOCK, SIZE_BLOCK))
+
+            # input()
+            empty = get_empty_list(mas)
+            random.shuffle(empty)
+            random_number = empty.pop()
+            x, y = get_index_from_num(random_number)
+            print(f'Выбрано число: {random_number}, с координатами: x = {x}, y = {y}')
+            mas = insert_num_to_mas(mas, x, y)
+            print(get_empty_list(mas))
+            pretty_print(mas)
 
     pygame.display.update()
 
