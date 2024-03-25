@@ -16,6 +16,7 @@ SIZE_BLOCK = 100
 MARGIN = 10
 WIDTH = SIZE_BLOCK * COUNT_BLOCK + MARGIN * (COUNT_BLOCK + 1)
 HEIGHT = WIDTH + 110
+TITLE_RECT = pygame.Rect(0, 0, WIDTH, 110)
 
 mas = [
     [0, 0, 0, 0],
@@ -36,7 +37,7 @@ while is_sero_in_mas(mas):
             sys.exit(0)
 
         elif event.type == pygame.KEYDOWN:
-
+            pygame.draw.rect(screen, WHITE, (TITLE_RECT))
             for row in range(COUNT_BLOCK):
                 for column in range(COUNT_BLOCK):
                     x = column * SIZE_BLOCK + MARGIN * (column + 1)
@@ -52,6 +53,7 @@ while is_sero_in_mas(mas):
             mas = insert_num_to_mas(mas, x, y)
             print(get_empty_list(mas))
             pretty_print(mas)
+
 
     pygame.display.update()
 
