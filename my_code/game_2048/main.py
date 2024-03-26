@@ -43,12 +43,22 @@ while is_zero_in_mas(mas):
             sys.exit(0)
         elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
             pygame.draw.rect(screen, WHITE, TITLE_REC)
+
+            # 14. создаем шрифт для отображения цифр на нашем игровом поле - название и размер
+            font = pygame.font.SysFont('Comic Sans MS', 70)
+
             # 13. рисуем квадраты игрового поля
             for row in range(BLOCK):
                 for column in range(BLOCK):
+                    # 14.1 находим значение ,которое хранится в массиве
+                    value = mas[row][column]
+                    # 14.2 прописываем, что будем писать и как
+                    text = font.render(f'{value}', True, WHITE)  # значение, обтекание шрифта и цвет
+
                     w = column * SIZE_BLOCK + (column+1) * MARGIN
                     h = (row * SIZE_BLOCK + (row+1) * MARGIN) + 110
                     pygame.draw.rect(screen, GRAY, (w, h, SIZE_BLOCK, SIZE_BLOCK))
+                    pygame.draw.
 
             # 12.3 переносим данные цикла в это условие
             # input()
