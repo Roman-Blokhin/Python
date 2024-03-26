@@ -58,7 +58,13 @@ while is_zero_in_mas(mas):
                     w = column * SIZE_BLOCK + (column+1) * MARGIN
                     h = (row * SIZE_BLOCK + (row+1) * MARGIN) + 110
                     pygame.draw.rect(screen, GRAY, (w, h, SIZE_BLOCK, SIZE_BLOCK))
-                    pygame.draw.
+
+                    # 14.3 условие для вывода значения на квадрате
+                    if value != 0:
+                        font_w, font_h = text.get_size()  # 14.4 узнаем размер текста
+                        text_x = w + (SIZE_BLOCK - font_w) / 2  # 14.5 координата размещение текста в квадрате по Х
+                        text_y = h + (SIZE_BLOCK - font_h) / 2  # 14.6 координата размещение текста в квадрате по У
+                        screen.blit(text, (text_x, text_y))  # 14.7 размещаем текст на экране по координатам
 
             # 12.3 переносим данные цикла в это условие
             # input()
