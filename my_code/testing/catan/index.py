@@ -27,6 +27,7 @@ mas = [
 
 
 COLORS = {
+    0: (70, 130, 180),
     1: (0, 100, 0),
     2: (240, 128, 128),
     3: (0, 250, 154),
@@ -49,9 +50,10 @@ while is_sero_in_mas(mas):
             pygame.draw.rect(screen, WHITE, (TITLE_RECT))
             for row in range(COUNT_BLOCK):
                 for column in range(COUNT_BLOCK):
+                    value = mas[row][column]
                     x = column * SIZE_BLOCK + MARGIN * (column + 1)
                     y = row * SIZE_BLOCK + MARGIN * (row + 1) + 110
-                    pygame.draw.rect(screen, GRAY, (x, y, SIZE_BLOCK, SIZE_BLOCK))
+                    pygame.draw.rect(screen, COLORS[value], (x, y, SIZE_BLOCK, SIZE_BLOCK))
 
             # input()
             empty = get_empty_list(mas)
