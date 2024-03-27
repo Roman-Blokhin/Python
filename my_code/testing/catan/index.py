@@ -26,6 +26,15 @@ mas = [
 ]
 
 
+COLORS = {
+    1: (0, 100, 0),
+    2: (240, 128, 128),
+    3: (0, 250, 154),
+    4: (255, 255, 128),
+    5: (169, 169, 169),
+}
+
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Catan')
 
