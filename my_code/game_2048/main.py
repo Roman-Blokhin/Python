@@ -10,6 +10,15 @@ mas = [
     [0, 0, 0, 0],
 ]
 
+# 16. создаем словарь для того ,чтобы раскрасить наши ячейки по значению в массиве
+COLORS = {
+    0: (130, 130, 130),
+    2: (255, 255, 255),
+    4: (255, 255, 128),
+    8: (255, 255, 0),
+    16: (255, 128, 0),
+}
+
 # 10. прописываем константы и переменные
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -56,11 +65,12 @@ while is_zero_in_mas(mas):
                     # 14.1 находим значение ,которое хранится в массиве
                     value = mas[row][column]
                     # 14.2 прописываем, что будем писать и как
-                    text = font.render(f'{value}', True, WHITE)  # значение, обтекание шрифта и цвет
+                    text = font.render(f'{value}', True, BLACK )  # значение, обтекание шрифта и цвет
 
                     w = column * SIZE_BLOCK + (column+1) * MARGIN
                     h = (row * SIZE_BLOCK + (row+1) * MARGIN) + 110
-                    pygame.draw.rect(screen, GRAY, (w, h, SIZE_BLOCK, SIZE_BLOCK))
+                    pygame.draw.rect(screen, COLORS[value], (w, h, SIZE_BLOCK, SIZE_BLOCK))  # 16.1 меняем цвет ячейки
+                    # в соответствии со значением из словаря COLORS
 
                     # 14.3 условие для вывода значения на квадрате
                     if value != 0:
