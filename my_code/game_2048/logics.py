@@ -48,3 +48,8 @@ def is_zero_in_mas(mas):
         if 0 in row:
             return True
     return False
+
+
+# 18. движение массива влево и схлопывание в нем чисел
+def move_left(mas):
+    pass
