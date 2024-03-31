@@ -81,6 +81,9 @@ while is_zero_in_mas(mas):
             pygame.quit()
             sys.exit(0)
         elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
+            # 19. подключаем функцию обработки события при нажатии кнопки влево на клавиатуре
+            if event.key == pygame.K_LEFT:
+                mas = move_left(mas)
             # 12.3 переносим данные цикла в это условие
             # input()
             empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
