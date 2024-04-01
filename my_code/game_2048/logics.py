@@ -79,3 +79,11 @@ def move_right(mas):
                 mas[i].pop(j-1)  # 20.4 удаляем соседа слева
                 mas[i].insert(0, 0)  # 20.5 нули вставляем в начало - индекс и значение
     return mas
+
+# 21. движение массива вверх и схлопывание в нем чисел
+def move_up(mas):
+    pass
+
+
+def move_down(mas):
+    pass
