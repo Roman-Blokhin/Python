@@ -101,7 +101,7 @@ def move_up(mas):
             mas[i][j] = column[i]  # 22.14 по индексу сохраняем номер элемента в колонке в массив
     return mas
 
-
+# 24. движение массива вниз и схлопывание в нем чисел
 def move_down(mas):
     for j in range(4):
         column = []
