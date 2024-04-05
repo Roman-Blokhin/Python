@@ -2,7 +2,8 @@
 
 import unittest  # 1. импортируем модуль для проведения тестов
 # 2. импортируем функции из др. файла:
-from logics import get_number_from_index, get_empty_list, get_index_from_number, is_zero_in_mas, move_left
+from logics import get_number_from_index, get_empty_list, get_index_from_number, is_zero_in_mas, move_left, move_down,\
+    move_up
 
 # 3. создаем класс проверки, наследуем от unittest.TestCase
 class Test_2048(unittest.TestCase):
@@ -130,3 +131,20 @@ class Test_2048(unittest.TestCase):
             [0, 0, 0, 0],
         ]
         self.assertEqual(move_up(mas), rez)
+
+
+    def test_15(self):  # 10. принимаем массив и сравниваем с новым, который уже схлопнулся, движение вниз
+        mas = [
+            [2, 8, 2, 4],
+            [2, 0, 2, 8],
+            [4, 0, 0, 4],
+            [4, 8, 2, 4],
+        ]
+
+        rez = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 4],
+            [4, 0, 2, 8],
+            [8, 16, 4, 8],
+        ]
+        self.assertEqual(move_down(mas), rez)
