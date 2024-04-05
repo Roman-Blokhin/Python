@@ -82,7 +82,7 @@ draw_interface()  # 17.2 вставляем функцию отрисовки и
 pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
 
 # 8. Создаем цикл игры
-while is_zero_in_mas(mas):
+while is_zero_in_mas(mas) or can_move(mas):
     for event in pygame.event.get():  # 12.1 обработка события - закрытие окна
         if event.type == pygame.QUIT:
             pygame.quit()

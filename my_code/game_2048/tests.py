@@ -3,7 +3,7 @@
 import unittest  # 1. импортируем модуль для проведения тестов
 # 2. импортируем функции из др. файла:
 from logics import get_number_from_index, get_empty_list, get_index_from_number, is_zero_in_mas, move_left, move_down,\
-    move_up
+    move_up, can_move
 
 # 3. создаем класс проверки, наследуем от unittest.TestCase
 class Test_2048(unittest.TestCase):
@@ -133,7 +133,7 @@ class Test_2048(unittest.TestCase):
         self.assertEqual(move_up(mas), rez)
 
 
-    def test_15(self):  # 10. принимаем массив и сравниваем с новым, который уже схлопнулся, движение вниз
+    def test_15(self):  # 11. принимаем массив и сравниваем с новым, который уже схлопнулся, движение вниз
         mas = [
             [2, 8, 2, 4],
             [2, 0, 2, 8],
@@ -148,3 +148,25 @@ class Test_2048(unittest.TestCase):
             [8, 16, 4, 8],
         ]
         self.assertEqual(move_down(mas), rez)
+
+
+    def test_16(self):  # 12. проверка на равенство соседних элементов
+        mas = [
+            [2, 8, 2, 4],
+            [2, 0, 2, 8],
+            [4, 0, 0, 4],
+            [4, 8, 2, 4],
+        ]
+
+        self.assertEqual(can_move(mas), True)
+
+
+    def test_17(self):  # 12. проверка на равенство соседних элементов
+        mas = [
+            [2, 8, 2, 4],
+            [21, 5, 50, 8],
+            [4, 44, 90, 4],
+            [43, 8, 2, 9],
+        ]
+
+        self.assertEqual(can_move(mas), False)
