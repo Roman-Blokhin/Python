@@ -101,6 +101,7 @@ def move_up(mas):
             mas[i][j] = column[i]  # 22.14 по индексу сохраняем номер элемента в колонке в массив
     return mas
 
+
 # 24. движение массива вниз и схлопывание в нем чисел
 def move_down(mas):
     for j in range(4):
@@ -118,3 +119,12 @@ def move_down(mas):
         for i in range(4):
             mas[i][j] = column[i]
     return mas
+
+
+# 25. игра не заканчивается, когда нулей в массиве уже не осталось, но есть одинаковые элементы по вертикали или гориз.
+def can_move(mas):
+    for i in range(3):
+        for j in range(3):
+            if mas[i][j] == mas[i][j + 1] or mas[i][j] == mas[i + 1][j]:  # 25.1 если элемент = соседу справа или снизу
+                return True
+    return False
