@@ -4,14 +4,16 @@ import sys
 
 
 # 17. Переносим всю отрисовку интерфейса в функцию
-def draw_interface():
+def draw_interface(score):
     pygame.draw.rect(screen, WHITE, TITLE_REC)
     # 14. создаем шрифт для отображения цифр на нашем игровом поле - название и размер
     font = pygame.font.SysFont('Comic Sans MS', 70)
     # 26. делаем еще один шрифт для отображения очков
     font_score = pygame.font.SysFont('simsun', 48)
     text_score = font_score.render('Score: ', True, COLOR_TEXT)  # 26.2 параметры текста очков
+    text_score_value = font_score.render(f'{score}', True, COLOR_TEXT)  # 27.1 параметры очков
     screen.blit(text_score, (20, 35)) # 26.3 вывод на экран
+    screen.blit(text_score_value, (200, 35)) # 27.2 вывод на экран очков
     # 15. Передвинули вывод массива в консоль перед отрисовкой игры, чтобы не было опоздания
     pretty_print(mas)
     # 13. рисуем квадраты игрового поля
@@ -70,6 +72,7 @@ SIZE_BLOCK = 110
 MARGIN = 10
 WIDTH = BLOCK * SIZE_BLOCK + MARGIN * (BLOCK + 1)
 HEIGHT = WIDTH + 110
+score = 0  # 27. заводим переменную для очков и передаем ее во все наши функции draw_interface(score)
 
 # 11. пишем визуал на pygame
 pygame.init()
@@ -85,7 +88,7 @@ mas[3][0] = 2
 print(get_empty_list(mas))
 pretty_print(mas)
 
-draw_interface()  # 17.2 вставляем функцию отрисовки интерфейса
+draw_interface(score)  # 17.2 вставляем функцию отрисовки интерфейса
 pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
 
 # 8. Создаем цикл игры
@@ -116,7 +119,7 @@ while is_zero_in_mas(mas) or can_move(mas):
             mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
             print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
 
-            draw_interface()  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
+            draw_interface(score)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
             pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
 
 # ----------------------------- COMMENTS ----------------------------
