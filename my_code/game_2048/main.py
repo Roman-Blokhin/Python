@@ -98,9 +98,10 @@ while is_zero_in_mas(mas) or can_move(mas):
             pygame.quit()
             sys.exit(0)
         elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
+            delta = 0  # 28.4 обнуляем наши очки
             # 19. подключаем функцию обработки события при нажатии кнопки влево на клавиатуре
             if event.key == pygame.K_LEFT:
-                mas = move_left(mas)
+                mas, delta = move_left(mas)  # 28.3 добавляем переменную дельта для корректности
             # 21. подключаем функцию обработки события при нажатии кнопки вправо на клавиатуре
             if event.key == pygame.K_RIGHT:
                 mas = move_right(mas)
@@ -110,6 +111,7 @@ while is_zero_in_mas(mas) or can_move(mas):
             # 25. подключаем функцию обработки события при нажатии кнопки вниз на клавиатуре
             if event.key == pygame.K_DOWN:
                 mas = move_down(mas)
+            score += delta  # 28.5 суммируем очки
             # 12.3 переносим данные цикла в это условие
             # input()
             empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
