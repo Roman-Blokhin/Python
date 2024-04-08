@@ -97,7 +97,7 @@ class Test_2048(unittest.TestCase):
             [8, 0, 0, 0],
             [8, 0, 0, 0],
         ]
-        self.assertEqual(move_left(mas), rez)
+        self.assertEqual(move_left(mas), (rez, 28))  # 28.2 добавляем значение delta для проверки
 
     def test_13(self):  # 9. принимаем массив и сравниваем с новым, который уже схлопнулся, движение влево
         mas = [
@@ -113,7 +113,7 @@ class Test_2048(unittest.TestCase):
             [4, 0, 0, 0],
             [8, 2, 0, 0],
         ]
-        self.assertEqual(move_left(mas), rez)
+        self.assertEqual(move_left(mas), (rez, 24))
 
 
     def test_14(self):  # 10. принимаем массив и сравниваем с новым, который уже схлопнулся, движение вверх
