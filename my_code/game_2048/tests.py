@@ -130,7 +130,7 @@ class Test_2048(unittest.TestCase):
             [0, 0, 0, 8],
             [0, 0, 0, 0],
         ]
-        self.assertEqual(move_up(mas), rez)
+        self.assertEqual(move_up(mas), (rez, 40))
 
 
     def test_15(self):  # 11. принимаем массив и сравниваем с новым, который уже схлопнулся, движение вниз
@@ -147,7 +147,7 @@ class Test_2048(unittest.TestCase):
             [4, 0, 2, 8],
             [8, 16, 4, 8],
         ]
-        self.assertEqual(move_down(mas), rez)
+        self.assertEqual(move_down(mas), (rez, 40))
 
 
     def test_16(self):  # 12. проверка на равенство соседних элементов

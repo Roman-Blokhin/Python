@@ -71,6 +71,7 @@ def move_left(mas):
 
 # 20. движение массива вправо и схлопывание в нем чисел
 def move_right(mas):
+    delta = 0
     for row in mas:
         while 0 in row:
             row.remove(0)
@@ -80,13 +81,15 @@ def move_right(mas):
         for j in range(3, 0, -1):  # 20.2 обходим колонки справа налево с шагом -1
             if mas[i][j] == mas[i][j - 1] and mas[i][j] != 0:  # 20.3 если индекс массива = соседу слева
                 mas[i][j] *= 2
+                delta += mas[i][j]
                 mas[i].pop(j - 1)  # 20.4 удаляем соседа слева
                 mas[i].insert(0, 0)  # 20.5 нули вставляем в начало - индекс и значение
-    return mas
+    return mas, delta
 
 
 # 22. движение массива вверх и схлопывание в нем чисел
 def move_up(mas):
+    delta = 0
     for j in range(4):  # 22.1 сначала мы обходим колонки
         column = []  # 22.2 создаем побочный список, куда будем добавлять числа(одномерный массив)
         for i in range(4):  # 22.3 проходимся по рядам
@@ -97,15 +100,17 @@ def move_up(mas):
         for i in range(3):  # 22.8 пробегаемся по элементам
             if column[i] == column[i + 1] and column[i] != 0:  # 22.9 если соседние элементы равны и текущий не = 0
                 column[i] *= 2  # 22.10 они схлопываются
+                delta += column[i]
                 column.pop(i + 1)  # 22.11 удаляем второй элемент
                 column.append(0)  # 22.12 добавляем вместо него 0
         for i in range(4):  # 22.13 обходим наши элементы
             mas[i][j] = column[i]  # 22.14 по индексу сохраняем номер элемента в колонке в массив
-    return mas
+    return mas, delta
 
 
 # 24. движение массива вниз и схлопывание в нем чисел
 def move_down(mas):
+    delta = 0
     for j in range(4):
         column = []
         for i in range(4):
@@ -116,11 +121,12 @@ def move_down(mas):
         for i in range(3, 0, -1):
             if column[i] == column[i - 1] and column[i] != 0:
                 column[i] *= 2
+                delta += column[i]
                 column.pop(i - 1)
                 column.insert(0, 0)
         for i in range(4):
             mas[i][j] = column[i]
-    return mas
+    return mas, delta
 
 
 # 25. игра не заканчивается, когда нулей в массиве уже не осталось, но есть одинаковые элементы по вертикали или гориз.

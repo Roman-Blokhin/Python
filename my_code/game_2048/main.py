@@ -104,13 +104,13 @@ while is_zero_in_mas(mas) or can_move(mas):
                 mas, delta = move_left(mas)  # 28.3 добавляем переменную дельта для корректности
             # 21. подключаем функцию обработки события при нажатии кнопки вправо на клавиатуре
             if event.key == pygame.K_RIGHT:
-                mas = move_right(mas)
+                mas, delta = move_right(mas)
             # 23. подключаем функцию обработки события при нажатии кнопки вверх на клавиатуре
             if event.key == pygame.K_UP:
-                mas = move_up(mas)
+                mas, delta = move_up(mas)
             # 25. подключаем функцию обработки события при нажатии кнопки вниз на клавиатуре
             if event.key == pygame.K_DOWN:
-                mas = move_down(mas)
+                mas, delta = move_down(mas)
             score += delta  # 28.5 суммируем очки
             # 12.3 переносим данные цикла в это условие
             # input()
