@@ -4,16 +4,25 @@ import sys
 
 
 # 17. Переносим всю отрисовку интерфейса в функцию
-def draw_interface(score):
+def draw_interface(score, delta=0):  # 29.0 дописываем в аргументы дельту, внизу кода тоже при выводе в цикле
     pygame.draw.rect(screen, WHITE, TITLE_REC)
     # 14. создаем шрифт для отображения цифр на нашем игровом поле - название и размер
     font = pygame.font.SysFont('Comic Sans MS', 70)
     # 26. делаем еще один шрифт для отображения очков
     font_score = pygame.font.SysFont('simsun', 48)
+    # 29. делаем шрифт для вывода новой цифры из delta
+    font_delta = pygame.font.SysFont('simsun', 28)
     text_score = font_score.render('Score: ', True, COLOR_TEXT)  # 26.2 параметры текста очков
     text_score_value = font_score.render(f'{score}', True, COLOR_TEXT)  # 27.1 параметры очков
     screen.blit(text_score, (20, 35)) # 26.3 вывод на экран
     screen.blit(text_score_value, (200, 35)) # 27.2 вывод на экран очков
+    # 29.1 условие вывода дельты на экран
+    if delta > 0:
+        text_delta = font_delta.render(f'+{delta}', True, COLOR_TEXT)
+        screen.blit(text_delta, (190, 75))
+    else:
+        text_delta = font_delta.render(f'+0', True, COLOR_TEXT)
+        screen.blit(text_delta, (190, 75))
     # 15. Передвинули вывод массива в консоль перед отрисовкой игры, чтобы не было опоздания
     pretty_print(mas)
     # 13. рисуем квадраты игрового поля
@@ -121,7 +130,7 @@ while is_zero_in_mas(mas) or can_move(mas):
             mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
             print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
 
-            draw_interface(score)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
+            draw_interface(score, delta)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
             pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
 
 # ----------------------------- COMMENTS ----------------------------
