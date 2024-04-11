@@ -26,6 +26,10 @@ ORDER by score DESC
 LIMIT 3
 """)
 
+# 7. выводим результат запроса базы данных в консоль и сохраняем в переменную
+result = cur.fetchall()
+print(result)
+
 # 4. закрываем курсор
 cur.close()
 
