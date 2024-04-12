@@ -18,17 +18,21 @@ create table if not exists RECORDS (
     score integer
 )""")
 
-# 6. создаем новую таблицу с корректным запросом вывода информации
-cur.execute("""
-SELECT name gamer, max(score) score FROM RECORDS
-GROUP by name
-ORDER by score DESC
-LIMIT 3
-""")
+# 8 создаем функцию для вывода 3 лучших игроков
+def get_best():
+    # 6. создаем новую таблицу с корректным запросом вывода информации
+    cur.execute("""
+    SELECT name gamer, max(score) score FROM RECORDS
+    GROUP by name
+    ORDER by score DESC
+    LIMIT 3
+    """)
+
+    return cur.fetchall()  # 7.1 возвращает число записей в виде упорядоченного списка
 
 # 7. выводим результат запроса базы данных в консоль и сохраняем в переменную
-result = cur.fetchall()
-print(result)
+#result = cur.fetchall()
+print(get_best())
 
 # 4. закрываем курсор
 cur.close()
