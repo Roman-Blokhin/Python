@@ -1,6 +1,7 @@
 from logics import *
 import pygame
 import sys
+from database import get_best, cur  # 30. импортируем данные
 
 
 # 17. Переносим всю отрисовку интерфейса в функцию
@@ -19,10 +20,10 @@ def draw_interface(score, delta=0):  # 29.0 дописываем в аргуме
     # 29.1 условие вывода дельты на экран
     if delta > 0:
         text_delta = font_delta.render(f'+{delta}', True, COLOR_TEXT)
-        screen.blit(text_delta, (190, 75))
+        screen.blit(text_delta, (200, 10))
     else:
         text_delta = font_delta.render(f'+0', True, COLOR_TEXT)
-        screen.blit(text_delta, (190, 75))
+        screen.blit(text_delta, (200, 10))
     # 15. Передвинули вывод массива в консоль перед отрисовкой игры, чтобы не было опоздания
     pretty_print(mas)
     # 13. рисуем квадраты игрового поля
@@ -96,6 +97,10 @@ mas[3][0] = 2
 
 print(get_empty_list(mas))
 pretty_print(mas)
+
+# 30. выводим всех лучших игроков сначала в консоль
+for gamer in get_best():
+    print(gamer)
 
 draw_interface(score)  # 17.2 вставляем функцию отрисовки интерфейса
 pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
