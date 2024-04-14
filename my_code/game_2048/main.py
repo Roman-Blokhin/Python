@@ -4,6 +4,17 @@ import sys
 from database import get_best, cur  # 30. импортируем данные
 
 
+# 31. функция для отображения топовых игроков
+def draw_top_gamers():
+    font_top = pygame.font.SysFont('simsun', 30)
+    text_top = font_top.render('Total:', True, COLOR_TEXT)
+    screen.blit(text_top, (300, 5))
+
+    font_top_gamers = pygame.font.SysFont('simsun', 24)
+    text_top_gamers = font_top_gamers.render('al: ', True, COLOR_TEXT)
+    screen.blit(text_top_gamers, (300, 55))
+
+
 # 17. Переносим всю отрисовку интерфейса в функцию
 def draw_interface(score, delta=0):  # 29.0 дописываем в аргументы дельту, внизу кода тоже при выводе в цикле
     pygame.draw.rect(screen, WHITE, TITLE_REC)
@@ -15,8 +26,8 @@ def draw_interface(score, delta=0):  # 29.0 дописываем в аргуме
     font_delta = pygame.font.SysFont('simsun', 28)
     text_score = font_score.render('Score: ', True, COLOR_TEXT)  # 26.2 параметры текста очков
     text_score_value = font_score.render(f'{score}', True, COLOR_TEXT)  # 27.1 параметры очков
-    screen.blit(text_score, (20, 35)) # 26.3 вывод на экран
-    screen.blit(text_score_value, (200, 35)) # 27.2 вывод на экран очков
+    screen.blit(text_score, (20, 35))  # 26.3 вывод на экран
+    screen.blit(text_score_value, (200, 35))  # 27.2 вывод на экран очков
     # 29.1 условие вывода дельты на экран
     if delta > 0:
         text_delta = font_delta.render(f'+{delta}', True, COLOR_TEXT)
@@ -26,15 +37,17 @@ def draw_interface(score, delta=0):  # 29.0 дописываем в аргуме
         screen.blit(text_delta, (200, 10))
     # 15. Передвинули вывод массива в консоль перед отрисовкой игры, чтобы не было опоздания
     pretty_print(mas)
+    # 32. выводим функцию топовых игроков
+    draw_top_gamers()
     # 13. рисуем квадраты игрового поля
     for row in range(BLOCK):
         for column in range(BLOCK):
             # 14.1 находим значение ,которое хранится в массиве
             value = mas[row][column]
             # 14.2 прописываем, что будем писать и как
-            text = font.render(f'{value}', True, BLACK )  # значение, обтекание шрифта и цвет
-            w = column * SIZE_BLOCK + (column+1) * MARGIN
-            h = (row * SIZE_BLOCK + (row+1) * MARGIN) + 110
+            text = font.render(f'{value}', True, BLACK)  # значение, обтекание шрифта и цвет
+            w = column * SIZE_BLOCK + (column + 1) * MARGIN
+            h = (row * SIZE_BLOCK + (row + 1) * MARGIN) + 110
             pygame.draw.rect(screen, COLORS[value], (w, h, SIZE_BLOCK, SIZE_BLOCK))  # 16.1 меняем цвет ячейки
             # в соответствии со значением из словаря COLORS
             # 14.3 условие для вывода значения на квадрате
