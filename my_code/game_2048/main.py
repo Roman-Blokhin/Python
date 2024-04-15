@@ -6,13 +6,18 @@ from database import get_best, cur  # 30. импортируем данные
 
 # 31. функция для отображения топовых игроков
 def draw_top_gamers():
+    # 31.1 главный текст
     font_top = pygame.font.SysFont('simsun', 30)
     text_top = font_top.render('Total:', True, COLOR_TEXT)
     screen.blit(text_top, (300, 5))
 
+    # 31.2 текст для игроков
     font_top_gamers = pygame.font.SysFont('simsun', 24)
     text_top_gamers = font_top_gamers.render('al: ', True, COLOR_TEXT)
     screen.blit(text_top_gamers, (300, 55))
+    # 31.4 обходим коллекцию из БД с указанием индекса и имен
+    for index, gamer in enumerate(GAMERS_DB):  # enumerate выводит сначала индекс, а потом значение
+        print(index, gamer)
 
 
 # 17. Переносим всю отрисовку интерфейса в функцию
@@ -27,14 +32,14 @@ def draw_interface(score, delta=0):  # 29.0 дописываем в аргуме
     text_score = font_score.render('Score: ', True, COLOR_TEXT)  # 26.2 параметры текста очков
     text_score_value = font_score.render(f'{score}', True, COLOR_TEXT)  # 27.1 параметры очков
     screen.blit(text_score, (20, 35))  # 26.3 вывод на экран
-    screen.blit(text_score_value, (200, 35))  # 27.2 вывод на экран очков
+    screen.blit(text_score_value, (175, 35))  # 27.2 вывод на экран очков
     # 29.1 условие вывода дельты на экран
     if delta > 0:
         text_delta = font_delta.render(f'+{delta}', True, COLOR_TEXT)
-        screen.blit(text_delta, (200, 10))
+        screen.blit(text_delta, (175, 10))
     else:
         text_delta = font_delta.render(f'+0', True, COLOR_TEXT)
-        screen.blit(text_delta, (200, 10))
+        screen.blit(text_delta, (175, 10))
     # 15. Передвинули вывод массива в консоль перед отрисовкой игры, чтобы не было опоздания
     pretty_print(mas)
     # 32. выводим функцию топовых игроков
@@ -96,6 +101,9 @@ MARGIN = 10
 WIDTH = BLOCK * SIZE_BLOCK + MARGIN * (BLOCK + 1)
 HEIGHT = WIDTH + 110
 score = 0  # 27. заводим переменную для очков и передаем ее во все наши функции draw_interface(score)
+
+# 31.3 переменная для сохранения 3 лучших игроков
+GAMERS_DB = get_best()
 
 # 11. пишем визуал на pygame
 pygame.init()
