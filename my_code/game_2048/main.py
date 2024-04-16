@@ -12,12 +12,15 @@ def draw_top_gamers():
     screen.blit(text_top, (300, 5))
 
     # 31.2 текст для игроков
-    font_top_gamers = pygame.font.SysFont('simsun', 24)
-    text_top_gamers = font_top_gamers.render('al: ', True, COLOR_TEXT)
-    screen.blit(text_top_gamers, (300, 55))
+    font_top_gamers = pygame.font.SysFont('simsun', 20)
     # 31.4 обходим коллекцию из БД с указанием индекса и имен
     for index, gamer in enumerate(GAMERS_DB):  # 31.5 enumerate выводит сначала индекс, а потом значение
         name, score = gamer  # 31.6 распаковали кортеж, убрали все скобки и кавычки
+        # 31.7 делаем динамичный текст для вывода победителей
+        s = f'{index}.{name}: {score}'
+        text_top_gamers = font_top_gamers.render(s, True, COLOR_TEXT)
+        screen.blit(text_top_gamers, (300, 35 + 22 * index))  # 31.7 используем 35 + 22 * index, чтобы выводились игроки
+
         print(index, name, score)
 
 
