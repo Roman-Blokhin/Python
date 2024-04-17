@@ -127,6 +127,26 @@ pretty_print(mas)
 for gamer in get_best():
     print(gamer)
 
+
+# 32. делаем заставку перед началом игры
+def draw_intro():
+    img2048 = pygame.image.load('2048_logo.png')  # 32.1 загружаем в переменную картинку
+    # 32.2 делаем цикл обработки событий
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit(0)
+
+        # 32.3 прикрепляем картинку к экрану, указываем уменьшение размера, координаты и обновляем экран
+        screen.blit(pygame.transform.scale(img2048, [200, 200]), [10, 10])
+        pygame.display.update()
+
+
+# 32. отрисовываем заставку
+draw_intro()
+
+
 draw_interface(score)  # 17.2 вставляем функцию отрисовки интерфейса
 pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
 
