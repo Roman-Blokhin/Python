@@ -131,6 +131,10 @@ for gamer in get_best():
 # 32. делаем заставку перед началом игры
 def draw_intro():
     img2048 = pygame.image.load('2048_logo.png')  # 32.1 загружаем в переменную картинку
+    # 33 шрифт и приветственный текст
+    font_welcome = pygame.font.SysFont('Comic Sans MS', 50)
+    text_welcome = font_welcome.render('Welcome', True, COLOR_TEXT)
+
     # 32.2 делаем цикл обработки событий
     while True:
         for event in pygame.event.get():
@@ -140,10 +144,13 @@ def draw_intro():
 
         # 32.3 прикрепляем картинку к экрану, указываем уменьшение размера, координаты и обновляем экран
         screen.blit(pygame.transform.scale(img2048, [200, 200]), [10, 10])
+        # 33.1 выводим приветственную надпись
+        screen.blit(text_welcome, (240, 75))
+
         pygame.display.update()
 
 
-# 32. отрисовываем заставку
+# 32.4 отрисовываем заставку
 draw_intro()
 
 
