@@ -133,7 +133,9 @@ def draw_intro():
     img2048 = pygame.image.load('2048_logo.png')  # 32.1 загружаем в переменную картинку
     # 33 шрифт и приветственный текст
     font_welcome = pygame.font.SysFont('Comic Sans MS', 50)
-    text_welcome = font_welcome.render('Welcome', True, COLOR_TEXT)
+    text_welcome = font_welcome.render('Welcome', True, WHITE)
+    # 34 создаем текст, который будет вводить пользователь
+    name = 'text'
 
     # 32.2 делаем цикл обработки событий
     while True:
@@ -141,6 +143,10 @@ def draw_intro():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
+
+        # 34.1 Размещаем на экране имя игрока
+        text_name = font_welcome.render(name, True, WHITE)
+        screen.blit(text_name, (140, 275))
 
         # 32.3 прикрепляем картинку к экрану, указываем уменьшение размера, координаты и обновляем экран
         screen.blit(pygame.transform.scale(img2048, [200, 200]), [10, 10])
