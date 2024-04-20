@@ -135,7 +135,7 @@ def draw_intro():
     font_welcome = pygame.font.SysFont('Comic Sans MS', 50)
     text_welcome = font_welcome.render('Welcome', True, WHITE)
     # 34 создаем текст, который будет вводить пользователь
-    name = 'text'
+    name = 'Roman'
 
     # 32.2 делаем цикл обработки событий
     while True:
@@ -146,7 +146,9 @@ def draw_intro():
 
         # 34.1 Размещаем на экране имя игрока
         text_name = font_welcome.render(name, True, WHITE)
-        screen.blit(text_name, (140, 275))
+        rect_name = text_name.get_rect()  # 34.2 узнаем размер текста
+        rect_name.center = screen.get_rect().center  # 34.3 подменяем координаты надписи и экрана
+        screen.blit(text_name, rect_name)  # 34.4 размещаем текст по координатам в rect_name
 
         # 32.3 прикрепляем картинку к экрану, указываем уменьшение размера, координаты и обновляем экран
         screen.blit(pygame.transform.scale(img2048, [200, 200]), [10, 10])
