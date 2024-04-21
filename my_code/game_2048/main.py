@@ -143,6 +143,12 @@ def draw_intro():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
+            # 35 делаем возможность добавлять буквы к нашему тексту имени
+            elif event.type == pygame.KEYDOWN:
+                if event.unicode.isalpha():  # 35.1 если нажатая клавиша(unicode) буква(isalpha)
+                    name += event.unicode  # 35.2 прибавляем букву
+
+        screen.fill(BLACK)  # 35.3 заливаем экран черным, чтобы он обновлялся после введения буквы
 
         # 34.1 Размещаем на экране имя игрока
         text_name = font_welcome.render(name, True, WHITE)
