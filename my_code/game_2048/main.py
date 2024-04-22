@@ -147,6 +147,8 @@ def draw_intro():
             elif event.type == pygame.KEYDOWN:
                 if event.unicode.isalpha():  # 35.1 если нажатая клавиша(unicode) буква(isalpha)
                     name += event.unicode  # 35.2 прибавляем букву
+                elif event.key == pygame.K_BACKSPACE:  # 35.3 если нажат бекспейс
+                    name = name[:-1]  # 35.4 делаем срез, который удаляет последнюю букву
 
         screen.fill(BLACK)  # 35.3 заливаем экран черным, чтобы он обновлялся после введения буквы
 
