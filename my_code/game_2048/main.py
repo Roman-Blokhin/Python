@@ -105,6 +105,7 @@ MARGIN = 10
 WIDTH = BLOCK * SIZE_BLOCK + MARGIN * (BLOCK + 1)
 HEIGHT = WIDTH + 110
 score = 0  # 27. заводим переменную для очков и передаем ее во все наши функции draw_interface(score)
+USERNAME = None  # 36.1 константа имени пользователя
 
 # 31.3 переменная для сохранения 3 лучших игроков
 GAMERS_DB = get_best()
@@ -149,6 +150,10 @@ def draw_intro():
                     name += event.unicode  # 35.2 прибавляем букву
                 elif event.key == pygame.K_BACKSPACE:  # 35.3 если нажат бекспейс
                     name = name[:-1]  # 35.4 делаем срез, который удаляет последнюю букву
+                elif event.key == pygame.K_RETURN:  # 36 нажатие на enter и сохранение имя пользователя в переменную
+                    if len(name) > 2:
+                        global USERNAME
+                        USERNAME = name
 
         screen.fill(BLACK)  # 35.3 заливаем экран черным, чтобы он обновлялся после введения буквы
 
@@ -168,7 +173,6 @@ def draw_intro():
 
 # 32.4 отрисовываем заставку
 draw_intro()
-
 
 draw_interface(score)  # 17.2 вставляем функцию отрисовки интерфейса
 pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
