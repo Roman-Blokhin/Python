@@ -147,8 +147,11 @@ def draw_intro():
                 sys.exit(0)
             # 35 делаем возможность добавлять буквы к нашему тексту имени
             elif event.type == pygame.KEYDOWN:
-                if event.unicode.isalpha():  # 35.1 если нажатая клавиша(unicode) буква(isalpha)
-                    name += event.unicode  # 35.2 прибавляем букву
+                if event.unicode.isalpha():  # 35.1 если нажатая клавиша(unicode), то буква(isalpha)..
+                    if name == 'Введите имя':  # 37.2 если надпись "Введите имя", то новая буква затирает ее
+                        name = event.unicode
+                    else:
+                        name += event.unicode  # 35.2 прибавляем букву
                 elif event.key == pygame.K_BACKSPACE:  # 35.3 если нажат бекспейс
                     name = name[:-1]  # 35.4 делаем срез, который удаляет последнюю букву
                 elif event.key == pygame.K_RETURN:  # 36 нажатие на enter и сохранение имя пользователя в переменную
@@ -211,6 +214,6 @@ while is_zero_in_mas(mas) or can_move(mas):
 
             draw_interface(score, delta)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
             pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
-        print(USERNAME)
+        # print(USERNAME)
 # ----------------------------- COMMENTS ----------------------------
 # массив можно писать в таком виде: mas_2 = [[0]*4 for i in range(4)]
