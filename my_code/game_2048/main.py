@@ -136,10 +136,11 @@ def draw_intro():
     font_welcome = pygame.font.SysFont('Comic Sans MS', 50)
     text_welcome = font_welcome.render('Welcome', True, WHITE)
     # 34 создаем текст, который будет вводить пользователь
-    name = 'Roman'
+    name = 'Введите имя'
+    is_find_name = False  # 37 переменная, которая будет завершать наш цикл
 
     # 32.2 делаем цикл обработки событий
-    while True:
+    while not is_find_name:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -154,6 +155,7 @@ def draw_intro():
                     if len(name) > 2:
                         global USERNAME
                         USERNAME = name
+                        is_find_name = True
 
         screen.fill(BLACK)  # 35.3 заливаем экран черным, чтобы он обновлялся после введения буквы
 
@@ -169,7 +171,7 @@ def draw_intro():
         screen.blit(text_welcome, (240, 75))
 
         pygame.display.update()
-
+    screen.fill(BLACK)  # 37.1 обновления фона после ввода имени
 
 # 32.4 отрисовываем заставку
 draw_intro()
@@ -209,6 +211,6 @@ while is_zero_in_mas(mas) or can_move(mas):
 
             draw_interface(score, delta)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
             pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
-
+        print(USERNAME)
 # ----------------------------- COMMENTS ----------------------------
 # массив можно писать в таком виде: mas_2 = [[0]*4 for i in range(4)]
