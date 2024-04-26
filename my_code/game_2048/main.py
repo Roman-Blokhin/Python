@@ -201,11 +201,11 @@ def draw_game_over():
             screen.blit(text_game_over, (220, 75))
 
             font_finisher = pygame.font.SysFont('Comic Sans MS', 50)
-            text_finisher = font_finisher.render(USERNAME, True, WHITE)
+            text_finisher = font_finisher.render(f'{USERNAME}: {score}', True, WHITE)
 
-            rect_finisher = text_finisher.get_rect()  # 34.2 узнаем размер текста
-            rect_finisher.center = screen.get_rect().center  # 34.3 подменяем координаты надписи и экрана
-            screen.blit(text_finisher, rect_finisher)  # 34.4 размещаем текст по координатам в rect_name
+            rect_finisher = text_finisher.get_rect()
+            rect_finisher.center = screen.get_rect().center
+            screen.blit(text_finisher, rect_finisher)
 
             #screen.blit(text_finisher, (150, 275))
 
