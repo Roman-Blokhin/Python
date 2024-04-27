@@ -1,7 +1,7 @@
 from logics import *
 import pygame
 import sys
-from database import get_best, cur  # 30. импортируем данные
+from database import get_best, cur, insert_result  # 30. импортируем данные
 
 
 # 31. функция для отображения топовых игроков
@@ -198,6 +198,9 @@ def draw_game_over():
         text = f'Рекорд прежний: {best_record}'
     font_record = pygame.font.SysFont('Comic Sans MS', 30)
     text_record = font_record.render(text, True, COLOR_TEXT)
+
+    # 40 функция сохранения игрока и счета в БД
+    insert_result(USERNAME, score)
 
     while True:
         for event in pygame.event.get():
