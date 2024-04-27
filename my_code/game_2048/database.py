@@ -18,11 +18,13 @@ create table if not exists RECORDS (
     score integer
 )""")
 
-# 9 функция, которая добавляет нового пользователя и очки в базу
-def insert_result():
+
+# 9 функция, которая добавляет нового пользователя и очки в базу, учитывая аргументы name и score
+# в SQL КОДЕ ПРОПИСЫВАЕМ ЗНАКИ "?", А ПОСЛЕ САМОГО КОДА УКАЗЫВАЕМ АРГУМЕНТЫ, ОНИ ПОЙДУТ В ЗНАКИ "?"
+def insert_result(name, score):
     cur.execute("""
-        insert into RECORDS values ('WWW', 1500)
-    """)
+        insert into RECORDS values (?, ?)
+    """, (name, score))
     bd.commit()
 
 
@@ -38,12 +40,13 @@ def get_best():
 
     return cur.fetchall()  # 7.1 возвращает число записей в виде упорядоченного списка
 
+
 # 7. выводим результат запроса базы данных в консоль и сохраняем в переменную
-#result = cur.fetchall()
+# result = cur.fetchall()
 print(get_best())
 
 # 9.1 вызываем функцию
-insert_result()
+insert_result("qqq", "89")
 
 # 4. закрываем курсор
 # cur.close()  # 9 удаляем строчку закрытия курсора, потому что будем выводить данные в программу
