@@ -177,13 +177,6 @@ def draw_intro():
     screen.fill(BLACK)  # 37.1 обновления фона после ввода имени
 
 
-# 32.4 отрисовываем заставку
-draw_intro()
-
-draw_interface(score)  # 17.2 вставляем функцию отрисовки интерфейса
-pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
-
-
 # 38 создаем цикл для окна game over, он похож с приветственным окном
 def draw_game_over():
     img2048 = pygame.image.load('2048_logo.png')
@@ -225,44 +218,55 @@ def draw_game_over():
 
         pygame.display.update()
 
+# 41. функция, в которую мы переносим весь цикл игры и обращаемся к глобальной score и mas
+def game_loop():
+    global score, mas
+    draw_interface(score)  # 17.2 вставляем функцию отрисовки интерфейса
+    pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
 
-# 8. Создаем цикл игры
-while is_zero_in_mas(mas) or can_move(mas):
-    for event in pygame.event.get():  # 12.1 обработка события - закрытие окна
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit(0)
-        elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
-            delta = 0  # 28.4 обнуляем наши очки
-            # 19. подключаем функцию обработки события при нажатии кнопки влево на клавиатуре
-            if event.key == pygame.K_LEFT:
-                mas, delta = move_left(mas)  # 28.3 добавляем переменную дельта для корректности
-            # 21. подключаем функцию обработки события при нажатии кнопки вправо на клавиатуре
-            if event.key == pygame.K_RIGHT:
-                mas, delta = move_right(mas)
-            # 23. подключаем функцию обработки события при нажатии кнопки вверх на клавиатуре
-            if event.key == pygame.K_UP:
-                mas, delta = move_up(mas)
-            # 25. подключаем функцию обработки события при нажатии кнопки вниз на клавиатуре
-            if event.key == pygame.K_DOWN:
-                mas, delta = move_down(mas)
-            score += delta  # 28.5 суммируем очки
+    # 8. Создаем цикл игры
+    while is_zero_in_mas(mas) or can_move(mas):
+        for event in pygame.event.get():  # 12.1 обработка события - закрытие окна
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit(0)
+            elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
+                delta = 0  # 28.4 обнуляем наши очки
+                # 19. подключаем функцию обработки события при нажатии кнопки влево на клавиатуре
+                if event.key == pygame.K_LEFT:
+                    mas, delta = move_left(mas)  # 28.3 добавляем переменную дельта для корректности
+                # 21. подключаем функцию обработки события при нажатии кнопки вправо на клавиатуре
+                if event.key == pygame.K_RIGHT:
+                    mas, delta = move_right(mas)
+                # 23. подключаем функцию обработки события при нажатии кнопки вверх на клавиатуре
+                if event.key == pygame.K_UP:
+                    mas, delta = move_up(mas)
+                # 25. подключаем функцию обработки события при нажатии кнопки вниз на клавиатуре
+                if event.key == pygame.K_DOWN:
+                    mas, delta = move_down(mas)
+                score += delta  # 28.5 суммируем очки
 
-            # 38.1 дополнительная проверка, чтобы цикл заканчивался корректно, если при нажатии нет вариантов
-            if is_zero_in_mas(mas):
-                # 12.3 переносим данные цикла в это условие
-                # input()
-                empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
-                random.shuffle(empty)  # 8.2 перемешивает элементы массива
-                random_num = empty.pop()  # 8.3 удаляет последний элемент списка и возвращает его в переменную num
-                x, y = get_index_from_number(random_num)  # 8.4 получаем координаты нашего числа
-                mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
-                print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
+                # 38.1 дополнительная проверка, чтобы цикл заканчивался корректно, если при нажатии нет вариантов
+                if is_zero_in_mas(mas):
+                    # 12.3 переносим данные цикла в это условие
+                    # input()
+                    empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
+                    random.shuffle(empty)  # 8.2 перемешивает элементы массива
+                    random_num = empty.pop()  # 8.3 удаляет последний элемент списка и возвращает его в переменную num
+                    x, y = get_index_from_number(random_num)  # 8.4 получаем координаты нашего числа
+                    mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
+                    print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
 
-            draw_interface(score, delta)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
-            pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
-        # print(USERNAME)
+                draw_interface(score, delta)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
+                pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
+            # print(USERNAME)
 
+
+
+# 32.4 отрисовываем заставку
+draw_intro()
+# 41.1 вызываем функцию игрового цикла
+game_loop()
 draw_game_over()
 # ----------------------------- COMMENTS ----------------------------
 # массив можно писать в таком виде: mas_2 = [[0]*4 for i in range(4)]
