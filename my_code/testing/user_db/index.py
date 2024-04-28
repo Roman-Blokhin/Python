@@ -23,25 +23,29 @@ pygame.display.set_caption('База данных юзеров')
 
 def intro():
     is_find_name = False
+    name = 'Enter your name:'
     while not is_find_name:
-        name = 'Enter your name:'
-        font = pygame.font.SysFont('Comic Sans MS', 20)
-        name_text = font.render(name, True, WHITE)
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
 
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_BACKSPACE:
+                if event.unicode.isalpha():
+                    if name == 'Enter your name:':
+                        name = event.unicode
+                    else:
+                        name += event.unicode
+                elif event.key == pygame.K_BACKSPACE:
                     name = name[:-1]
                 elif event.key == pygame.K_RETURN:
                     global USERNAME
                     USERNAME = name
                     is_find_name = True
 
+        screen.fill(BLACK)
+        font = pygame.font.SysFont('Comic Sans MS', 20)
+        name_text = font.render(name, True, WHITE)
         screen.blit(name_text, (20, 20))
-
         pygame.display.update()
 
 intro()
