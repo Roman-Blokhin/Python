@@ -49,3 +49,17 @@ def intro():
         pygame.display.update()
 
 intro()
+
+def game_over():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+        screen.fill(BLACK)
+        font = pygame.font.SysFont('Comic Sans MS', 20)
+        name_text = font.render('Total champions:', True, WHITE)
+        screen.blit(name_text, (20, 20))
+        pygame.display.update()
+
+game_over()
