@@ -18,6 +18,13 @@ def get_best():
     """)
     return cur.fetchall()
 
+def insert_result(name, score):
+    cur.execute("""
+        insert into USERS values(?, ?)
+    """, (name, score))
+    bd.commit()
+
+
 print(get_best())
 
 # cur.close()

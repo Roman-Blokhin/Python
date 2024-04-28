@@ -1,5 +1,5 @@
 import pygame
-from data_base import get_best
+from data_base import get_best, insert_result
 
 pygame.init()
 
@@ -82,6 +82,7 @@ def score():
 
 
 def game_over():
+    insert_result(USERNAME, USERNUM)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -101,7 +102,7 @@ def game_over():
 
         pygame.display.update()
 
-
 intro()
 score()
 game_over()
+
