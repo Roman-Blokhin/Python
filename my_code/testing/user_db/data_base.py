@@ -9,4 +9,15 @@ create table if not exists USERS (
     score integer
 ) """)
 
-cur.close()
+def get_best():
+    cur.execute("""
+    SELECT name gamer, max(score) score FROM USERS
+    GROUP by name
+    ORDER by score DESC
+    LIMIT 3
+    """)
+    return cur.fetchall()
+
+print(get_best())
+
+# cur.close()
