@@ -1,11 +1,12 @@
 import pygame
+from data_base import get_best
 
 pygame.init()
 
 # ------------------------------------------ VARIABLES ------------------------------------------
 
 FRAME_COLOR = (100, 100, 100)
-RED = (155, 0, 0)
+RED = (205, 0, 0)
 GREEN = (0, 155, 0)
 BLUE = (0, 0, 155)
 BLACK = (0, 0, 0)
@@ -14,6 +15,7 @@ WHITE = (255, 255, 255)
 size = (400, 400)
 USERNAME = None
 USERNUM = None
+GAMERS_DB = get_best()
 
 # ------------------------------------------ WINDOW ------------------------------------------
 
@@ -86,9 +88,17 @@ def game_over():
                 pygame.quit()
 
         screen.fill(BLACK)
-        font = pygame.font.SysFont('Comic Sans MS', 20)
-        name_text = font.render('Total champions:', True, WHITE)
+        font = pygame.font.SysFont('Comic Sans MS', 30)
+        name_text = font.render('Total champions:', True, RED)
         screen.blit(name_text, (20, 20))
+
+        font_gamers = pygame.font.SysFont('Comic Sans MS', 20)
+        for index, gamer in enumerate(GAMERS_DB):
+            name, score = gamer
+            s = f'{index+1}. {name}: {score}'
+            name_gamers = font_gamers.render(s, True, WHITE)
+            screen.blit(name_gamers, (20, 75 + 22 * index))
+
         pygame.display.update()
 
 
