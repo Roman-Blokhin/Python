@@ -201,6 +201,13 @@ def draw_game_over():
                 pygame.quit()
                 sys.exit(0)
 
+            # 42 обработка нажатия пробела и интер в конце игры
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:  # 42.1 рестарт с именем
+                    pass
+                elif event.key == pygame.K_RETURN:  # 42.2 рестарт без имени
+                    pass
+
         # 38.2 отображение картинки
         screen.fill(BLACK)
         screen.blit(pygame.transform.scale(img2048, [200, 200]), [10, 10])
