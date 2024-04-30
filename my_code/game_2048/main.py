@@ -179,6 +179,7 @@ def draw_intro():
 
 # 38 создаем цикл для окна game over, он похож с приветственным окном
 def draw_game_over():
+    global USERNAME
     img2048 = pygame.image.load('2048_logo.png')
     font_game_over = pygame.font.SysFont('Comic Sans MS', 50)
     text_game_over = font_game_over.render('Game Over', True, WHITE)
@@ -206,7 +207,7 @@ def draw_game_over():
                 if event.key == pygame.K_SPACE:  # 42.1 рестарт с именем
                     pass
                 elif event.key == pygame.K_RETURN:  # 42.2 рестарт без имени
-                    pass
+                    USERNAME = None  # 42.3 возвращаем значение имени к 0, переменная должна быть глобальная в функции
 
         # 38.2 отображение картинки
         screen.fill(BLACK)
@@ -268,12 +269,13 @@ def game_loop():
                 pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
             # print(USERNAME)
 
-
-
-# 32.4 отрисовываем заставку
-draw_intro()
-# 41.1 вызываем функцию игрового цикла
-game_loop()
-draw_game_over()
+# 42.4 добавляем все в цикл, если имя не определено, выдаем заставку для ввода имени, если введено, продолжаем игру
+while True:
+    if USERNAME is None:
+        # 32.4 отрисовываем заставку
+        draw_intro()
+    # 41.1 вызываем функцию игрового цикла
+    game_loop()
+    draw_game_over()
 # ----------------------------- COMMENTS ----------------------------
 # массив можно писать в таком виде: mas_2 = [[0]*4 for i in range(4)]
