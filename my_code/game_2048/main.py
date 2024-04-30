@@ -196,7 +196,9 @@ def draw_game_over():
     # 40 функция сохранения игрока и счета в БД
     insert_result(USERNAME, score)
 
-    while True:
+    # 42.5 выходим из бесконечного цикла до принятия решения, делаем переменную и добавляем ее в варианты событий
+    make_decision = False
+    while not make_decision:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -205,9 +207,10 @@ def draw_game_over():
             # 42 обработка нажатия пробела и интер в конце игры
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:  # 42.1 рестарт с именем
-                    pass
+                    make_decision = True  # 42.6 решение принято
                 elif event.key == pygame.K_RETURN:  # 42.2 рестарт без имени
                     USERNAME = None  # 42.3 возвращаем значение имени к 0, переменная должна быть глобальная в функции
+                    make_decision = True  # 42.6 решение принято
 
         # 38.2 отображение картинки
         screen.fill(BLACK)
