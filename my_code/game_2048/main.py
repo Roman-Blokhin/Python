@@ -179,7 +179,7 @@ def draw_intro():
 
 # 38 создаем цикл для окна game over, он похож с приветственным окном
 def draw_game_over():
-    global USERNAME
+    global USERNAME, mas, score
     img2048 = pygame.image.load('2048_logo.png')
     font_game_over = pygame.font.SysFont('Comic Sans MS', 50)
     text_game_over = font_game_over.render('Game Over', True, WHITE)
@@ -208,9 +208,25 @@ def draw_game_over():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:  # 42.1 рестарт с именем
                     make_decision = True  # 42.6 решение принято
+                    # 42.7 обнуляем наш массив и очки
+                    mas = [
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                    ]
+                    score = 0
                 elif event.key == pygame.K_RETURN:  # 42.2 рестарт без имени
                     USERNAME = None  # 42.3 возвращаем значение имени к 0, переменная должна быть глобальная в функции
                     make_decision = True  # 42.6 решение принято
+                    # 42.7 обнуляем наш массив и очки
+                    mas = [
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                    ]
+                    score = 0
 
         # 38.2 отображение картинки
         screen.fill(BLACK)
@@ -228,6 +244,7 @@ def draw_game_over():
         screen.blit(text_record, [100, 450])
 
         pygame.display.update()
+    screen.fill(BLACK)
 
 # 41. функция, в которую мы переносим весь цикл игры и обращаемся к глобальной score и mas
 def game_loop():
