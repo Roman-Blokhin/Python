@@ -108,6 +108,15 @@ def init_constant():
         [0, 0, 0, 0],
     ]
     score = 0  # 27. заводим переменную для очков и передаем ее во все наши функции draw_interface(score)
+    # 44 вставляем рандомные цифры в рандомных местах
+    empty = get_empty_list(mas)
+    random.shuffle(empty)
+    random_num_1 = empty.pop()  # 44.1 рандомное число 1
+    random_num_2 = empty.pop()  # 44.2 рандомное число 2
+    x_1, y_1 = get_index_from_number(random_num_1)
+    x_2, y_2 = get_index_from_number(random_num_2)
+    mas = insert_2_or_4(mas, x_1, y_1)
+    mas = insert_2_or_4(mas, x_2, y_2)
 
 # 43.1 так как у нас нет глобальных score и mas, задаем им начальные значения
 mas = None
@@ -125,9 +134,8 @@ pygame.display.set_caption('2048')
 TITLE_REC = pygame.Rect(0, 0, WIDTH, 110)  # 11.1 задаем координаты прямоугольника
 
 # 2. мы можем положить определенные числа в наши ячейки. берем индекс эл. по Х и У
-
-mas[1][2] = 2
-mas[3][0] = 2
+# mas[1][2] = 2
+# mas[3][0] = 2
 
 print(get_empty_list(mas))
 pretty_print(mas)
