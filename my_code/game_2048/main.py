@@ -195,7 +195,7 @@ def draw_intro():
 
 # 38 создаем цикл для окна game over, он похож с приветственным окном
 def draw_game_over():
-    global USERNAME, mas, score
+    global USERNAME, mas, score, GAMERS_DB
     img2048 = pygame.image.load('2048_logo.png')
     font_game_over = pygame.font.SysFont('Comic Sans MS', 50)
     text_game_over = font_game_over.render('Game Over', True, WHITE)
@@ -211,6 +211,7 @@ def draw_game_over():
 
     # 40 функция сохранения игрока и счета в БД
     insert_result(USERNAME, score)
+    GAMERS_DB = get_best()  # 45 обновляем список топовых игроков, если рекорд побит
 
     # 42.5 выходим из бесконечного цикла до принятия решения, делаем переменную и добавляем ее в варианты событий
     make_decision = False
