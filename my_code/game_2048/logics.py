@@ -1,6 +1,7 @@
 # игра 2048 на Python Pygame. Прописываем логику игры
+import copy
 import random
-
+import copy
 
 # 3. функция удобного вывода данных массива в консоль
 def pretty_print(mas):
@@ -54,6 +55,7 @@ def is_zero_in_mas(mas):
 def move_left(mas):
     # 28. делаем переменную, которая будет считать очки
     delta = 0
+    origin = copy.deepcopy(mas)
     for row in mas:  # 18.1 для строк в массиве
         while 0 in row:  # 18.2 пока есть 0 в строке
             row.remove(0)  # 18.3 удаляем все нули
@@ -66,12 +68,13 @@ def move_left(mas):
                 delta += mas[i][j]  # 28.1 каждый раз, когда рядом 2 одинаковых числа, увеличиваем наши очки
                 mas[i].pop(j + 1)  # 18.10 удаляем соседний индекс
                 mas[i].append(0)  # 18.11 добавляем 0 в конец списка
-    return mas, delta
+    return mas, delta, not origin == mas
 
 
 # 20. движение массива вправо и схлопывание в нем чисел
 def move_right(mas):
     delta = 0
+    origin = copy.deepcopy(mas)
     for row in mas:
         while 0 in row:
             row.remove(0)
@@ -84,12 +87,13 @@ def move_right(mas):
                 delta += mas[i][j]
                 mas[i].pop(j - 1)  # 20.4 удаляем соседа слева
                 mas[i].insert(0, 0)  # 20.5 нули вставляем в начало - индекс и значение
-    return mas, delta
+    return mas, delta, not origin == mas
 
 
 # 22. движение массива вверх и схлопывание в нем чисел
 def move_up(mas):
     delta = 0
+    origin = copy.deepcopy(mas)
     for j in range(4):  # 22.1 сначала мы обходим колонки
         column = []  # 22.2 создаем побочный список, куда будем добавлять числа(одномерный массив)
         for i in range(4):  # 22.3 проходимся по рядам
@@ -105,12 +109,13 @@ def move_up(mas):
                 column.append(0)  # 22.12 добавляем вместо него 0
         for i in range(4):  # 22.13 обходим наши элементы
             mas[i][j] = column[i]  # 22.14 по индексу сохраняем номер элемента в колонке в массив
-    return mas, delta
+    return mas, delta, not origin == mas
 
 
 # 24. движение массива вниз и схлопывание в нем чисел
 def move_down(mas):
     delta = 0
+    origin = copy.deepcopy(mas)
     for j in range(4):
         column = []
         for i in range(4):
@@ -126,7 +131,7 @@ def move_down(mas):
                 column.insert(0, 0)
         for i in range(4):
             mas[i][j] = column[i]
-    return mas, delta
+    return mas, delta, not origin == mas
 
 
 # 25. игра не заканчивается, когда нулей в массиве уже не осталось, но есть одинаковые элементы по вертикали или гориз.

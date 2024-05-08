@@ -258,7 +258,7 @@ def game_loop():
     pygame.display.update()  # 17.3 обновляем экран перед циклом, сразу игра будет видна
 
     # 44 делаем так, чтобы цифры проставлялись только при нажатии на стрелочки
-    is_btn_click = False
+    is_mas_move = False
 
     # 8. Создаем цикл игры
     while is_zero_in_mas(mas) or can_move(mas):
@@ -270,24 +270,20 @@ def game_loop():
                 delta = 0  # 28.4 обнуляем наши очки
                 # 19. подключаем функцию обработки события при нажатии кнопки влево на клавиатуре
                 if event.key == pygame.K_LEFT:
-                    mas, delta = move_left(mas)  # 28.3 добавляем переменную дельта для корректности
-                    is_btn_click = True  # 44.1 для нажатия кнопок
+                    mas, delta, is_mas_move = move_left(mas)  # 28.3 добавляем переменную дельта для корректности
                 # 21. подключаем функцию обработки события при нажатии кнопки вправо на клавиатуре
                 if event.key == pygame.K_RIGHT:
-                    mas, delta = move_right(mas)
-                    is_btn_click = True  # 44.1 для нажатия кнопок
+                    mas, delta, is_mas_move = move_right(mas)
                 # 23. подключаем функцию обработки события при нажатии кнопки вверх на клавиатуре
                 if event.key == pygame.K_UP:
-                    mas, delta = move_up(mas)
-                    is_btn_click = True  # 44.1 для нажатия кнопок
+                    mas, delta, is_mas_move = move_up(mas)
                 # 25. подключаем функцию обработки события при нажатии кнопки вниз на клавиатуре
                 if event.key == pygame.K_DOWN:
-                    mas, delta = move_down(mas)
-                    is_btn_click = True  # 44.1 для нажатия кнопок
+                    mas, delta, is_mas_move = move_down(mas)
                 score += delta  # 28.5 суммируем очки
 
                 # 38.1 дополнительная проверка, чтобы цикл заканчивался корректно, если при нажатии нет вариантов
-                if is_zero_in_mas(mas) and is_btn_click:
+                if is_zero_in_mas(mas) and is_mas_move:
                     # 12.3 переносим данные цикла в это условие
                     # input()
                     empty = get_empty_list(mas)  # 8.1 переменная, которая принимает список пустых ячеек
@@ -296,7 +292,7 @@ def game_loop():
                     x, y = get_index_from_number(random_num)  # 8.4 получаем координаты нашего числа
                     mas = insert_2_or_4(mas, x, y)  # 8.5 присваиваем по этим координатам 2 или 4 в ячейку
                     print(f'Заполнен элемент под номером: {random_num}. Координаты: {x}, {y}')
-                    is_btn_click = False
+                    is_mas_move = False
 
                 draw_interface(score, delta)  # 17.1 вставляем функцию отрисовки интерфейса после добавления нового элемента
                 pygame.display.update()  # подвинули внутрь цикла, чтобы обновление только при нажатии клавиши сразу
