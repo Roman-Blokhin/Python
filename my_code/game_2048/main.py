@@ -1,7 +1,10 @@
+import json
+
 from logics import *
 import pygame
 import sys
 from database import get_best, cur, insert_result  # 30. импортируем данные
+import json
 
 
 # 31. функция для отображения топовых игроков
@@ -258,6 +261,9 @@ def save_game():
         'score': score,
         'mas': mas
     }
+    # 45.2 записываем данные в новый файл, который создастся
+    with open('data.txt', 'w') as outfile:
+        json.dump(data, outfile)
 
 # 41. функция, в которую мы переносим весь цикл игры и обращаемся к глобальной score и mas
 def game_loop():
