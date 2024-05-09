@@ -5,6 +5,7 @@ import pygame
 import sys
 from database import get_best, cur, insert_result  # 30. импортируем данные
 import json
+import os
 
 
 # 31. функция для отображения топовых игроков
@@ -124,8 +125,18 @@ def init_constant():
 # 43.1 так как у нас нет глобальных score и mas, задаем им начальные значения
 mas = None
 score = None
-init_constant()  # 43.2 задаем значения наших главных переменных
 USERNAME = None  # 36.1 константа имени пользователя
+path = os.getcwd()  # 45.3 узнаем путь к папке с игрой
+if 'data.txt' in os.listdir():  # 45.4 узнаем, есть ли файл в папке
+    with open('data.txt') as file:  # 45.5 читаем этот файл по ключам
+        data = json.load(file)
+        mas = data['mas']
+        score = data['score']
+        USERNAME = data['user']
+    full_path = os.path.join(path, 'data.txt')  # 45.6 находим путь
+    os.remove(full_path)  # 45.7 удаляем файл
+else:
+    init_constant()  # 43.2 задаем значения наших главных переменных
 
 # 31.3 переменная для сохранения 3 лучших игроков
 GAMERS_DB = get_best()
