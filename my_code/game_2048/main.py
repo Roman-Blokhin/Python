@@ -251,6 +251,14 @@ def draw_game_over():
         pygame.display.update()
     screen.fill(BLACK)
 
+# 45 сохраняем данные при выходе
+def save_game():
+    data = {
+        'user': USERNAME,
+        'score': score,
+        'mas': mas
+    }
+
 # 41. функция, в которую мы переносим весь цикл игры и обращаемся к глобальной score и mas
 def game_loop():
     global score, mas
@@ -264,6 +272,7 @@ def game_loop():
     while is_zero_in_mas(mas) or can_move(mas):
         for event in pygame.event.get():  # 12.1 обработка события - закрытие окна
             if event.type == pygame.QUIT:
+                save_game()  # 45.1 вызываем функцию сохранения
                 pygame.quit()
                 sys.exit(0)
             elif event.type == pygame.KEYDOWN:  # 12.2 обработка события - нажатие на любую клавишу
