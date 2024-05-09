@@ -140,4 +140,10 @@ def can_move(mas):
         for j in range(3):
             if mas[i][j] == mas[i][j + 1] or mas[i][j] == mas[i + 1][j]:  # 25.1 если элемент = соседу справа или снизу
                 return True
-    return mas[3][3] == mas[2][3] or mas[3][3] == mas[3][2]
+
+    for i in range(1, 4):
+        for j in range(1, 4):
+            if mas[i][j] == mas[i - 1][j] or mas[i][j] == mas[i][j-1]:
+                return True
+
+    return False
