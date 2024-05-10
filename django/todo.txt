@@ -1,0 +1,2 @@
+1. Чтобы создать новый проект на джанго, в терминале вводим команду - django-admin startproject romansite, где
+romansite - название проекта
