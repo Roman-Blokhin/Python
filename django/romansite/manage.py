@@ -1,3 +1,5 @@
+# ВАЖНЫЙ ФАЙЛ ДЛЯ СОЗДАНИЯ РАЗЛИЧНЫХ ВЕЩЕЙ И ЗАПУСКА ЧЕРЕЗ НЕГО ПРОГРАММЫ И СЕРВЕРА, РАБОТА ЧЕРЕЗ ТЕРМИНАЛ
+
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os

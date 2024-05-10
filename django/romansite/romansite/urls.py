@@ -1,3 +1,5 @@
+# ОТСЛЕЖИВАЕМ РАЗЛИЧНЫЕ URL АДРЕСА, НА КОТОРЫЕ СМОЖЕМ ПЕРЕХОДИТЬ В РАМКАХ ПРОЕКТА
+
 """
 URL configuration for romansite project.
 
@@ -18,5 +20,5 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # 1. ПУТЬ К ПАНЕЛИ АДМИНИСТРАТОРА
 ]

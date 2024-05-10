@@ -1,3 +1,5 @@
+# 1. ВАЖНЫЙ ФАЙЛ, ОПИСЫВАЮТСЯ ВСЕ ГЛАВНЫЕ НАСТРОЙКИ ПРОЕКТА
+
 """
 Django settings for romansite project.
 
@@ -12,6 +14,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+# 2. ЗАПИСЫВАЕТСЯ ПОЛНЫЙ ПУТЬ К НАШЕМУ ПРОЕКТУ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,17 +22,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+# 3. СЕКРЕТНЫЙ КЛЮЧ ДЛЯ УПРАВЛЕНИЯ САЙТОМ, ПРИ ВЫГРУЗКЕ НА СЕРВЕР МЕНЯЕМ НА ЧТО-ТО ДРУГОЕ
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-m8s#h7!=akzy2j@oapnx8$%p%m#3zo^8(od2rs-u58c84ssbuv'
 
+# 4. ЗНАЧЕНИЕ TRUE ПОЗВОЛЯЕТ ВИДЕТЬ ВСЕ ОШИБКИ ПРЯМО НА СТРАНИЦЕ ВЕБ-САЙТА
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# 5. ЗНАЧЕНИЕ ХОСТОВ/ДОМЕННЫХ ИМЕН, НА КОТОРЫХ БУДЕТ ОПУБЛИКОВАН НАШ САЙТ
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
+# 6. НАБОР УСТАНОВЛЕННЫХ ПРИЛОЖЕНИЙ В НАШЕМ ПРОЕКТЕ
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,18 +46,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# 7. УСТАНОВЛЕННЫЕ БИБЛИОТЕКИ И ПЛАГИНЫ
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.security.SecurityMiddleware',  # 7.1 БЕЗОПАСНОСТЬ
+    'django.contrib.sessions.middleware.SessionMiddleware',  # 7.2 РАБОТА С СЕССИЯМИ
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # 7.3 АВТОРИЗАЦИЯ ПРОЕКТА
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# 8. ОСНОВНОЙ ФАЙЛ URLS, КОТОРЫЙ БУДЕТ ИСПОЛЬЗОВАТЬСЯ ДЛЯ ВСЕГО ПРОЕКТА
 ROOT_URLCONF = 'romansite.urls'
 
+# 9. ШАБЛОНЫ ДЛЯ ПРОЕКТА
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -67,12 +77,14 @@ TEMPLATES = [
     },
 ]
 
+# 10. С ПОМОЩЬЮ ЭТОГО ФАЙЛА СМОЖЕМ ВЫГРУЗИТЬ САЙТ НА СЕРВЕР
 WSGI_APPLICATION = 'romansite.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# 11 УКАЗАНО, С КАКОЙ БАЗОЙ ДАННЫХ МЫ РАБОТАЕМ
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -103,8 +115,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+# 12. ЯЗЫК
 LANGUAGE_CODE = 'en-us'
 
+# 13. ВРЕМЕННАЯ ЗОНА
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
