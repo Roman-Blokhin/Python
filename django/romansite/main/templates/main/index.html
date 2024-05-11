@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- наследуем код из определенного файла -->
+{% extends 'main/layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Main page</title>
-</head>
+<!-- блок заголовка -->
+{% block title %} Main page {% endblock %}
 
-<body>
+<!-- блок тела файла -->
+{% block content %}
     <h1>Main page</h1>
     <ol>
         <li><h4>Roman</h4></li>
         <li><h4>Daria</h4></li>
         <li><h4>Robert</h4></li>
     </ol>
-</body>
+{% endblock %}
 
-</html>
+

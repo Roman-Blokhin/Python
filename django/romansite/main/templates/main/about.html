@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- наследуем код из определенного файла -->
+{% extends 'main/layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>About me</title>
-</head>
+<!-- блок заголовка -->
+{% block title %} About me {% endblock %}
 
-<body>
+<!-- блок тела файла -->
+{% block content %}
     <h1>About me</h1>
-    <p>About me</p>
-</body>
-
-</html>
+{% endblock %}
