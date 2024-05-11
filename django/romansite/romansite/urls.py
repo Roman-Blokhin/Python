@@ -17,8 +17,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include  # 1.1 добавляем include, чтобы прописать путь к главному приложению
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # 1. ПУТЬ К ПАНЕЛИ АДМИНИСТРАТОРА
+    path('admin/', admin.site.urls),  # ПУТЬ К ПАНЕЛИ АДМИНИСТРАТОРА
+    path('', include('main.urls')),  # 1. прописываем путь на файл из нашего главного приложения
 ]
