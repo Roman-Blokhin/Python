@@ -1,0 +1,15 @@
+<!-- Шаблон с повторяющимся кодом во всех остальных файлах -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block content %}{% endblock %}</title>  <!-- блок с динамическим контентом -->
+</head>
+<body>
+    <!-- блок с динамическим контентом -->
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
