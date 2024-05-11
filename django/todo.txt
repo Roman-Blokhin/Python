@@ -22,4 +22,5 @@ python manage.py startapp main. Создалось приложение/разд
     {% block content %}  - начало блока и его название
     {% endblock %}  - закрытие блока
 
-12.
+12. Мы можем подключать файлы через include - {% include 'main/test.html' %}. Для этого не нужно много усилий,
+подключение с помощью jinja
