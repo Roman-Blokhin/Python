@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">  <!-- 3. Через jinja обращ. к файлу через ststic-->
 </head>
 <body>
-    <!-- 1. блок с динамическим контентом -->
-    {% block content %}
-    {% endblock %}
+    <aside>  <!-- 2. боковая панель, которая будет отображаться на всех страницах -->
+
+    </aside>
+    <main>  <!-- 1. центральная часть с динамическим контентом -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
 </body>
 </html>
