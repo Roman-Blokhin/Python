@@ -33,3 +33,17 @@ python manage.py startapp main. Создалось приложение/разд
 15. Создаем папку static для хранения папок js, img, css. Через jinja обращаемся к файлу через static в файле layout
 .html, подключая локальный файл стилей main.css:
 <link rel="stylesheet" href="{% static main/css/main.css %}">
+
+16. Добавляем STATICFILES_DIRS для корректной работы локального файла .css
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+17. В файл main/urls.py импортируем:
+from django.conf import settings
+from django.conf.urls.static import static
+
+и подключаем к патернам:
++ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+Это поможет локальному файлу со стилями заработать в нашем проекте
