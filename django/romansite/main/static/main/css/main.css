@@ -1,7 +1,17 @@
 body {
-    background: pink;
+    background: #2c2c2c;
 }
 
 .logo {
     font-size: 20px;
+}
+
+aside {
+    float: left;
+    background: #181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
 }
