@@ -2,8 +2,12 @@ body {
     background: #2c2c2c;
 }
 
-.logo {
-    font-size: 20px;
+aside .logo {
+    font-size: 33px;
+    font-weight: bold;
+    margin-left: 10px;
+    position: relative;
+    top: 3px;
 }
 
 aside {
@@ -14,4 +18,14 @@ aside {
     height: 100vh;
     color: #fff;
     border-right: 5px solid #4d4d4d;
+}
+
+aside img {
+    width: 60px;
+    float: left;
+}
+
+aside h4 {
+    margin-top: 50px;
+    font-size: 30px;
 }
