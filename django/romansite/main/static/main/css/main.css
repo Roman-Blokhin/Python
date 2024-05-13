@@ -3,7 +3,7 @@ body {
 }
 
 aside .logo {
-    font-size: 33px;
+    font-size: 30px;
     font-weight: bold;
     margin-left: 10px;
     position: relative;
@@ -28,4 +28,25 @@ aside img {
 aside h4 {
     margin-top: 50px;
     font-size: 30px;
+}
+
+aside ul{
+    list-style: none;  /* убирает точки у списка */
+}
+
+aside ul li {
+    display: block;
+    color: #fff;
+    margin-top: 20px;
+    transition: all .6s ease;  /* добавляет плавности при наведении на ссылку */
+}
+
+aside ul li:hover, aside ul a:hover {  /* псевдоскласс для эффектов при наведении' */
+    color: #eb5959;
+    text-decoration: none ;
+    transform: scale(1.05);  /* увеличивание текста при наведении */
+}
+
+a {
+    text-decoration: none ;
 }
