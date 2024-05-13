@@ -12,7 +12,13 @@
 </head>
 <body>
     <aside>  <!-- 2. боковая панель, которая будет отображаться на всех страницах -->
-
+        <img src="{% static 'main/img/logo.svg' %}" alt="logo" width="50" height="50">
+        <span class="logo">Navigation:</span>
+        <ul>
+            <li><a href="">Mane page</a></li>
+            <li><a href="">About me</a></li>
+            <li><a href="">Contacts</a></li>
+        </ul>
     </aside>
     <main>  <!-- 1. центральная часть с динамическим контентом -->
         {% block content %}
