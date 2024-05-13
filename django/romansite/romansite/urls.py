@@ -19,7 +19,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include  # 1.1 добавляем include, чтобы прописать путь к главному приложению
 
+# 3. импортируем settings и static, чтобы работал файл локальный со стилями
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),  # ПУТЬ К ПАНЕЛИ АДМИНИСТРАТОРА
     path('', include('main.urls')),  # 1. прописываем путь на файл из нашего главного приложения
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # 3.1 поможет подключить файл стилей
