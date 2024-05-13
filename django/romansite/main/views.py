@@ -14,6 +14,11 @@ def about(request):
     return render(request, 'main/about.html')
 
 
+# 5. создаем метод для страницы about
+def contacts(request):
+    return render(request, 'main/contacts.html')
+
+
 # 3. создаем метод для страницы about, указываем аргумент обязательно, HttpResponse - устаревшее, лучше render
 # def about(request):
 #     return HttpResponse('<h1>Обо мне</h1>')
