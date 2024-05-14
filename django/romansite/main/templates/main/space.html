@@ -13,18 +13,25 @@
         <p>This page will be space for testing different new things in programming</p>
         <button class="btn btn-secondary">Black hole</button>
 
-        {% include 'main/test.html' %}
-        {{ values }}
+        {% include 'main/test.html' %}  <!-- выводим данные из отдельного файла -->
+        {{ values }}  <!-- выводим весь массив из словаря -->
 
-        {% for i in elements %}
+        {% for i in elements %}  <!-- выводим элементы массива из словаря отдельно -->
             <p>{{ i }}</p>
         {% endfor %}
 
-        {{ colors }}
-        {{ colors.black }}
+        {{ colors }}  <!-- выводим весь словарь -->
 
-        {% for j in colors %}
+        {{ colors.black }}  <!-- выводим конкретное значение словаря по ключу -->
+
+        {% for j in colors %}  <!-- выводим все ключи словаря -->
             <p>{{ j }}</p>
+        {% endfor %}
+
+        {% for i in elements %}  <!-- пишем условие для вывода значения из словаря -->
+            {% if i == 'apple' %}
+                <p>{{ i }}</p>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}
