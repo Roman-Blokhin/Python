@@ -26,7 +26,12 @@ def space(request):
     data = {
         'title': 'Space',
         'values': ['123', 'name', 'car'],
-        'elements': ['microsoft', 'apple', 'facebook']
+        'elements': ['microsoft', 'apple', 'facebook'],
+        'colors': {
+            'green': 'tree',
+            'yellow': 'sun',
+            'black': 'night',
+        }
     }
     return render(request, 'main/space.html', data)
 

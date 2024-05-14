@@ -65,11 +65,12 @@ from django.conf.urls.static import static
 словаря:
 
 def space(request):
-    data = {
-        'title': 'Space',
-        'values': ['123', 'name', 'car']
-    }
-    return render(request, 'main/space.html', data)
+
+data = {
+    'title': 'Space',
+    'values': ['123', 'name', 'car']
+}
+return render(request, 'main/space.html', data)
 
 24. В нашем файле страницы html мы можем перебрать массив, который у нас прописан в словаре: для этого с помощью jinja
 создаем команду, используя цикл и выводим элементы (i) по одному. В конце не забываем закрыть код цикла:
@@ -78,4 +79,28 @@ def space(request):
     <p>{{ i }}</p>
 {% endfor %}
 
-25.
+25. Мы также можем добавить в наш словарь еще один словарь:
+
+data = {
+    'title': 'Space',
+    'values': ['123', 'name', 'car'],
+    'elements': ['microsoft', 'apple', 'facebook'],
+    'colors': {
+        'green': 'tree',
+        'yellow': 'sun',
+        'black': 'night',
+    }
+}
+
+Можем выводить его в файле html в виде словаря: {{ colors }}
+Можем вывести один конкретный элемент: {{ colors.black }}
+Можем перебрать циклом for:
+
+{% for j in colors %}
+    <p>{{ j }}</p>
+{% endfor %}
+
+26.
+
+
+
