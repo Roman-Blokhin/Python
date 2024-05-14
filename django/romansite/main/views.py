@@ -21,8 +21,13 @@ def contacts(request):
 
 # 6. создаем метод для страницы space, где будем тестировать различные фичи
 # третим параметром передается словарь, по ключу которого значение передается в html файл
+# можно передавать просто 1 ключ/значение - {'title': 'Space'}, но лучше отдельно в методе создать словарь
 def space(request):
-    return render(request, 'main/space.html', {'title': 'Space'})
+    data = {
+        'title': 'Space',
+        'values': ['123', 'name', 'car']
+    }
+    return render(request, 'main/space.html', data)
 
 
 

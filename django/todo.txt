@@ -61,3 +61,14 @@ from django.conf.urls.static import static
 ключ и значение: return render(request, 'main/space.html', {'title': 'Space'})
 Затем переходим в html файл страницы, и по ключу мы можем передать значение в двойных фигурных скобках: {{ title }}
 
+23.1 можно преобразовать код и в методе просто указать отдельно словарь, а третим параметром прописываем название
+словаря:
+
+def space(request):
+    data = {
+        'title': 'Space',
+        'values': ['123', 'name', 'car']
+    }
+    return render(request, 'main/space.html', data)
+
+24.
