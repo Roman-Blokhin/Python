@@ -4,12 +4,12 @@
 {% extends 'main/layout.html' %}
 
 <!-- блок заголовка -->
-{% block title %} Space {% endblock %}
+{% block title %} {{ title }} {% endblock %}
 
 <!-- блок тела файла -->
 {% block content %}
     <div class="features">
-        <h1>Space</h1>
+        <h1>{{ title }}</h1>
         <p>This page will be space for testing different new things in programming</p>
         <button class="btn btn-secondary">Black hole</button>
     </div>
