@@ -108,7 +108,23 @@ data = {
     {% endif %}
 {% endfor %}
 
-27.
+27. Можно использовать фильтры (upper, lower etc):
 
+{% for i in elements %}
+    {% if i == 'microsoft' %}
+        {% filter upper %}
+            <p>{{ i }}</p>
+        {% endfilter %}
+    {% endif %}
+{% endfor %}
 
+Или есть другой способ:
+
+{% for i in elements %}  <!-- используем фильтр - другой способ-->
+    {% if i == 'facebook' %}
+        <p>{{ i|upper }}</p>
+    {% endif %}
+{% endfor %}
+
+28.
 

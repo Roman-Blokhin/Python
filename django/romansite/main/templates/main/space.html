@@ -33,6 +33,20 @@
                 <p>{{ i }}</p>
             {% endif %}
         {% endfor %}
+
+        {% for i in elements %}  <!-- используем фильтр -->
+            {% if i == 'microsoft' %}
+                {% filter upper %}
+                    <p>{{ i }}</p>
+                {% endfilter %}
+            {% endif %}
+        {% endfor %}
+
+        {% for i in elements %}  <!-- используем фильтр - другой способ-->
+            {% if i == 'facebook' %}
+                <p>{{ i|upper }}</p>
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}
 
