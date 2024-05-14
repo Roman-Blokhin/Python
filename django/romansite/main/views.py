@@ -19,6 +19,11 @@ def contacts(request):
     return render(request, 'main/contacts.html')
 
 
+# 5. создаем метод для страницы space, где будем тестировать различные фичи
+def space(request):
+    return render(request, 'main/space.html')
+
+
 # 3. создаем метод для страницы about, указываем аргумент обязательно, HttpResponse - устаревшее, лучше render
 # def about(request):
 #     return HttpResponse('<h1>Обо мне</h1>')

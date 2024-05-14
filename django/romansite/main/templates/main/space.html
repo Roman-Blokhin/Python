@@ -1,0 +1,19 @@
+<!-- ПРОСТРАНСТВО ДЛЯ ТЕСТИРОВАНИЯ НОВЫХ ФИЧ -->
+
+<!-- наследуем код из определенного файла -->
+{% extends 'main/layout.html' %}
+
+<!-- блок заголовка -->
+{% block title %} Space {% endblock %}
+
+<!-- блок тела файла -->
+{% block content %}
+    <div class="features">
+        <h1>Space</h1>
+        <p>This page will be space for testing different new things in programming</p>
+        <button class="btn btn-secondary">Black hole</button>
+    </div>
+
+    {% include 'main/test.html' %}
+{% endblock %}
+
