@@ -15,6 +15,10 @@
 
         {% include 'main/test.html' %}
         {{ values }}
+
+        {% for i in elements %}
+            <p>{{ i }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
 

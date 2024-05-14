@@ -25,7 +25,8 @@ def contacts(request):
 def space(request):
     data = {
         'title': 'Space',
-        'values': ['123', 'name', 'car']
+        'values': ['123', 'name', 'car'],
+        'elements': ['microsoft', 'apple', 'facebook']
     }
     return render(request, 'main/space.html', data)
 
