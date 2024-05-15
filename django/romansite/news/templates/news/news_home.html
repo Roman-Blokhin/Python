@@ -1,0 +1,16 @@
+<!-- наследуем код из определенного файла -->
+{% extends 'main/layout.html' %}
+
+<!-- блок заголовка -->
+{% block title %} Main page {% endblock %}
+
+<!-- блок тела файла -->
+{% block content %}
+    <div class="features">
+        <h1>News</h1>
+        <p>This page need for different IT news from all over the world</p>
+        <button class="btn btn-warning">Tap me</button>
+    </div>
+{% endblock %}
+
+
