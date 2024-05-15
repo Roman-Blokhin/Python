@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 # НАБОР УСТАНОВЛЕННЫХ ПРИЛОЖЕНИЙ В НАШЕМ ПРОЕКТЕ
 INSTALLED_APPS = [
     'main',  # 1. регистрируем новое приложение
+    'news',  # 2. регистрируем новое приложение
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
