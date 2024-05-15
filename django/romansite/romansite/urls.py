@@ -16,14 +16,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include  # 1.1 добавляем include, чтобы прописать путь к главному приложению
 
-# 3. импортируем settings и static, чтобы работал файл локальный со стилями
+# 2. импортируем settings и static, чтобы работал файл локальный со стилями
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # ПУТЬ К ПАНЕЛИ АДМИНИСТРАТОРА
     path('', include('main.urls')),  # 1. прописываем путь на файл из нашего главного приложения
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # 3.1 поможет подключить файл стилей
+    path('news/', include('news.urls')),  # 4. прописываем путь на файлы из нашего главного приложения
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # 2.1 поможет подключить файл стилей
