@@ -135,5 +135,11 @@ path('news/', include('news.urls'))
 путь на страницу
 
 31. Создаем базу данных в файле news/models.py. Прописываем класс: class Article(models.Model), теперь нам нужно
-выделить названия столбцов в отдельные переменные:
+выделить названия столбцов в отдельные переменные, указав типы данных и характеристики при необходимости:
 
+title = models.CharField('Title',  max_lenght=50)
+anons = models.CharField('Notification',  max_lenght=250)
+full_text = models.TextField('Article')
+date = models.DateTimeField('Дата публикации')
+
+32. Также в классе мы прописываем магический метод __str__

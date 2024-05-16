@@ -10,3 +10,6 @@ class Article(models.Model):  # 1. создаем класс для базы д�
     full_text = models.TextField('Article')  # 2.2 строка больше 250 символов
     date = models.DateTimeField('Дата публикации')  # 2.3 дата и время
 
+    def __str__(self):
+        return self.title
+
