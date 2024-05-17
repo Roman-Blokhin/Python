@@ -154,3 +154,10 @@ date = models.DateTimeField('Дата публикации')
 35. В панели администратора создаем нового админа: python manage.py createsuperuser
 Вводим имя, почта по желанию, пароль
 
+36. Наша таблица Article не отображается в панели администратора, потому что она там не зарегистрирована. Для этого
+заходим в файл news/admin.py и прописываем:
+
+from .models import Article
+
+admin.site.register(Article)
+
