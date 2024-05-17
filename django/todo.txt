@@ -148,4 +148,9 @@ date = models.DateTimeField('Дата публикации')
 папку в терминале и вводим команду: python manage.py makemigrations - создается файл миграций.
 Теперь мы проводим сами миграции: python manage.py migrate
 
+34. Панель администратора /admin. Поменял в главном файле настроек язык на русский - LANGUAGE_CODE = 'en-us', заменил на
+ LANGUAGE_CODE = 'ru'
+
+35. В панели администратора создаем нового админа: python manage.py createsuperuser
+Вводим имя, почта по желанию, пароль
 
