@@ -10,6 +10,14 @@
         <h1>News</h1>
         <p>This page need for different IT news from all over the world</p>
         <button class="btn btn-warning">Tap me</button>
+
+        {% for element in news %}  <!-- прописываем вывод новостей на сайт из нашей таблицы -->
+            <div class="alert alert warning">
+                <h3> {{ element.title }} </h3>
+                <p> {{ element.notification }}</p>
+            </div>
+        {% endfor %}
+
     </div>
 {% endblock %}
 

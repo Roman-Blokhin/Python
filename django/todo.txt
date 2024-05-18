@@ -167,5 +167,12 @@ admin.site.register(Article)
 38. Чтобы вывести таблицу с новостями мы дописываем функцию в файле views.py, импортируем таблицу, создаем переменную,
 включающую все объекты и передаем ее в виде ключ: значение
 
+39. Прописываем код в файле news/news_home.html для вывода новостей из таблицы Article на сайт:
 
+{% for element in news %}
+    <div class="alert alert warning">
+        <h3> {{ element.title }} </h3>
+        <p> {{ element.notification }}</p>
+    </div>
+{% endfor %}
 
