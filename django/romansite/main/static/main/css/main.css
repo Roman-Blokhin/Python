@@ -67,3 +67,11 @@ main .features p {
     width: 400px;
     margin: 20px auto;  /* отступы сверху и снизу, а по бокам автоматические */
 }
+
+.alert-warning {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
