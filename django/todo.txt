@@ -177,3 +177,11 @@ admin.site.register(Article)
 {% endfor %}
 
 40. Прописал стиль для корректного отображения статей на сайте
+
+41. В файле news/views.py можно использовать сортировку статей. Выбирается только один вариант
+
+    news = Article.objects.all() - все данные
+    news = Article.objects.order_by('-title') -сортировка по возрастанию
+    news = Article.objects.order_by('title') - сортировка по убыванию
+    news = Article.objects.order_by('-date') [:2] - сортировка по дате публикации, срезом указываем количество статей
+
