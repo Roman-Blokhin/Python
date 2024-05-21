@@ -200,6 +200,9 @@ admin.site.register(Article)
 
 43. В шаблонизаторе jinja можно добавлять комментарии {# текст #}
 
-44. Добавил кнопку в меню сайта в файле layout.html. С ее помощью можно будет добавлять статью на сайт:
+44. Добавил кнопку в меню сайта в файле layout.html. С ее помощью можно будет добавлять статью на сайт. Прописываем
+ссылку через jinja:
 
-<a href=""><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Add post </button></li></a>
+<a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Add post </button></li></a>
+
+45. Создал новую страницу шаблон html, прописал функцию в файле news/views.py, создал ссылку в файле news/urls.py

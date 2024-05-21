@@ -10,3 +10,8 @@ def news_home(request):
     return render (request, 'news/news_home.html', {'news': news})
     # 1. Можно использовать шаблоны, которые были в другом приложении.
     # 2.2 Третьим параметром передаем news в виде ключ: значение
+
+
+# 3. создали функцию для открытия страницы, где можно добавить новую статью
+def create(request):
+    return render (request, 'news/create.html')
