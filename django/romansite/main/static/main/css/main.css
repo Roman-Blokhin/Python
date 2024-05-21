@@ -75,3 +75,10 @@ main .features p {
     margin: 20px 34%;
     text-align: left;
 }
+.create_articles {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}

@@ -9,12 +9,14 @@
     <div class="features">
         <h1>Create</h1>
 
-        <form method="post" action="">  <!-- пустой action, обработка события будет на этой же странице -->
+        <form method="post" action="" class="create_articles">  <!-- пустой action, обработка события будет на этой
+         же странице -->
             <input type="text" placeholder="Article's name" class="form-control"><br>  <!-- название -->
             <input type="text" placeholder="Article's notification" class="form-control"><br>  <!-- заголовок -->
             <textarea class="form-control" placeholder="Atricle's text"></textarea><br>  <!-- текст -->
             <input type="date" class="form-control"><br>  <!-- выбор даты -->
             <input type="time" class="form-control"><br>  <!-- выбор времени -->
+            <button class="btn btn-success" type="submit"> Add note </button>  <!-- кнопка отправки данных -->
         </form>
     </div>
 {% endblock %}
