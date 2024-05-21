@@ -199,3 +199,7 @@ admin.site.register(Article)
     {% endif %}
 
 43. В шаблонизаторе jinja можно добавлять комментарии {# текст #}
+
+44. Добавил кнопку в меню сайта в файле layout.html. С ее помощью можно будет добавлять статью на сайт:
+
+<a href=""><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Add post </button></li></a>
