@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Article  # 2 импортируем табличку Article
+from .forms import ArticleForm  # 3.2 импортируем класс формы
 
 def news_home(request):
     # news = Article.objects.all()  # 2.1 переменная, которая принимает на себя все объекты таблицы Article
@@ -12,6 +13,12 @@ def news_home(request):
     # 2.2 Третьим параметром передаем news в виде ключ: значение
 
 
-# 3. создали функцию для открытия страницы, где можно добавить новую статью
+# 3.1 создали функцию для открытия страницы, где можно добавить новую статью
 def create(request):
-    return render (request, 'news/create.html')
+    # 3.3 создание объекта
+    form = ArticleForm()
+
+    date = {  # 3.4 создание словаря, куда передаем объект класса
+        'form': form,
+    }
+    return render (request, 'news/create.html', date)  # 3.5 передаем словарь, как аргумент

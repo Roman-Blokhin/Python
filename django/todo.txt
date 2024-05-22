@@ -224,4 +224,14 @@ class ArticleForm(ModelForms):
         model = Article
         fields = ['title', 'anons', 'full_text', 'date']
 
-50.
+50. В файле news/views.py создаем объект form класса ArticleForm(), создаем словарь, указываем элемент 'form':
+form и передаем его в наш return:
+
+def create(request):
+    form = ArticleForm()
+    date = {
+        'form': form,
+    }
+    return render (request, 'news/create.html', date)
+
+51. Передаем наш объект в файл create.html в нашу форму для вывода на сайте {{ form }}
