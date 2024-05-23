@@ -12,7 +12,12 @@
         <form method="post" action="" class="create_articles">  <!-- пустой action, обработка события будет на этой
          же странице -->
             {% csrf_token %}  <!-- токен безопасной передачи данных, копируем со страницы с ошибкой -->
-            {{ form }}  <!-- передаем наш объект из шаблонизатора в файле views.py -->
+
+            {{ form.title }}  <!-- передаем наш объект из шаблонизатора в файле views.py -->
+            {{ form.anons }}
+            {{ form.full_text }}
+            {{ form.date }}
+
             <input type="text" placeholder="Article's name" class="form-control"><br>  <!-- название -->
             <input type="text" placeholder="Article's notification" class="form-control"><br>  <!-- заголовок -->
             <textarea class="form-control" placeholder="Atricle's text"></textarea><br>  <!-- текст -->
