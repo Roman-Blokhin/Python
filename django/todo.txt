@@ -235,3 +235,32 @@ def create(request):
     return render (request, 'news/create.html', date)
 
 51. Передаем наш объект в файл create.html в нашу форму для вывода на сайте {{ form }}
+
+52. Прописываем виджеты для нашей формы в файле forms.py
+
+        widgets = {
+            'title': TextInput({
+                'class': 'form-control',
+                'placeholder': "Article's name"
+            }),
+            'anons': TextInput({
+                'class': 'form-control',
+                'placeholder': "Article's notification"
+            }),
+            'full_text': Textarea({
+                'class': 'form-control',
+                'placeholder': "Atricle's text"
+            }),
+            'date': DateTimeInput({
+                'class': 'form-control',
+                'placeholder': "Date of public"
+            }),
+        }
+
+53. Удаляем из шаблона create.py ненужные поля формы:
+
+<input type="text" placeholder="Article's name" class="form-control"><br>  <!-- название -->
+<input type="text" placeholder="Article's notification" class="form-control"><br>  <!-- заголовок -->
+<textarea class="form-control" placeholder="Atricle's text"></textarea><br>  <!-- текст -->
+<input type="date" class="form-control"><br>  <!-- выбор даты -->
+<input type="time" class="form-control"><br>  <!-- выбор времени -->
