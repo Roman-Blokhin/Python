@@ -264,3 +264,23 @@ def create(request):
 <textarea class="form-control" placeholder="Atricle's text"></textarea><br>  <!-- текст -->
 <input type="date" class="form-control"><br>  <!-- выбор даты -->
 <input type="time" class="form-control"><br>  <!-- выбор времени -->
+
+54. В файле news/views.py дописываем метод create. Пишем условие сохранения данных из формы в БД. Проверка данных на
+корректность и переадресация на другую страницу
+
+def create(request):
+    error = ''
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            error = 'Form is uncorrected'
+
+    form = ArticleForm()
+
+    date = {  # 3.4 создание словаря, куда передаем объект класса
+        'form': form,
+        'error': error  # 4.7 добавляем текст ошибки
+    }
+    return render (request, 'news/create.html', date)
