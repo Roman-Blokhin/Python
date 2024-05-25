@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Article  # 2 импортируем табличку Article
 from .forms import ArticleForm  # 3.2 импортируем класс формы
 
@@ -21,6 +21,7 @@ def create(request):
         form = ArticleForm(request.POST)  # 4.2 здесь будут храниться все данные, полученные из формы
         if form.is_valid():  # 4.3 проверяем, корректные ли данные
             form.save()  # 4.4 если да, то мы их сохраняем в БД
+            return redirect('news_home')  # 4.8 прописываем путь переадресации после заполнения формы
         else:
             error = 'Form is uncorrected'  # 4.6 если нет, выводим текст ошибки
 
