@@ -288,3 +288,13 @@ def create(request):
 55. В шаблоне news/create.html прописываем блок для вывода ошибки, если форма заполнена неверно: {{ error }} +
 прописываем в методе путь переадресации на страницу с новости. Данные добавляются в БД и сразу выводятся на экран. Дату
  нужно заполнять в формате: 2024-05-25 19:45
+
+56. Создаем новый класс в файле views.py для создания динамически меняющейся страницы:
+
+from .django.views.generic import DeteilView
+
+class NewDetailView(DeteilView):
+    model = Article
+    template_name = 'news/details_view.html'
+    context_object_name = 'article'
+

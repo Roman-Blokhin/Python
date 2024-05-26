@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Article  # 2 импортируем табличку Article
 from .forms import ArticleForm  # 3.2 импортируем класс формы
+from .django.views.generic import DeteilView  # 5.1 импортируем класс с динамической страницей
 
 def news_home(request):
     # news = Article.objects.all()  # 2.1 переменная, которая принимает на себя все объекты таблицы Article
@@ -11,6 +12,13 @@ def news_home(request):
     return render (request, 'news/news_home.html', {'news': news})
     # 1. Можно использовать шаблоны, которые были в другом приложении.
     # 2.2 Третьим параметром передаем news в виде ключ: значение
+
+
+# 5.2 класс для создания динамической страницы
+class NewDetailView(DeteilView):
+    model = Article
+    template_name = 'news/details_view.html'
+    context_object_name = 'article'
 
 
 # 3.1 создали функцию для открытия страницы, где можно добавить новую статью
