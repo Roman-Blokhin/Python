@@ -291,10 +291,15 @@ def create(request):
 
 56. Создаем новый класс в файле views.py для создания динамически меняющейся страницы:
 
-from .django.views.generic import DeteilView
+from .django.views.generic import DetailView
 
-class NewDetailView(DeteilView):
+class NewDetailView(DetailView):
     model = Article
     template_name = 'news/details_view.html'
     context_object_name = 'article'
 
+57. В файле news/urls.py прописываем новый путь для динамической страницы:
+path('<int:pk>', views.NewsDetailView.as_view(), name='news-detail')
+
+Указываем ссылку на динамически изменяемую ссылку, даем ей имя 'pk', обращаемся не к функции, а к новому классу и
+вызываем встроенный метод .as_view(), без него ничего не получится + присваиваем имя: name='news-detail'
