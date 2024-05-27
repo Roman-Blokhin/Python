@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Article  # 2 импортируем табличку Article
 from .forms import ArticleForm  # 3.2 импортируем класс формы
-from .django.views.generic import DetailView  # 5.1 импортируем класс с динамической страницей
+from django.views.generic import DetailView  # 5.1 импортируем класс с динамической страницей
 
 def news_home(request):
     # news = Article.objects.all()  # 2.1 переменная, которая принимает на себя все объекты таблицы Article

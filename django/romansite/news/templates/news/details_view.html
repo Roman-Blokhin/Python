@@ -8,8 +8,8 @@
 {% block content %}
     <div class="features">
         <h1>{{ article.title }}</h1>  <!-- вызывает название статьи через шаблонизатор -->
-
-
+        <p>{{ article.date }}</p>  <!-- вызывает дату публикации -->
+        <p>{{ article.full_text }}</p>  <!-- вызывает полный текст статьи -->
     </div>
 {% endblock %}
 
