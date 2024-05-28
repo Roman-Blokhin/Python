@@ -25,7 +25,8 @@ class NewsDetailView(DetailView):
 class NewsUpdateView(UpdateView):
     model = Article
     template_name = 'news/create.html'  # 6.1 используем шаблон для редактирования, так как он у нас уже есть
-    fields = ['title', 'anons', 'full_text', 'date']
+    # fields = ['title', 'anons', 'full_text', 'date']
+    form_class = ArticleForm  # 6.2 указываем класс для корректного отображения формы, убираем список полей для вывода
 
 
 # 3.1 создали функцию для открытия страницы, где можно добавить новую статью
