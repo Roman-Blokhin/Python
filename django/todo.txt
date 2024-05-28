@@ -305,3 +305,9 @@ path('<int:pk>', views.NewsDetailView.as_view(), name='news-detail')
 вызываем встроенный метод .as_view(), без него ничего не получится + присваиваем имя: name='news-detail'
 
 58. Создаем новый шаблон для динамической страницы со статьями: news/templates/news/details_view.html
+
+59. Прописываем в файле с шаблоном news_home.html ссылку для открытия статьи на новой динамической странице
+
+<a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Tap for more</a>
+
+Указываем ссылку для перехода через шаблонизатор, также включаем id новости, оно будет отображаться в поисковой строке
