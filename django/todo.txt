@@ -318,3 +318,6 @@ path('<int:pk>', views.NewsDetailView.as_view(), name='news-detail')
 <a href="{% url 'news_home' %}" class="btn btn-warning">Come back</a>
 
 61. Изменили название динамической страницы в зависимости от открываемой статьи: {{ article.title }}
+
+62. В файле news/urls.py прописываем ссылку на страницу для обновления статьи
+path('<int:pk>/update', views.NewsUpdateView.as_view(), name='news-update')
