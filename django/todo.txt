@@ -321,3 +321,9 @@ path('<int:pk>', views.NewsDetailView.as_view(), name='news-detail')
 
 62. В файле news/urls.py прописываем ссылку на страницу для обновления статьи
 path('<int:pk>/update', views.NewsUpdateView.as_view(), name='news-update')
+
+63. В файле news/views.py импортируем класс UpdateView и создаем новый класс для обновления статьи в БД
+class NewsUpdateView(UpdateView):
+    model = Article
+    template_name = 'news/create.html'
+    fields = ['title', 'anons', 'full_text', 'date']
