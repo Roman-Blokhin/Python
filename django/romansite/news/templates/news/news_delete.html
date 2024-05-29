@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% block title %} Delete note {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Delete note</h1>
+        <form method="post" action="" class="create_articles">
+            {% csrf_token %}  <!-- токен безопасной передачи данных, должен быть во всех формах -->
+            <button class="btn btn-success" type="submit"> Delete </button>
+        </form>
+    </div>
+{% endblock %}
+
+

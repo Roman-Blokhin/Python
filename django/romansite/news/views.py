@@ -30,8 +30,9 @@ class NewsUpdateView(UpdateView):
 
 
 # 7. класс для страницы, которая будет удалять статью
-class NewsDeleteView(DetailView):
+class NewsDeleteView(DeleteView):
     model = Article
+    success_url = '/news/'  # 7.2 нужно, чтобы была обратная переадресация страницы после удаления статьи
     template_name = 'news/news_delete.html'  # 7.1 новый шаблон
 
 

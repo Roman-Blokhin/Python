@@ -348,3 +348,18 @@ class NewsDeleteView(DetailView):
     template_name = 'news/news_delete.html'
 
 - Создаем шаблон страницы для удаления статьи news/templates/news
+{% extends 'main/layout.html' %}
+{% block title %} Delete note {% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>Delete note</h1>
+        <form method="post" action="" class="create_articles">
+            {% csrf_token %}  <!-- токен безопасной передачи данных, должен быть во всех формах -->
+            <button class="btn btn-success" type="submit"> Delete </button>
+        </form>
+    </div>
+{% endblock %}
+
+- Дописываем в класс удаления статей ссылку на переадресацию после удаления статьи:
+success_url = '/news/'
+
