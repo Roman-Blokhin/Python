@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Article  # 2 импортируем табличку Article
 from .forms import ArticleForm  # 3.2 импортируем класс формы
-from django.views.generic import DetailView, UpdateView  # 5.1 импортируем класс с динамической страницей
+from django.views.generic import DetailView, UpdateView, DeleteView  # 5.1 импортируем класс с динамической страницей
 
 def news_home(request):
     # news = Article.objects.all()  # 2.1 переменная, которая принимает на себя все объекты таблицы Article
@@ -27,6 +27,12 @@ class NewsUpdateView(UpdateView):
     template_name = 'news/create.html'  # 6.1 используем шаблон для редактирования, так как он у нас уже есть
     # fields = ['title', 'anons', 'full_text', 'date']
     form_class = ArticleForm  # 6.2 указываем класс для корректного отображения формы, убираем список полей для вывода
+
+
+# 7. класс для страницы, которая будет удалять статью
+class NewsDeleteView(DetailView):
+    model = Article
+    template_name = 'news/news_delete.html'  # 7.1 новый шаблон
 
 
 # 3.1 создали функцию для открытия страницы, где можно добавить новую статью

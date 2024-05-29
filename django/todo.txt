@@ -337,3 +337,14 @@ def get_absolute_url(self):
     return f'/news/{self.id}'
 
 get_absolute_url - мы берем со страницы возникающей ошибки
+
+66. Удаление статьи:
+- Прописываем ссылку в файле news/urls.py:
+path('<int:pk>/delete', views.NewsDeleteView.as_view(), name='news-delete')
+
+- Создаем класс в файле news/view.py и импортируем DeleteView
+class NewsDeleteView(DetailView):
+    model = Article
+    template_name = 'news/news_delete.html'
+
+- Создаем шаблон страницы для удаления статьи news/templates/news
