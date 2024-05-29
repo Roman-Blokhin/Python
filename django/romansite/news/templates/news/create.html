@@ -20,6 +20,7 @@
             {{ error }}  <!-- блок для вывода ошибки, если форма заполнена неверно -->
 
             <button class="btn btn-success" type="submit"> Add note </button>  <!-- кнопка отправки данных -->
+            <a href="{% url 'news_home' %}" class="btn btn-warning">Come back</a>  <!-- ссылка для возврата на новости -->
         </form>
     </div>
 {% endblock %}

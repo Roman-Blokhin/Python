@@ -8,6 +8,7 @@
         <form method="post" action="" class="create_articles">
             {% csrf_token %}  <!-- токен безопасной передачи данных, должен быть во всех формах -->
             <button class="btn btn-success" type="submit"> Delete </button>
+            <a href="{% url 'news_home' %}" class="btn btn-warning">Come back</a>  <!-- ссылка для возврата на новости -->
         </form>
     </div>
 {% endblock %}

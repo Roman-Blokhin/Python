@@ -10,7 +10,10 @@
         <h1>{{ article.title }}</h1>  <!-- вызывает название статьи через шаблонизатор -->
         <p>{{ article.date }}</p>  <!-- вызывает дату публикации -->
         <p>{{ article.full_text }}</p>  <!-- вызывает полный текст статьи -->
-        <a href="{% url 'news_home' %}" class="btn btn-warning">Come back</a>  <!-- ссылка для возврата на новости -->
+        <a href="{% url 'news-update' article.id %}" class="btn btn-success">Create</a>  <!-- редактировать новость-->
+        <a href="{% url 'news-delete' article.id %}" class="btn btn-danger">Delete</a>  <!-- удалить новость -->
+        <br/> <br/> <a href="{% url 'news_home' %}" class="btn btn-warning">Come back</a>  <!-- ссылка для возврата на
+        новости -->
     </div>
 {% endblock %}
 
