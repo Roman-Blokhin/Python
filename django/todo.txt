@@ -328,5 +328,12 @@ class NewsUpdateView(UpdateView):
     template_name = 'news/create.html'
     fields = ['title', 'anons', 'full_text', 'date']
 
-# 6.2 В классе NewsUpdateView убираем список полей для вывода, указываем класс для корректного отображения формы
+64. В классе NewsUpdateView убираем список полей для вывода, указываем класс для корректного отображения формы
 form_class = ArticleForm
+
+65. В файле news/models.py дописываем метод, чтобы после радактирования статьи мы могли вернуться на прежнюю страницу с
+новостью по кнопке - Add article. данные сохраняются
+def get_absolute_url(self):
+    return f'/news/{self.id}'
+
+get_absolute_url - мы берем со страницы возникающей ошибки
