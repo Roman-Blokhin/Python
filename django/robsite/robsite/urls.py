@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from dogs.views import index, categories  # 1.1 импортируем функции из файла
+from dogs.views import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dogs/', index),  # 1. прописываем путь на нашу функцию отображения страницы
-    path('cat/', categories),
+    path('', views.index),  # 1. прописываем путь на нашу функцию отображения страницы, будет главной
+    path('cats/', views.categories),
 ]
