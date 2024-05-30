@@ -1,0 +1,4 @@
+1. django-admin startproject robsite - создание проекта с его названием
+2. python manage.py runserver - запуск сервера
+3. python manage.py startapp dogs - создание нового приложения с его названием
+
