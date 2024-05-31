@@ -21,6 +21,15 @@ def categories(request, cat_id):
 re_path прописываем путь (и не забываем прописать функцию archive в файле dogs/views.py:
 
 re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive)
+
+- можно регулярные выражения преобразовывать через конвертер (специальный класс, который мы создаем, где описываем все
+преобразования нашего регулярного выражения). Создаем новый файл для конвертеров dogs/converters.py, там прописываем
+класс конвертера со всеми параметрами - FourDigitYearConverter. В файле dogs/urls.py импортируем регистратор
+конвертеров: register_converter. Импортируем сам файл converters.py: from . import converters. После этого прописываем
+строку регистрации конвертера с указанием названия: register_converter(converters.FourDigitYearConverter, 'year4').
+Затем изменяем путь регулярного выражения на обычный путь: path('archive/<year4:year>/', views.archive). Сама функция в
+файле dogs/views.py остается неизменной
+
 --------------------------------------------
 
 
