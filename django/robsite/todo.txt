@@ -11,6 +11,9 @@ path('cats/<int: cats_id>/', views.categories)
 
 def categories(request, cat_id):
     return HttpResponse(f'<h1>Статьи по категориям</h1> <p>id: {cat_id}</p>')
+
+- документация по типам маршрута (PATH CONVERTERS):
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
 --------------------------------------------
 
 
