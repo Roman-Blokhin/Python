@@ -14,6 +14,13 @@ def categories(request, cat_id):
 
 - документация по типам маршрута (PATH CONVERTERS):
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
+
+- можно делать страницу не /<int:cat_id>/, по целому числу, а по любым символам - /<slug:cat_slug>/
+
+- если конвертеров не хватает можно прописать путь через использование регулярных выражений - re_path. Импортируем
+re_path прописываем путь (и не забываем прописать функцию archive в файле dogs/views.py:
+
+re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive)
 --------------------------------------------
 
 
