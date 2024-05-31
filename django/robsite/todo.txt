@@ -1,6 +1,7 @@
 1. django-admin startproject robsite - создание проекта с его названием
 2. python manage.py runserver - запуск сервера
 3. python manage.py startapp dogs - создание нового приложения с его названием
+
 --------------------------------------------
 4. Динамические страницы:
 - в файле dogs/urls.py прописываем путь на динамическую страницу по целому числу - /<int:cat_id>/ - без пробела
@@ -31,5 +32,13 @@ re_path(r'^archive/(?P<year>[0-9]{4})/', views.archive)
 файле dogs/views.py остается неизменной
 
 --------------------------------------------
+5. Существуют GET и POST запросы. Если мы добавим вывод GET запроса в нашу функцию:
+def categories_by_slug(request, cat_slug):
+    print(request.GET)
+    return HttpResponse(f'<h1>Статьи по категориям</h1> <p>slug: {cat_slug}</p>')
+А в браузере введем запрос: http://127.0.0.1:8000/cats/music/?name=Robert&age=2, то в терминале мы увидим словарь:
+<QueryDict: {'name': ['Robert'], 'age': ['2']}>
 
+--------------------------------------------
+6.
 
