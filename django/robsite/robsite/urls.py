@@ -22,3 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dogs.urls')),  # 1. путь в наше приложение для отображения страницы, будет главной
 ]
+
+
+handler404 = page_not_found  # 2. обработчик исключения, если наша страница не найдена, когда DEBUG = False
