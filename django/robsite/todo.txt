@@ -52,3 +52,11 @@ def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена =(</h1>')
 
 - в файле urls.py импортируем созданную функцию для обработчика - from dogs.views import page_not_found
+
+- мы можем импортировать Http404() и вызвать исключение в функции перехода на страницу. Пишем проверку и само
+исключение, тогда нас перекинет на созданную нами ранее страницу, которая скажет, что такой страницы не существует:
+
+def archive(request, year):
+    if year > 2024:
+        raise Http404()
+    return HttpResponse(f'<h1>Архив по годам</h1> <p>{year}</p>')
