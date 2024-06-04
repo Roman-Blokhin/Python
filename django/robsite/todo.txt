@@ -85,3 +85,12 @@ elif year > 2024:
 --------------------------------------------
 8. Добавил имена всем нашим маршрутам в файле dogs/urls.py
 
+--------------------------------------------
+9. Подключение шаблонов
+- в файле dogs/views.py импортируем - from django.template.loader import render_to_string
+После этого в приложении dogs создаем папку templates, а в ней файл index.html, это будет шаблон для главной страницы.
+Далее меняем функцию на подключение шаблона:
+def index(request):
+    text = render_to_string('index.html')
+    return HttpResponse(text)
+

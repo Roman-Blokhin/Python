@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.template.loader import render_to_string
 
 
 def index(request):
-    return HttpResponse('Страница приложения dogs')
+    text = render_to_string('index.html')
+    return HttpResponse(text)
 
 
 def categories(request, cat_id):
