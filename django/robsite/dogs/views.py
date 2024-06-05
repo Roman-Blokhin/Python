@@ -4,8 +4,13 @@ from django.template.loader import render_to_string
 
 
 def index(request):
-    text = render_to_string('dogs/index.html')
-    return HttpResponse(text)
+    # text = render_to_string('dogs/index.html')
+    # return HttpResponse(text)
+    return render (request, 'dogs/index.html')
+
+
+def about(request):
+    return render (request, 'dogs/about.html')
 
 
 def categories(request, cat_id):

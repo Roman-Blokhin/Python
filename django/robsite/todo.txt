@@ -94,3 +94,9 @@ def index(request):
     text = render_to_string('index.html')
     return HttpResponse(text)
 
+- лучше писать более короткий путь
+def index(request):
+    return render (request, 'dogs/index.html')
+
+--------------------------------------------
+10. Создали и подключили новый файл about.py
