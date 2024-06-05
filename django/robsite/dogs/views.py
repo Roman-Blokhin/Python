@@ -4,7 +4,7 @@ from django.template.loader import render_to_string
 
 
 def index(request):
-    text = render_to_string('index.html')
+    text = render_to_string('dogs/index.html')
     return HttpResponse(text)
 
 
