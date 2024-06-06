@@ -3,13 +3,17 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.template.loader import render_to_string
 
 
+menu = ['О сайте', 'Добавить статью', 'Обратная связь', 'Войти']
+
+
 def index(request):
     # text = render_to_string('dogs/index.html')
     # return HttpResponse(text)
     data = {
-        'title': 'Главная страница'
+        'title': 'Главная страница',
+        'menu': menu
     }
-    return render (request, 'dogs/index.html', data)
+    return render (request, 'dogs/index.html', context=data)
 
 
 def about(request):
