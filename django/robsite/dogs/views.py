@@ -11,7 +11,8 @@ def index(request):
     # return HttpResponse(text)
     data = {
         'title': 'Главная страница',
-        'menu': menu
+        'menu': menu,
+        'list': [1, 2, 3],
     }
     return render (request, 'dogs/index.html', context=data)
 
