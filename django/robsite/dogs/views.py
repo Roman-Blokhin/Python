@@ -6,11 +6,14 @@ from django.template.loader import render_to_string
 def index(request):
     # text = render_to_string('dogs/index.html')
     # return HttpResponse(text)
-    return render (request, 'dogs/index.html')
+    data = {
+        'title': 'Главная страница'
+    }
+    return render (request, 'dogs/index.html', data)
 
 
 def about(request):
-    return render (request, 'dogs/about.html')
+    return render (request, 'dogs/about.html', {'title': 'О сайте'})
 
 
 def categories(request, cat_id):
