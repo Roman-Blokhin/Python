@@ -6,19 +6,37 @@ from django.template.loader import render_to_string
 menu = ['О сайте', 'Добавить статью', 'Обратная связь', 'Войти']
 
 
+class MyClass():
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+
 def index(request):
     # text = render_to_string('dogs/index.html')
     # return HttpResponse(text)
     data = {
         'title': 'Главная страница',
         'menu': menu,
-        'list': [1, 2, 3],
     }
     return render (request, 'dogs/index.html', context=data)
 
 
 def about(request):
     return render (request, 'dogs/about.html', {'title': 'О сайте'})
+
+
+def space(request):
+    data = {
+        'title': 'Космическое пространство',
+        'menu': menu,
+        'float': 12.909,
+        'list': ['toy', 3456, True],
+        'obj': MyClass(10, 50),
+        'set': {1, 4, 6, 7, 1, 89},
+        'dict': {'name': 'value_1', 'surname': 'value_2'},
+    }
+    return render (request, 'dogs/space.html', context=data)
 
 
 def categories(request, cat_id):
