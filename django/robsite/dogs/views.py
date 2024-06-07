@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.template.loader import render_to_string
+from django.template.defaultfilters import slugify
 
 
 menu = ['О сайте', 'Добавить статью', 'Обратная связь', 'Войти']
@@ -28,13 +29,14 @@ def about(request):
 
 def space(request):
     data = {
-        'title': 'Космическое пространство',
+        'title': 'космическое пространство',
         'menu': menu,
         'float': 12.909,
         'list': ['toy', 3456, True],
         'obj': MyClass(10, 50),
         'set': {1, 4, 6, 7, 1, 89},
         'dict': {'name': 'value_1', 'surname': 'value_2'},
+        'url': slugify('The Main Page Down')
     }
     return render (request, 'dogs/space.html', context=data)
 
