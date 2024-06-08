@@ -15,6 +15,10 @@ def index(request):
     return render (request, 'dogs/index.html', context=data)
 
 
+def show_post(request, post_id):
+    return HttpResponseNotFound(f"Отображение статьи с id = {post_id}")
+
+
 def about(request):
     return render (request, 'dogs/about.html', {'title': 'О сайте'})
 
