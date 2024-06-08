@@ -20,7 +20,7 @@ def show_post(request, post_id):
 
 
 def about(request):
-    return render (request, 'dogs/about.html', {'title': 'О сайте'})
+    return render (request, 'dogs/about.html', {'title': 'О сайте', 'menu': menu})
 
 
 def addpage(request):

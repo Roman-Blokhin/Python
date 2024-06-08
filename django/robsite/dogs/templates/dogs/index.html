@@ -6,7 +6,7 @@
 </head>
 <body>
     <ul>
-        <li><a href="{% url 'home' %}"> {{ title }} </a></li>
+        <li><a href="{% url 'home' %}"> Главная страница </a></li>
         {% for j in menu %}
             {% if not forloop.last %} <li> {% else %} <li class="last"> {% endif %}
                  <p><a href="{% url j.page_name %}"> {{ j.title }} </a></p>
