@@ -5,7 +5,12 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <p>{{ menu }}</p>
+    <p><a href="{% url 'home' %}"> {{ title }} </a></p>
+    <p><a href="{% url 'about' %}"> {{ menu.0 }} </a></p>
+    <p><a href="{% url 'addpage' %}"> {{ menu.1 }} </a></p>
+    <p><a href="{% url 'contacts' %}"> {{ menu.2 }} </a></p>
+    <p><a href="{% url 'login' %}"> {{ menu.3 }} </a></p>
+
     <h1>{{ title }}</h1>
 
     <ul>
