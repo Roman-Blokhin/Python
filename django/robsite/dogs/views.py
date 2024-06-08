@@ -4,21 +4,13 @@ from django.template.loader import render_to_string
 from django.template.defaultfilters import slugify
 
 
-menu = ['О сайте', 'Добавить статью', 'Обратная связь', 'Войти']
-
-
-class MyClass():
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-
 def index(request):
     # text = render_to_string('dogs/index.html')
     # return HttpResponse(text)
     data = {
         'title': 'Главная страница',
         'menu': menu,
+        'posts': data_db,
     }
     return render (request, 'dogs/index.html', context=data)
 
@@ -61,3 +53,18 @@ def archive(request, year):
 def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена =(</h1>')
 
+
+menu = ['О сайте', 'Добавить статью', 'Обратная связь', 'Войти']
+
+
+class MyClass():
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+
+data_db = [
+    {'id': 1, 'title': 'Roman the car', 'content': 'Roman bio congratulations', 'is_published': False},
+    {'id': 2, 'title': 'Daria the plain', 'content': 'Daria bio story', 'is_published': True},
+    {'id': 3, 'title': 'Robbie is bike', 'content': 'Rob bio information', 'is_published': True},
+]
