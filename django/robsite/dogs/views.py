@@ -66,5 +66,5 @@ class MyClass():
 data_db = [
     {'id': 1, 'title': 'Roman the car', 'content': 'Roman bio congratulations', 'is_published': False},
     {'id': 2, 'title': 'Daria the plain', 'content': 'Daria bio story', 'is_published': True},
-    {'id': 3, 'title': 'Robbie is bike', 'content': 'Rob bio information', 'is_published': True},
+    {'id': 3, 'title': 'Robbie is bike', 'content': 'Rob bio information', 'is_published': False},
 ]

@@ -147,3 +147,17 @@ slugify - <p>{{ 'The Main Page'|slugify }}</p> - создает слаг, ниж
     </li>
     {% endfor %}
 </ul>
+
+- Добавили условие if, что посты из словаря выводятся только если значение is_published == True:
+
+<ul>
+    {% for i in posts %}
+        {% if i.is_published == True %}
+            <li>
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.content }}</p>
+                <hr>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
