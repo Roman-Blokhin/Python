@@ -8,9 +8,9 @@
     <ul>
         <li><a href="{% url 'home' %}"> {{ title }} </a></li>
         {% for j in menu %}
-        <li>
-            <p><a href="{% url j.page_name %}"> {{ j.title }} </a></p>
-        </li>
+            {% if not forloop.last %} <li> {% else %} <li class="last"> {% endif %}
+                 <p><a href="{% url j.page_name %}"> {{ j.title }} </a></p>
+            </li>
         {% endfor %}
     </ul>
 
