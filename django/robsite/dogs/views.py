@@ -23,6 +23,18 @@ def about(request):
     return render (request, 'dogs/about.html', {'title': 'О сайте'})
 
 
+def addpage(request):
+    return HttpResponse('Добавление статьи')
+
+
+def contacts(request):
+    return HttpResponse('Контакты')
+
+
+def login(request):
+    return HttpResponse('Вход')
+
+
 def space(request):
     data = {
         'title': 'космическое пространство',

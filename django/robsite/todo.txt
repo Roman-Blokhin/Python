@@ -184,3 +184,20 @@ def show_post(request, post_id):
 
 - в шаблоне главной страницы прописываем ссылку по другому:
 <p><a href="{% url 'post' i.id %}"> Читать статью </a></p>
+
+--------------------------------------------
+16. Добавление путей на страницы - добавление статьи, контакты, вход:
+path('addpage/', views.addpage, name='addpage'),
+path('contacts/', views.contacts, name='contacts'),
+path('login/', views.login, name='login'),
+
+- Добавление функций для этих путей:
+
+def addpage(request):
+    return HttpResponse('Добавление статьи')
+
+def contacts(request):
+    return HttpResponse('Контакты')
+
+def login(request):
+    return HttpResponse('Вход')

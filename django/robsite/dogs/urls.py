@@ -11,6 +11,9 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('space/', views.space, name='space'),
     path('post/<int:post_id>/', views.show_post, name='post'),  # 6. путь на динамические страницы со статьями
+    path('addpage/', views.addpage, name='addpage'),
+    path('contacts/', views.contacts, name='contacts'),
+    path('login/', views.login, name='login'),
 
     path('cats/<int:cat_id>/', views.categories, name='cats_id'),  # 2. делаем динамическую страницу по числу
     path('cats/<slug:cat_slug>/', views.categories_by_slug, name='cats'),  # 3. делаем динамическую стр. всем символам
