@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<p>Восхождение на Эльбрус</p>
+    <ul>
+        <li><a href="{% url 'home' %}"> Главная страница </a></li>
+        {% for j in menu %}
+            {% if not forloop.last %} <li> {% else %} <li class="last"> {% endif %}
+                 <p><a href="{% url j.page_name %}"> {{ j.title }} </a></p>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% block content %} {% endblock %}
+
 </body>
 </html>
