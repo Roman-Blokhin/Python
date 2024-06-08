@@ -201,3 +201,22 @@ def contacts(request):
 
 def login(request):
     return HttpResponse('Вход')
+
+--------------------------------------------
+17. Изменили список меню на список со словарями для пунктов меню:
+menu = [
+    {'title': 'О сайте', 'page_name': 'about'},
+    {'title': 'Добавить статью', 'page_name': 'addpage'},
+    {'title': 'Обратная связь', 'page_name': 'contacts'},
+    {'title': 'Войти', 'page_name': 'login'},
+]
+
+- Это поможет нам в шаблоне главной страницы подключить ссылки на страницы с помощью цикла for:
+<ul>
+    <li><a href="{% url 'home' %}"> {{ title }} </a></li>
+    {% for j in menu %}
+    <li>
+        <p><a href="{% url j.page_name %}"> {{ j.title }} </a></p>
+    </li>
+    {% endfor %}
+</ul>

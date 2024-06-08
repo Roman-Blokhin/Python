@@ -5,11 +5,14 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <p><a href="{% url 'home' %}"> {{ title }} </a></p>
-    <p><a href="{% url 'about' %}"> {{ menu.0 }} </a></p>
-    <p><a href="{% url 'addpage' %}"> {{ menu.1 }} </a></p>
-    <p><a href="{% url 'contacts' %}"> {{ menu.2 }} </a></p>
-    <p><a href="{% url 'login' %}"> {{ menu.3 }} </a></p>
+    <ul>
+        <li><a href="{% url 'home' %}"> {{ title }} </a></li>
+        {% for j in menu %}
+        <li>
+            <p><a href="{% url j.page_name %}"> {{ j.title }} </a></p>
+        </li>
+        {% endfor %}
+    </ul>
 
     <h1>{{ title }}</h1>
 

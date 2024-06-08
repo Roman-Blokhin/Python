@@ -28,11 +28,11 @@ def addpage(request):
 
 
 def contacts(request):
-    return HttpResponse('Контакты')
+    return HttpResponse('Обратная связь')
 
 
 def login(request):
-    return HttpResponse('Вход')
+    return HttpResponse('Авторизация')
 
 
 def space(request):
@@ -70,7 +70,12 @@ def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена =(</h1>')
 
 
-menu = ['О сайте', 'Добавить статью', 'Обратная связь', 'Войти']
+menu = [
+    {'title': 'О сайте', 'page_name': 'about'},
+    {'title': 'Добавить статью', 'page_name': 'addpage'},
+    {'title': 'Обратная связь', 'page_name': 'contacts'},
+    {'title': 'Войти', 'page_name': 'login'},
+]
 
 
 class MyClass():
