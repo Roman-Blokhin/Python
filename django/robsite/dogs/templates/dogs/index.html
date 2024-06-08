@@ -14,6 +14,7 @@
                 <li>
                     <h2>{{ i.title }}</h2>
                     <p>{{ i.content }}</p>
+                    <p><a href="posts/{{ i.id }}"> Читать статью </a></p>
                     {% if not forloop.last %}  <!-- если статья не последняя -->
                     <hr>
                     {% endif %}
