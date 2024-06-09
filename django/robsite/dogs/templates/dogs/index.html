@@ -3,6 +3,8 @@
 {% block content %}
     <h1>{{ title }}</h1>
 
+    {% include 'dogs/includes/nav.html' %}
+
     <ul>
         {% for i in posts %}
             {% if i.is_published == True %}
@@ -17,4 +19,8 @@
             {% endif %}
         {% endfor %}
     </ul>
+
+    {% include 'dogs/includes/nav.html' %}
+
 {% endblock %}
+

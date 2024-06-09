@@ -244,3 +244,6 @@ TEMPLATES = [
 {% block content %}
     .... - здесь вставляем наш код для этой страницы
 {% endblock %}
+
+20. Создаем новый шаблон в приложении dogs и подключаем его на главной странице сайта через include:
+{% include 'dogs/includes/nav.html' %} - прописываем внутри {% block content %}
