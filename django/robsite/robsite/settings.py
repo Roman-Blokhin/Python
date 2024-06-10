@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  # 2. нужно, чтобы django подключал статические файлы
     'dogs.apps.DogsConfig'  # 1. всегда регистрируем наше новое приложение
 ]
 
