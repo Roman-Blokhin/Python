@@ -1,3 +1,20 @@
-body {
-    background: grey;
+head {
+    border-bottom: 5px solid #4d4d4d;
+}
+
+.header {
+    color: #0059b2;
+    width: 100%;
+    margin-left: 10%;
+    text-decoration: none;
+}
+
+aside {
+    text-decoration: none;
+    color: #0059b2;
+}
+
+main_class {
+    text-decoration: none;
+    color: #0059b2;
 }
