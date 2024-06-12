@@ -266,3 +266,10 @@ TEMPLATES = [
 <link type="text/css" href="{% static 'dogs/css/styles.css' %}" rel="stylesheet" />
 
 - В файле стилей прописываем простой код css для проверки работоспособности файла
+
+24. Если мы хотим сделать картинку кнопкой с о ссылкой, то можем использовать форму:
+<form action="https://www.youtube.com/" target="_blank">
+    <button ><img src="{% static 'dogs/images/youtube.svg' %}" alt="logo" class="youtube_logo"></button>
+</form>
+
+- target="_blank" - позволяет открывать ссылку в новой вкладке браузера
