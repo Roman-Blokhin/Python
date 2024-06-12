@@ -1,20 +1,66 @@
-head {
-    border-bottom: 5px solid #4d4d4d;
+body div {  /* base.html */
+    background: #2F4F4F;
+    font-family: 'Arial';
+    border-bottom: 1px solid #4d4d4d;
 }
 
-.header {
-    color: #0059b2;
-    width: 100%;
-    margin-left: 10%;
+img {  /* base.html */
+    width: 50px;
+    float: top;
+    padding: 5px;
+    margin-left: 40px;
+
+}
+
+.header {  /* base.html */
+    color: #fff;
+    width: 80%;
+    margin-left: 7%;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+aside {  /* base.html */
+    float: left;
+    background: #DCDCDC;
+    width: 20%;
+    height: 100vh;
+    padding: 2.5%;
+    color: #444;
+    border-right: 1px solid #4d4d4d;
+    font-size: 20px;
+    font-family: 'Arial';
+}
+
+nav a {  /* dogs/templates/includes/nav.html */
     text-decoration: none;
 }
 
-aside {
-    text-decoration: none;
+a {
     color: #0059b2;
+	text-decoration: none;
 }
 
-main_class {
-    text-decoration: none;
-    color: #0059b2;
+.main_class {  /* base.html */
+    margin-left: 250px;
+    margin-top: 50px;
+    padding:5%;
+    text-align: left;
+}
+
+.title {  /* index.html */
+    margin-top: 50px;
+    padding-bottom: 5%;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn_read {  /* index.html */
+    float: right;
+}
+
+.box_content {  /* index.html */
+    padding: 5%;
 }
