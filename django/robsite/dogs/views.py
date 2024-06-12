@@ -24,15 +24,15 @@ def about(request):
 
 
 def addpage(request):
-    return HttpResponse('Добавление статьи')
+    return render (request, 'dogs/addpage.html', {'title': 'Добавление статьи', 'menu': menu})
 
 
 def contacts(request):
-    return HttpResponse('Обратная связь')
+    return render (request, 'dogs/contacts.html', {'title': 'Обратная связь', 'menu': menu})
 
 
 def login(request):
-    return HttpResponse('Авторизация')
+    return render (request, 'dogs/login.html', {'title': 'Авторизация', 'menu': menu})
 
 
 def space(request):
