@@ -86,6 +86,9 @@ class MyClass():
 
 data_db = [
     {'id': 1, 'title': 'Roman the car', 'content': 'Roman bio congratulations', 'is_published': False},
-    {'id': 2, 'title': 'Daria the plain', 'content': 'Daria bio story', 'is_published': True},
-    {'id': 3, 'title': 'Robbie is bike', 'content': 'Rob bio information', 'is_published': True},
+    {'id': 2, 'title': 'Роберт покоряет горы', 'content': 'Это история про очень смышленого и храброго пса, '
+    'который осмелился покорить северный Тянь-Шань. Сегодня он отдыхает дома, а завтра взбирается на горные пики...',
+    'is_published': True},
+    {'id': 3, 'title': 'Выносливость породы', 'content': 'Сегодня поговорим о том, что на самом деле скрывается за '
+    'милой мордочкой вашего питомца', 'is_published': True},
 ]

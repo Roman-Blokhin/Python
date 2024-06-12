@@ -1,5 +1,5 @@
 body div {  /* base.html */
-    background: #2F4F4F;
+    background: #3F4137;
     font-family: 'Arial';
     border-bottom: 1px solid #4d4d4d;
 }
@@ -13,11 +13,13 @@ img {  /* base.html */
 }
 
 .header {  /* base.html */
-    color: #fff;
+    color: #fdc073;
     width: 80%;
     margin-left: 7%;
     text-decoration: none;
     font-size: 18px;
+    transition: transform .6s ease;
+    font-family: 'Comic Sans MS';
 }
 
 aside {  /* base.html */
@@ -26,7 +28,6 @@ aside {  /* base.html */
     width: 20%;
     height: 100vh;
     padding: 2.5%;
-    color: #444;
     border-right: 1px solid #4d4d4d;
     font-size: 20px;
     font-family: 'Arial';
@@ -34,6 +35,23 @@ aside {  /* base.html */
 
 nav a {  /* dogs/templates/includes/nav.html */
     text-decoration: none;
+    color: #2F4F4F;
+    display: block;
+    height: 55px;
+    font-family: 'Comic Sans MS';
+}
+
+nav a:hover {  /* псевдоскласс для эффектов при наведении' */
+    color: #eb5959;
+    transition: transform .6s ease;
+}
+
+.nav_text_1 {
+    color: #696969;
+    display: block-inline;
+    margin-top: 80px;
+    font-family: 'Comic Sans MS';
+    background: #DCDCDC;
 }
 
 a {
@@ -53,14 +71,30 @@ a {
     padding-bottom: 5%;
 }
 
-ul {
+ul li{
     list-style: none;
+    transition: transform .6s ease;
+}
+
+ul li:hover, ul a:hover {  /* псевдоскласс для эффектов при наведении' */
+    color: #eb5959;
+    transform: scale(1.05);  /* увеличивание текста при наведении */
 }
 
 .btn_read {  /* index.html */
-    float: right;
+    margin-left: 600px;
 }
 
 .box_content {  /* index.html */
-    padding: 5%;
+    padding: 2%;
+}
+
+main {
+    width: 1000px;
+}
+
+.youtube_logo {
+    width: 100px;
+    margin-left: -10px;
+    margin-top: -10px;
 }
