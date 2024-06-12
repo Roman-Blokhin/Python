@@ -9,7 +9,8 @@
                 <li>
                     <h2>{{ i.title }}</h2>
                     <p class="box_content">{{ i.content }}</p>
-                    <p class="btn_read"><a href="{% url 'post' i.id %}" class="btn btn-info"> Читать статью </a></p>
+                    <p class="btn_read"><a href="{% url 'post' i.id %}" class="btn btn-primary"> Читать статью
+                    </a></p>
                     {% if not forloop.last %}  <!-- если статья не последняя -->
                     <hr>
                     {% endif %}
