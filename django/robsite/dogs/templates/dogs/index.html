@@ -8,7 +8,9 @@
             {% if i.is_published == True %}
                 <li>
                     <h2>{{ i.title }}</h2>
-                    <p class="box_content">{{ i.content|truncatewords:20 }}</p>
+                    {% autoescape off %}
+                    <p class="box_content">{{ i.content|linebreaks|truncatewords:20 }}</p>
+                    {% endautoescape %}
                     <p class="btn_read"><a href="{% url 'post' i.id %}" class="btn btn-primary"> Читать статью
                     </a></p>
                     {% if not forloop.last %}  <!-- если статья не последняя -->
