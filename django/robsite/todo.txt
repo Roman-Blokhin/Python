@@ -287,3 +287,8 @@ TEMPLATES = [
 {% autoescape off %}
 <p class="box_content">{{ i.content|linebreaks|truncatewords:20 }}</p>
 {% endautoescape %}
+
+--------------------------------------------
+26. Если в общих настройках сайта установлен параметр DEBUG = False, то папка static со всеми стилями и картинками не
+загрузится. В терминале можно прописать команду, тогда папка static прогрузится:
+python manage.py runserver --insecure
