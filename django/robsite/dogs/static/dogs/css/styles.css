@@ -33,25 +33,24 @@ aside {  /* base.html */
     font-family: 'Arial';
 }
 
-nav a {  /* dogs/templates/includes/nav.html */
-    text-decoration: none;
-    color: #2F4F4F;
-    display: block;
-    height: 55px;
-    font-family: 'Comic Sans MS';
-}
-
-nav a:hover {  /* псевдоскласс для эффектов при наведении' */
+aside ul li a:hover {  /* псевдоскласс для эффектов при наведении' */
     color: #eb5959;
     transition: transform .6s ease;
 }
 
-.nav_text_1 {
-    color: #696969;
-    display: block-inline;
-    margin-top: 80px;
+aside ul li a {
+    text-decoration: none;
     font-family: 'Comic Sans MS';
     background: #DCDCDC;
+    color: #2F4F4F;
+    display: block;
+    height: 45px;
+    margin-left: -30px;
+}
+
+.aside_cat_title {
+    color: #4169E1;
+    font-family: 'Comic Sans MS';
 }
 
 a {
