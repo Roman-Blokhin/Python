@@ -6,5 +6,5 @@ register = template.Library()
 
 
 @register.simple_tag()
-def get_categoties():
+def get_categories():
     return views.cats_db

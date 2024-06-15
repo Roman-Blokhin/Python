@@ -1,4 +1,5 @@
 {% load static %}  <!-- подключаем статические файлы -->
+{% load dogtags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +21,7 @@
         {% endfor %}
     </div>
     <aside>
+        {% get_categories %}
         {% include 'dogs/includes/nav.html' %}
         <form action="https://www.youtube.com/" target="_blank">
             <button ><img src="{% static 'dogs/images/youtube_logo.png' %}" alt="logo" class="youtube_logo"></button>
