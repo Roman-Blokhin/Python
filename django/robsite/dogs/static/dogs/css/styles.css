@@ -33,6 +33,8 @@ aside {  /* base.html */
     font-family: 'Arial';
 }
 
+/*------------------------- aside -------------------------*/
+
 aside ul li a:hover {  /* псевдоскласс для эффектов при наведении' */
     color: #eb5959;
     transition: transform .6s ease;
