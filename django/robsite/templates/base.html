@@ -20,13 +20,13 @@
         {% endfor %}
     </div>
     <aside>
-        {% get_categories as categories %}
-
         <h4 class="aside_cat_title">Категории:</h4><br>
+
         <ul>
-            <li><a href="#">Порода</a></li>
-            <li><a href="#">Характеристики</a></li>
-            <li><a href="#">Заводчики</a></li>
+            {% get_categories as categories %}
+            {% for cat in categories %}
+                <li><a href="#">{{ cat.name }}</a></li>
+            {% endfor %}
         </ul>
 
         <!-- {% include 'dogs/includes/nav.html' %}  -->
