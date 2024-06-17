@@ -14,6 +14,7 @@ urlpatterns = [
     path('addpage/', views.addpage, name='addpage'),
     path('contacts/', views.contacts, name='contacts'),
     path('login/', views.login, name='login'),
+    path('category/<int:cat_id>/', views.show_category, name='category'),
 
     path('cats/<int:cat_id>/', views.categories, name='cats_id'),  # 2. делаем динамическую страницу по числу
     path('cats/<slug:cat_slug>/', views.categories_by_slug, name='cats'),  # 3. делаем динамическую стр. всем символам

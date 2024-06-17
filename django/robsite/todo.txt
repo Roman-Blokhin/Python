@@ -341,3 +341,13 @@ def get_categories():
         <li><a href="#">{{ cat.name }}</a></li>
     {% endfor %}
 </ul>
+
+- В файле dogs/urls.py прописываем новый путь:
+path('category/<int:cat_id>/', views.show_category, name='category'),
+
+- в файле dogs/views.py прописываем простую функцию:
+def show_category(request, cat_id):
+    return index(request)
+
+- в файле с главным шаблоном меняем ссылку на страницы при нажатии на пункты меню:
+<li><a href="{% url 'category' cat.id %}">{{ cat.name }}</a></li>
