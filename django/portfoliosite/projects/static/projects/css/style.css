@@ -1,3 +1,29 @@
 .body_style {
-    background: #98FB98	;
+    background: #EEF5DB;
+    font-family: 'Comic Sans MS';
+}
+
+.aside_style {
+    background: #FE5F55;
+    height: 100vh;
+    width: 20%;
+    float: left;
+    padding: 2.5%;
+    border-right: 1px solid #4F6367;
+}
+
+aside ul li a {
+    display: block;
+    font-decoration: none;
+    font: 30px;
+    color: #4F6367;
+
+}
+
+.main_line_style {
+    background: #4F6367;
+}
+
+.main_block_style {
+    width: 1000px;
 }
