@@ -11,6 +11,7 @@
 </head>
 <body class="body_style">
     <div class="main_line_style">
+        <img src="{% static 'projects/img/logo_man.png' %}" alt="logo_man">
         <ul>
             {% for m in menu %}
                 <li><a href="{ url m.page_name }"> {{ m.title }}</a></li>
