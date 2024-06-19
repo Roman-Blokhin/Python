@@ -3,6 +3,8 @@
     font-family: 'Comic Sans MS';
 }
 
+/* ------------------------------------------- */
+
 .aside_style {
     background: #FE5F55;
     height: 100vh;
@@ -20,10 +22,27 @@ aside ul li a {
 
 }
 
+/* ------------------------------------------- */
+
 .main_line_style {
     background: #4F6367;
+    text-decoration: none;
+    font-size: 25px;
+    color: #EEF5DB;
 }
+
+img {
+    padding: 5px;
+    float: top;
+    width: 90px;
+}
+
+/* ------------------------------------------- */
 
 .main_block_style {
     width: 1000px;
+    padding: 2%;
+    margin-left: 20%;
 }
+
+/* ------------------------------------------- */
