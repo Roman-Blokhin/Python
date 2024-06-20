@@ -11,7 +11,39 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'projects/about.html')
+    data = {
+        'title': 'Обо мне',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/about.html', context=data)
+
+
+def vkusvill(request):
+    data = {
+        'title': 'ВкусВилл',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/vkusvill.html', context=data)
+
+
+def sletat(request):
+    data = {
+        'title': 'Слетать.ру',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/sletat.html', context=data)
+
+
+def skills(request):
+    data = {
+        'title': 'Skills',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/skills.html', context=data)
 
 
 categories_db = [
