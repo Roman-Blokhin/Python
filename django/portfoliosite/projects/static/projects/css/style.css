@@ -3,10 +3,10 @@
     font-family: 'Comic Sans MS';
 }
 
-/* ------------------------------------------- */
+/* ------------------ боковая панель ------------------------- */
 
 .aside_style {
-    background: #FE5F55;
+    background: #4F6367;
     height: 100vh;
     width: 20%;
     float: left;
@@ -18,26 +18,32 @@ aside ul li a {
     display: block;
     font-decoration: none;
     font: 30px;
-    color: #4F6367;
+    color: #EEF5DB;
 
 }
 
-/* ------------------------------------------- */
+/* -------------------- верхняя панель ----------------------- */
 
 .main_line_style {
-    background: #4F6367;
+    background: #FE5F55;
     text-decoration: none;
-    font-size: 25px;
+}
+
+.a_main_line_style {
+    text-decoration: none;
+    font-size: 30px;
     color: #EEF5DB;
+    padding: 9%;
 }
 
 img {
     padding: 5px;
     float: top;
     width: 90px;
+    margin-left: 100px;
 }
 
-/* ------------------------------------------- */
+/* -------------------- центральное пространство ----------------------- */
 
 .main_block_style {
     width: 1000px;
