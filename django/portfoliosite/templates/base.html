@@ -18,11 +18,14 @@
     </div>
 
     <aside class="aside_style">
-        <ul>
-            {% for cat in categories %}
-                <li><a href="{ url cat.id }"> {{ cat.name }}</a></li>
-            {% endfor %}
-        </ul>
+        <div>
+            <ul>
+                {% for cat in categories %}
+                    <li><a href="{ url cat.id }" class="a_aside_style" > {{ cat.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
     </aside>
 
     {% block content %} {% endblock %}
