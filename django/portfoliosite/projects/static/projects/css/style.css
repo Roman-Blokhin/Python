@@ -1,6 +1,7 @@
 .body_style {
     background: #EEF5DB;
     font-family: 'Comic Sans MS';
+    color: #4F6367;
 }
 
 ul li {  /* все маркированные списки */
@@ -15,18 +16,16 @@ ul li {  /* все маркированные списки */
     width: 20%;
     float: left;
     padding: 2.5%;
-    border-right: 1px solid #4F6367;
+    border-right: 1px solid #000;
 }
 
-ul li a {  /* ссылки боковой панели */
+aside ul li a {  /* ссылки боковой панели */
     display: block;
     color: #EEF5DB;
     height: 40px;
-}
-
-.a_aside_style {
-    font-decoration: none;
-    font: 30px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: -40px;
 }
 
 /* -------------------- верхняя панель ----------------------- */
@@ -34,7 +33,7 @@ ul li a {  /* ссылки боковой панели */
 .main_line_style {  /* общие у верхней панели */
     background: #FE5F55;
     text-decoration: none;
-    border-bottom: 1px solid #4F6367;
+    border-bottom: 1px solid #000;
 }
 
 .a_main_line_style {  /* ссылки на верхней панели */
