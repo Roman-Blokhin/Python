@@ -40,14 +40,21 @@ aside ul li a {  /* ссылки боковой панели */
     text-decoration: none;
     font-size: 25px;
     color: #EEF5DB;
-    padding: 3%;
-    margin-left: 200px;
+    padding: 7%;
+    margin-left: 80px;
+}
+
+.about_main_line_style {  /* ссылка "Обо мне" на верхней панели */
+    text-decoration: none;
+    font-size: 25px;
+    color: #EEF5DB;
+    margin-left: 20px;
 }
 
 img {  /* лого в верхней панели */
     float: top;
     width: 60px;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 /* -------------------- центральное пространство ----------------------- */
