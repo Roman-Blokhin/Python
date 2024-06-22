@@ -46,6 +46,51 @@ def skills(request):
     return render(request, 'projects/skills.html', context=data)
 
 
+def support(request):
+    data = {
+        'title': 'Служба поддержки',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/support.html', context=data)
+
+
+def laboratory(request):
+    data = {
+        'title': 'Лаборатория инноваций',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/laboratory.html', context=data)
+
+
+def b2b(request):
+    data = {
+        'title': 'Международный аудит',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/b2b.html', context=data)
+
+
+def vvsport(request):
+    data = {
+        'title': 'Корпоративный спорт ВВ',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/vvsport.html', context=data)
+
+
+def ai(request):
+    data = {
+        'title': 'Обучение AI',
+        'categories': categories_db,
+        'menu': menu,
+    }
+    return render(request, 'projects/ai.html', context=data)
+
+
 categories_db = [
     {'id': 1, 'name': 'Служба поддержки'},
     {'id': 2, 'name': 'Лаборатория инноваций'},
