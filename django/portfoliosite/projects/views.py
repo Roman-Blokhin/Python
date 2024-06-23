@@ -92,11 +92,11 @@ def ai(request):
 
 
 categories_db = [
-    {'id': 1, 'name': 'Служба поддержки'},
-    {'id': 2, 'name': 'Лаборатория инноваций'},
-    {'id': 3, 'name': 'Международный аудит'},
-    {'id': 4, 'name': 'ВкусВилл спорт'},
-    {'id': 5, 'name': 'Обучение AI'},
+    {'id': 1, 'name': 'Служба поддержки', 'page_name': 'support'},
+    {'id': 2, 'name': 'Лаборатория инноваций', 'page_name': 'laboratory'},
+    {'id': 3, 'name': 'Международный аудит', 'page_name': 'b2b'},
+    {'id': 4, 'name': 'ВкусВилл спорт', 'page_name': 'vvsport'},
+    {'id': 5, 'name': 'Обучение AI', 'page_name': 'ai'},
 ]
 
 menu = [

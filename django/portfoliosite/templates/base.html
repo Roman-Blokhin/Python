@@ -14,14 +14,14 @@
         <img src="{% static 'projects/img/logo_man.png' %}" alt="logo_man">
         <a href="{% url 'about' %}" class="about_main_line_style"> Обо мне </a>
         {% for m in menu %}
-            <a href="{% url m.page_name %}" class="a_main_line_style"> {{ m.title }}</a>
+            <a href="{% url m.page_name %}" class="a_main_line_style"> {{ m.title }} </a>
         {% endfor %}
     </div>
 
     <aside class="aside_style">
         <ul>
             {% for cat in categories %}
-                <li><a href="{ url cat.id }"> {{ cat.name }}</a></li>
+                <li><a href="{% url cat.page_name %}"> {{ cat.name }} </a></li>
             {% endfor %}
         </ul>
     </aside>
