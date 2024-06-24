@@ -24,9 +24,7 @@
 
         <ul>
             {% get_categories as categories %}
-            {% for cat in categories %}
-                <li><a href="{% url 'category' cat.id %}">{{ cat.name }}</a></li>
-            {% endfor %}
+            {% show_categories %}
         </ul>
 
         <!-- {% include 'dogs/includes/nav.html' %}  -->

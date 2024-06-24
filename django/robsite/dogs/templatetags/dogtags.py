@@ -13,4 +13,4 @@ def get_categories():
 @register.inclusion_tag('dogs/list_categories.html')
 def show_categories():
     cats = views.cats_db
-    return ('cats': cats)
+    return {'cats': cats}
