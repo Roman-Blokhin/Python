@@ -363,3 +363,8 @@ class Dogs(model.Model):
     time_create = models.DateTimeField(auto_now_add=True)  - время создания записи, заполняется автоматически
     time_update = models.DateTimeField(auto_now=True)  - время изменения записи, заполняется автоматически
     is_published = models.BooleanField(default=True)  - автоматом проставляется, что статья опубликована
+
+-----------------------------------------
+31. Миграции. Создают таблицу в базе данных. Для этого мы в терминале прописываем команду:
+- python manage.py makemigrations
+Она создает файл миграции, фактически создает начальную версию нашей таблицы в базе данных
