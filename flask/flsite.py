@@ -8,6 +8,11 @@ app = Flask(__name__)
 def index():
     return 'Main page'
 
+# 3. создаем еще одну страницу
+@app.route("/about")  # 3.1 указываем адрес url
+def about():
+    return '<h1>About Company</h1>'
+
 # 2. создаем приложение на нашем локальном сайте
 if __name__ == '__main__':
     app.run(debug=True)
