@@ -4,12 +4,13 @@ from flask import Flask
 app = Flask(__name__)
 
 # 3. создаем декоратор для отображения страницы, указываем адрес главной страницы
+@app.route("/index")  # 3.1 на одну функцию можно навешивать несколько url адресов
 @app.route("/")
 def index():
     return 'Main page'
 
-# 3. создаем еще одну страницу
-@app.route("/about")  # 3.1 указываем адрес url
+# 4. создаем еще одну страницу
+@app.route("/about")  # 4.1 указываем адрес url
 def about():
     return '<h1>About Company</h1>'
 
