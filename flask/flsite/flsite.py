@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 # 1. создаем экземпляр класса
 app = Flask(__name__)
@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/index")  # 3.1 на одну функцию можно навешивать несколько url адресов
 @app.route("/")
 def index():
-    return 'Main page'
+    return render_template ('index.html')  # 3.2 подключаем созданный шаблон
 
 # 4. создаем еще одну страницу
 @app.route("/about")  # 4.1 указываем адрес url
