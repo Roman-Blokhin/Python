@@ -12,7 +12,7 @@ def index():
 # 4. создаем еще одну страницу
 @app.route("/about")  # 4.1 указываем адрес url
 def about():
-    return '<h1>About Company</h1>'
+    return render_template ('about.html')
 
 # 2. создаем приложение на нашем локальном сайте
 if __name__ == '__main__':
