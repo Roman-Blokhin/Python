@@ -13,6 +13,9 @@ def index():
     return render_template ('index.html', title = 'Главная страница', menu=menu) # 3.2 подключаем созданный шаблон и
     # заголовок, а также список меню
 
+def super():
+    return render_template('base.html')
+
 # 4. создаем еще одну страницу
 @app.route("/about")  # 4.1 указываем адрес url
 def about():
