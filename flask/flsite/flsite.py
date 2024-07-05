@@ -7,12 +7,15 @@ app = Flask(__name__)
 @app.route("/index")  # 3.1 на одну функцию можно навешивать несколько url адресов
 @app.route("/")
 def index():
-    return render_template ('index.html')  # 3.2 подключаем созданный шаблон
+    data = {
+        'title': 'Главная страница',
+    }
+    return render_template ('index.html', title = 'Главная страница') # 3.2 подключаем созданный шаблон и заголовок
 
 # 4. создаем еще одну страницу
 @app.route("/about")  # 4.1 указываем адрес url
 def about():
-    return render_template ('about.html')
+    return render_template ('about.html', title = 'О сайте')
 
 # 2. создаем приложение на нашем локальном сайте
 if __name__ == '__main__':
