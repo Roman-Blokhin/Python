@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+
+    {% if title %}
+        <title> Раздел - {{ title }}</title>
+    {% else %}
+        <title> Info </title>
+    {% endif %}
+
 </head>
 <body>
     <ul>
@@ -12,6 +18,12 @@
         </li>
         {% endfor %}
     </ul>
-    <h1>{{ title }}</h1>
+
+    {% if title %}
+        <h1>{{ title }}</h1>
+    {% else %}
+        <h1> Information will be soon.. </h1>
+    {% endif %}
+
 </body>
 </html>
