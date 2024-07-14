@@ -1,9 +1,4 @@
-from main import gold
+from variables import gold, wood, people_1, people_2, free_people
 
 
-def gold_worker():
-    gold += 100
-    print('\nЗолото:', gold,
-          '     Дерево:', wood,
-          '     Люди:', people_1, '/', people_2,
-          '     Свободные люди: ', free_people)
+
