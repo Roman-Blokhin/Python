@@ -3,24 +3,14 @@ from menu import *
 from gold_work import *
 
 
-def gold_worker():
-    gold += 100
-    print('\nЗолото:', gold,
-          '     Дерево:', wood,
-          '     Люди:', people_1, '/', people_2,
-          '     Свободные люди: ', free_people)
-
-
 while True:
     print('\nПривет, это игра про ремесло! Поехали:  ')
     print (menu_1)  # продолжить
     print (menu_2)  # выход
     click_1 = input('Выберите действие: ')
     if click_1 == '1':
-        print('\nЗолото:', gold,
-              '     Дерево:', wood,
-              '     Люди:', people_1, '/', people_2,
-              '     Свободные люди: ', free_people)
+        print ('\nЗолото: ' + str(gold) + '     Дерево: ' + str(wood) + '     Люди: ' + str(people_1) + '/' +
+             str(people_2) + '     Свободные люди: ' + str(free_people))
 
         print ('\n' + menu_3)  # добыть золото
         print (menu_4)  # добыть дерево
@@ -31,10 +21,8 @@ while True:
         if click_2 == '1':
             free_people -= 1
             gold += 100
-            print('\nЗолото:', gold,
-                  '     Дерево:', wood,
-                  '     Люди:', people_1, '/', people_2,
-                  '     Свободные люди: ', free_people)
+            print('\nЗолото: ' + str(gold) + '     Дерево: ' + str(wood) + '     Люди: ' + str(people_1) + '/' +
+                        str(people_2) + '     Свободные люди: ' + str(free_people) + '\n')
 
             print(menu_6)  # добыть
             print(menu_7)  # закончить добывать
