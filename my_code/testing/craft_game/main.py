@@ -17,9 +17,10 @@ def gold_worker():
         elif click_3_1 == '0':
             break
 
+print('\nПривет, это игра про ремесло! Поехали:  ')
+
 while True:
     # -----------------------------------  НАЧАЛЬНО МЕНЮ  -----------------------------------
-    print('\nПривет, это игра про ремесло! Поехали:  ')
     print (menu_1)  # продолжить
     print (menu_2)  # выход
     click_1 = input('Выберите действие: ')
@@ -38,8 +39,8 @@ while True:
             free_people -= 1
             gold_worker()
 
-            free_people += 1
             print(res)
+            free_people += 1
             print(menu_6)  # добыть
             print(menu_7)  # закончить добывать
             print(menu_2)  # выход
