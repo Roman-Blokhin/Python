@@ -2,6 +2,7 @@ gold = 500
 wood = 1000
 people_1 = 1
 people_2 = 1
+free_people = 1
 
 castle = 0
 farm = 0
