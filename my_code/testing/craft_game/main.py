@@ -7,13 +7,14 @@ from resources import res
 def gold_worker():
     while True:
         global gold
-        gold += 100
         print('\nЗолото:', gold, '     Дерево:', wood, '     Люди:', people_1, '/', people_2,
               '     Свободные люди: ', free_people)
         print(menu_6)
         print(menu_0)
         click_3_1 = input()
-        if click_3_1 == '0':
+        if click_3_1 == '1':
+            gold += 100
+        elif click_3_1 == '0':
             break
 
 while True:
