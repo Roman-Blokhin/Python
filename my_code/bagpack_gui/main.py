@@ -11,7 +11,7 @@ list_inventory = []
 sticks = 'Палки'
 gas = 'Газ'
 fire = 'Горелка'
-dishes = 'Набор посуды'
+dishes = 'Посуда'
 lighter = 'Зажигалка'
 level_bagpack = 'Повысить уровень рюкзака'
 
@@ -20,7 +20,7 @@ gas_cost = 50
 fire_cost = 120
 dishes_cost = 100
 lighter_cost = 30
-level_bagpack_cost = 500
+level_bagpack_cost = 200
 
 # --------------------------------------- ФУНКЦИИ ---------------------------------------
 
@@ -35,11 +35,18 @@ def first():
 
 def level_up():
     global gold, level
-    gold -= level_bagpack_cost
-    level += 1
-    lbl_13.config(text=level)
-    print(gold)
-    print(level)
+    if gold >= level_bagpack_cost:
+        gold -= level_bagpack_cost
+        level += 1
+        lbl_11.config(text=gold)
+        lbl_13.config(text=level)
+        print(gold)
+        print(level)
+    else:
+        lbl_15 = Label(tab_1, text='Нет денег, идите работать!', font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        gold -= 0
+        level += 0
 
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -141,7 +148,7 @@ btn_7.grid(row=5, column=2, sticky='swen', padx=3, pady=3)
 btn_8 = Button(tab_1, text='Фонарь', font=('Arial', 13, 'normal'), width=9)
 btn_8.grid(row=5, column=3, sticky='swen', padx=3, pady=3)
 
-btn_9 = Button(tab_1, text='Повысить уровень рюкзака', font=('Arial', 13, 'normal'), width=9, command=level_up)
+btn_9 = Button(tab_1, text=level_bagpack, font=('Arial', 13, 'normal'), width=9, command=level_up)
 btn_9.grid(row=6, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- СИСТЕМНОЕ ---------------------------------------
