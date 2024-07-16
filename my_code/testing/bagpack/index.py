@@ -3,7 +3,7 @@ from colorama import Fore, Back, Style
 # ----------------------------------------------- ПЕРЕМЕННЫЕ -----------------------------------------------
 
 free_bagpack = 0
-fool_bagpack = 5
+fool_bagpack = 2
 
 gold = 400
 
@@ -12,14 +12,16 @@ gas = 'Газовый баллон'
 fire = 'Горелка'
 dishes = 'Набор посуды'
 lighter = 'Зажигалка'
+level_bagpack = '\n1. Повысить уровень рюкзака'
 
 sticks_cost = 80
 gas_cost = 50
 fire_cost = 120
 dishes_cost = 100
 lighter_cost = 30
+level_bagpack_cost = 200
 
-list = [sticks, gas, fire, dishes, lighter]
+list = [sticks, gas, fire, dishes, lighter, level_bagpack]
 list_2 = []
 
 # ----------------------------------------------- ФУНКЦИИ -----------------------------------------------
@@ -128,6 +130,19 @@ while True:
                 print('Вы выбрали:', Fore.RED + lighter + Style.RESET_ALL)
                 inventory()
 
+        elif answer_1 == '1':
+            if gold == 0:
+                gold += 0
+                print(Fore.RED + '\nУ вас нет денег, отправляйтесь на работу' + Style.RESET_ALL)
+            elif fool_bagpack == 5:
+                print(Fore.RED + '\nВаш уровень рюкзака максимальный' + Style.RESET_ALL)
+                input(Fore.BLUE + '\nДля продолжения нажми Enter ' + Style.RESET_ALL)
+            else:
+                gold -= level_bagpack_cost
+                fool_bagpack = 5
+                print(Fore.RED + '\nВаш уровень рюкзака повышен, теперь он вмещает 5 позиций' + Style.RESET_ALL)
+                input(Fore.BLUE + '\nДля продолжения нажми Enter ' + Style.RESET_ALL)
+
 # --------------------------------------- МЕНЮ - ЗАРАБОТАТЬ ДЕНЕГ ---------------------------------------
 
     elif answer == '2' or answer == 'заработать денег' or answer == 'заработать' or answer == 'Заработать денег':
@@ -193,5 +208,4 @@ while True:
 
 # --------------------------------------
 
-# каждая вещь имеет цену
-# можно продавать вещи
+# Продать рюкзак полностью
