@@ -59,7 +59,7 @@ def gas_btn():  # кнопка - ГАЗ
             print(full_bag)
 
 
-def lighter_btn():  # кнопка - ГАЗ
+def lighter_btn():  # кнопка - ЗАЖИГАЛКА
     global gold, list_inventory, min_bag, max_bag
     if gold < lighter_cost:
         gold += 0
@@ -73,6 +73,33 @@ def lighter_btn():  # кнопка - ГАЗ
             lbl_11.config(text=gold)
             print('Деньги:', gold)
             list_inventory.append(lighter)
+            lbl_14.config(text=list_inventory)
+            print('Инвентарь:', list_inventory)
+            min_bag += 1
+            lbl_12.config(text=(min_bag, '/', max_bag))
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+        else:
+            min_bag += 0
+            gold += 0
+            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
+            lbl_16.grid(row=13, column=0, columnspan=4)
+            print(full_bag)
+
+
+def karemat_btn():  # кнопка - КАРЕМАТ
+    global gold, list_inventory, min_bag, max_bag
+    if gold < karemat_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        print(no_money)
+    else:
+        if min_bag < max_bag:
+            gold -= karemat_cost
+            lbl_11.config(text=gold)
+            print('Деньги:', gold)
+            list_inventory.append(karemat)
             lbl_14.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
@@ -101,8 +128,6 @@ def level_up():
         lbl_15.grid(row=12, column=0, columnspan=4)
         gold -= 0
         level += 0
-
-
 
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -195,7 +220,7 @@ btn_3 = Button(tab_1, text='Зажигалка', font=('Arial', 13, 'normal'), w
 btn_3.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - КАРЕМАТ
-btn_4 = Button(tab_1, text='Каремат', font=('Arial', 13, 'normal'), width=9)
+btn_4 = Button(tab_1, text='Каремат', font=('Arial', 13, 'normal'), width=9, command=karemat_btn)
 btn_4.grid(row=4, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ГОРЕЛКА
