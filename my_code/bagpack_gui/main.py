@@ -24,6 +24,7 @@ def stick_btn():  # кнопка - ПАЛКИ
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -51,6 +52,7 @@ def gas_btn():  # кнопка - ГАЗ
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -78,6 +80,7 @@ def lighter_btn():  # кнопка - ЗАЖИГАЛКА
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -105,6 +108,7 @@ def karemat_btn():  # кнопка - КАРЕМАТ
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -132,6 +136,7 @@ def fire_btn():  # кнопка - ГОРЕЛКА
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -159,6 +164,7 @@ def dishes_btn():  # кнопка - ПОСУДА
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -186,6 +192,7 @@ def sleeping_bag_btn():  # кнопка - СПАЛЬНИК
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -213,6 +220,7 @@ def flashlight_btn():  # кнопка - ФОНАРЬ
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -222,7 +230,7 @@ def flashlight_btn():  # кнопка - ФОНАРЬ
 
 
 def level_up():  # кнопка - ПОВЫСИТЬ УРОВЕНЬ РЮКЗАКА
-    global gold, level
+    global gold, level, max_bag
     if gold >= level_bagpack_cost:
         gold -= level_bagpack_cost
         level += 1
@@ -231,12 +239,23 @@ def level_up():  # кнопка - ПОВЫСИТЬ УРОВЕНЬ РЮКЗАКА
         print('\nДеньги:', gold)
         print('Уровень:', level)
         lbl_12.config(text=(min_bag, '/', max_bag + 5))
+        lbl_19.config(text=gold)
+        max_bag += 5
     else:
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
         lbl_15.grid(row=12, column=0, columnspan=4)
         gold -= 0
         level += 0
 
+
+# --------------------------------------- ФУНКЦИИ - МАГАЗИН ---------------------------------------
+
+def work():
+    global gold
+    gold += 1
+    lbl_19.config(text=gold)
+    lbl_11.config(text=gold)
+    print('Деньги:', gold)
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
 
@@ -301,7 +320,7 @@ lbl_9.grid(row=10, column=0, sticky='w')
 lbl_10 = Label(tab_1, text='Инвентарь:', font=('Arial', 13, 'normal'))  # надпись инвентарь
 lbl_10.grid(row=11, column=0, sticky='w')
 
-lbl_11 = Label(tab_1, text='500', font=('Arial', 13, 'normal'))  # деньги
+lbl_11 = Label(tab_1, text=gold, font=('Arial', 13, 'normal'))  # деньги
 lbl_11.grid(row=8, column=1, sticky='w')
 
 lbl_12 = Label(tab_1, text='0 / 3', font=('Arial', 13, 'normal'))  # заполненность рюкзака
@@ -355,7 +374,22 @@ btn_9.grid(row=6, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- ВКЛАДКА - РАБОТАТЬ ---------------------------------------
 
+lbl_16 = Label(tab_2, text='Что, деньги закончились? ', font=('Arial', 13, 'normal'))  # приветствие
+lbl_16.grid(row=0, column=0, columnspan=4)
 
+lbl_17 = Label(tab_2, text='Кликай, чтобы заработать и покупай улучшения', font=('Arial', 13, 'normal'))  # приветствие
+lbl_17.grid(row=1, column=0, columnspan=4)
+
+lbl_18 = Label(tab_2, text='Деньги:', font=('Arial', 13, 'normal'))  # начальная деньги
+lbl_18.grid(row=4, column=0, columnspan=4)
+
+lbl_19 = Label(tab_2, text=gold, font=('Arial', 13, 'normal'))  # деньги
+lbl_19.grid(row=4, column=1, columnspan=4)
+
+
+
+btn_10 = Button(tab_2, text='Работать', font=('Arial', 13, 'normal'), width=9, command=work)  # кнопка - Работать
+btn_10.grid(row=2, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- СИСТЕМНОЕ ---------------------------------------
 
