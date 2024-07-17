@@ -1,36 +1,29 @@
 from tkinter import *
 from tkinter import ttk
+from vars import *
 
 
 # --------------------------------------- ПЕРЕМЕННЫЕ ---------------------------------------
 
-gold = 300
-level = 1
 list_inventory = []
-
-sticks = 'Палки'
-gas = 'Газ'
-fire = 'Горелка'
-dishes = 'Посуда'
-lighter = 'Зажигалка'
-level_bagpack = 'Повысить уровень рюкзака'
-
-sticks_cost = 80
-gas_cost = 50
-fire_cost = 120
-dishes_cost = 100
-lighter_cost = 30
-level_bagpack_cost = 200
 
 # --------------------------------------- ФУНКЦИИ ---------------------------------------
 
-def first():
+def stick_btn():
     global gold, list_inventory
-    gold -= sticks_cost
-    lbl_11.config(text=gold)
-    print(gold)
-    list_inventory.append('Палки')
-    lbl_14.config(text=list_inventory)
+    if gold < sticks_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        print(no_money)
+    else:
+        gold -= sticks_cost
+        lbl_11.config(text=gold)
+        print(gold)
+        list_inventory.append('Палки')
+        lbl_14.config(text=list_inventory)
+        print(list_inventory)
 
 
 def level_up():
@@ -124,7 +117,7 @@ lbl_14.grid(row=11, column=1, columnspan=10, sticky='w')
 
 
 
-btn_1 = Button(tab_1, text='Палки', font=('Arial', 13, 'normal'), width=9, command=first)
+btn_1 = Button(tab_1, text='Палки', font=('Arial', 13, 'normal'), width=9, command=stick_btn)
 btn_1.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
 btn_2 = Button(tab_1, text='Газ', font=('Arial', 13, 'normal'), width=9)
