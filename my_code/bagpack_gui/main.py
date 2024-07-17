@@ -113,7 +113,6 @@ def karemat_btn():  # кнопка - КАРЕМАТ
             print(full_bag)
 
 
-
 def fire_btn():  # кнопка - ГОРЕЛКА
     global gold, list_inventory, min_bag, max_bag
     if gold < fire_cost:
@@ -128,6 +127,33 @@ def fire_btn():  # кнопка - ГОРЕЛКА
             lbl_11.config(text=gold)
             print('Деньги:', gold)
             list_inventory.append(fire)
+            lbl_14.config(text=list_inventory)
+            print('Инвентарь:', list_inventory)
+            min_bag += 1
+            lbl_12.config(text=(min_bag, '/', max_bag))
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+        else:
+            min_bag += 0
+            gold += 0
+            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
+            lbl_16.grid(row=13, column=0, columnspan=4)
+            print(full_bag)
+
+
+def dishes_btn():  # кнопка - ПОСУДА
+    global gold, list_inventory, min_bag, max_bag
+    if gold < dishes_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        print(no_money)
+    else:
+        if min_bag < max_bag:
+            gold -= dishes_cost
+            lbl_11.config(text=gold)
+            print('Деньги:', gold)
+            list_inventory.append(dishes)
             lbl_14.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
@@ -256,7 +282,7 @@ btn_5 = Button(tab_1, text='Горелка', font=('Arial', 13, 'normal'), width
 btn_5.grid(row=5, column=0, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПОСУДА
-btn_6 = Button(tab_1, text='Посуда', font=('Arial', 13, 'normal'), width=9)
+btn_6 = Button(tab_1, text='Посуда', font=('Arial', 13, 'normal'), width=9, command=dishes_btn)
 btn_6.grid(row=5, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - СПАЛЬНИК
