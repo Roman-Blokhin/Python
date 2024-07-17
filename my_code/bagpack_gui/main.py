@@ -167,6 +167,34 @@ def dishes_btn():  # кнопка - ПОСУДА
             print(full_bag)
 
 
+
+def sleeping_bag_btn():  # кнопка - СПАЛЬНИК
+    global gold, list_inventory, min_bag, max_bag
+    if gold < sleeping_bag_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        print(no_money)
+    else:
+        if min_bag < max_bag:
+            gold -= sleeping_bag_cost
+            lbl_11.config(text=gold)
+            print('Деньги:', gold)
+            list_inventory.append(sleeping_bag)
+            lbl_14.config(text=list_inventory)
+            print('Инвентарь:', list_inventory)
+            min_bag += 1
+            lbl_12.config(text=(min_bag, '/', max_bag))
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+        else:
+            min_bag += 0
+            gold += 0
+            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
+            lbl_16.grid(row=13, column=0, columnspan=4)
+            print(full_bag)
+
+
 def level_up():
     global gold, level
     if gold >= level_bagpack_cost:
@@ -286,7 +314,7 @@ btn_6 = Button(tab_1, text='Посуда', font=('Arial', 13, 'normal'), width=9
 btn_6.grid(row=5, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - СПАЛЬНИК
-btn_7 = Button(tab_1, text='Спальник', font=('Arial', 13, 'normal'), width=9)
+btn_7 = Button(tab_1, text='Спальник', font=('Arial', 13, 'normal'), width=9, command=sleeping_bag_btn)
 btn_7.grid(row=5, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - ФОНАРЬ
