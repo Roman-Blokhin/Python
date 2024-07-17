@@ -3,16 +3,26 @@ level = 1
 
 sticks = 'Палки'
 gas = 'Газ'
+lighter = 'Зажигалка'
+karemat = 'Каремат'
 fire = 'Горелка'
 dishes = 'Посуда'
-lighter = 'Зажигалка'
+sleeping_bag = 'Спальник'
+flashlight = 'Фонарь'
+
 level_bagpack = 'Повысить уровень рюкзака'
 
 no_money = 'Нет денег, идите работать!'
 
-sticks_cost = 80
-gas_cost = 50
+sticks_cost = 100
+gas_cost = 60
+lighter_cost = 20
+karemat_cost = 200
 fire_cost = 120
-dishes_cost = 100
-lighter_cost = 30
-level_bagpack_cost = 200
+dishes_cost = 80
+sleeping_bag_cost = 250
+flashlight_cost = 50
+
+level_bagpack_cost = 500
+
+list_inventory = []
