@@ -59,6 +59,33 @@ def gas_btn():  # кнопка - ГАЗ
             print(full_bag)
 
 
+def lighter_btn():  # кнопка - ГАЗ
+    global gold, list_inventory, min_bag, max_bag
+    if gold < lighter_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        print(no_money)
+    else:
+        if min_bag < max_bag:
+            gold -= lighter_cost
+            lbl_11.config(text=gold)
+            print('Деньги:', gold)
+            list_inventory.append(lighter)
+            lbl_14.config(text=list_inventory)
+            print('Инвентарь:', list_inventory)
+            min_bag += 1
+            lbl_12.config(text=(min_bag, '/', max_bag))
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+        else:
+            min_bag += 0
+            gold += 0
+            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
+            lbl_16.grid(row=13, column=0, columnspan=4)
+            print(full_bag)
+
+
 def level_up():
     global gold, level
     if gold >= level_bagpack_cost:
@@ -151,7 +178,7 @@ lbl_13.grid(row=10, column=1, sticky='w')
 lbl_14 = Label(tab_1, text='Пусто', font=('Arial', 13, 'normal'))  # начальный инвентарь
 lbl_14.grid(row=11, column=1, columnspan=10, sticky='w')
 
-lbl_15 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'), fg='red')
+lbl_15 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'), fg='red')  # начальный пробел
 lbl_15.grid(row=12, column=0, columnspan=4)
 
 
@@ -164,7 +191,7 @@ btn_2 = Button(tab_1, text='Газ', font=('Arial', 13, 'normal'), width=9, comm
 btn_2.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - ЗАЖИГАЛКА
-btn_3 = Button(tab_1, text='Зажигалка', font=('Arial', 13, 'normal'), width=9)
+btn_3 = Button(tab_1, text='Зажигалка', font=('Arial', 13, 'normal'), width=9, command=lighter_btn)
 btn_3.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - КАРЕМАТ
