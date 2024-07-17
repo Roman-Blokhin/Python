@@ -32,7 +32,7 @@ def stick_btn():  # кнопка - ПАЛКИ
             print(full_bag)
 
 
-def gas_btn():  # кнопка - ПАЛКИ
+def gas_btn():  # кнопка - ГАЗ
     global gold, list_inventory, min_bag, max_bag
     if gold < gas_cost:
         gold += 0
@@ -155,31 +155,39 @@ lbl_15 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'), fg='red')
 lbl_15.grid(row=12, column=0, columnspan=4)
 
 
-
+# кнопка - ПАЛКИ
 btn_1 = Button(tab_1, text='Палки', font=('Arial', 13, 'normal'), width=9, command=stick_btn)
 btn_1.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
+# кнопка - ГАЗ
 btn_2 = Button(tab_1, text='Газ', font=('Arial', 13, 'normal'), width=9, command=gas_btn)
 btn_2.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
 
+# кнопка - ЗАЖИГАЛКА
 btn_3 = Button(tab_1, text='Зажигалка', font=('Arial', 13, 'normal'), width=9)
 btn_3.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
 
+# кнопка - КАРЕМАТ
 btn_4 = Button(tab_1, text='Каремат', font=('Arial', 13, 'normal'), width=9)
 btn_4.grid(row=4, column=3, sticky='swen', padx=3, pady=3)
 
+# кнопка - ГОРЕЛКА
 btn_5 = Button(tab_1, text='Горелка', font=('Arial', 13, 'normal'), width=9)
 btn_5.grid(row=5, column=0, sticky='swen', padx=3, pady=3)
 
+# кнопка - ПОСУДА
 btn_6 = Button(tab_1, text='Посуда', font=('Arial', 13, 'normal'), width=9)
 btn_6.grid(row=5, column=1, sticky='swen', padx=3, pady=3)
 
+# кнопка - СПАЛЬНИК
 btn_7 = Button(tab_1, text='Спальник', font=('Arial', 13, 'normal'), width=9)
 btn_7.grid(row=5, column=2, sticky='swen', padx=3, pady=3)
 
+# кнопка - ФОНАРЬ
 btn_8 = Button(tab_1, text='Фонарь', font=('Arial', 13, 'normal'), width=9)
 btn_8.grid(row=5, column=3, sticky='swen', padx=3, pady=3)
 
+# кнопка - ПОВЫСИТЬ УРОВЕНЬ РЮКЗАКА
 btn_9 = Button(tab_1, text=level_bagpack, font=('Arial', 13, 'normal'), width=9, command=level_up)
 btn_9.grid(row=6, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
