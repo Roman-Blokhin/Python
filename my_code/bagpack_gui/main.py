@@ -5,7 +5,7 @@ from vars import *
 
 # --------------------------------------- ФУНКЦИИ - МАГАЗИН ---------------------------------------
 
-def stick_btn():
+def stick_btn():  # кнопка - ПАЛКИ
     global gold, list_inventory, min_bag, max_bag
     if gold < sticks_cost:
         gold += 0
@@ -18,18 +18,46 @@ def stick_btn():
             gold -= sticks_cost
             lbl_11.config(text=gold)
             print('Деньги:', gold)
-            list_inventory.append('Палки')
+            list_inventory.append(sticks)
             lbl_14.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
-            print('Товаров в рюкзаке', min_bag, '/', max_bag)
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
         else:
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
             lbl_16.grid(row=13, column=0, columnspan=4)
             print(full_bag)
+
+
+def gas_btn():  # кнопка - ПАЛКИ
+    global gold, list_inventory, min_bag, max_bag
+    if gold < gas_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=12, column=0, columnspan=4)
+        print(no_money)
+    else:
+        if min_bag < max_bag:
+            gold -= gas_cost
+            lbl_11.config(text=gold)
+            print('Деньги:', gold)
+            list_inventory.append(gas)
+            lbl_14.config(text=list_inventory)
+            print('Инвентарь:', list_inventory)
+            min_bag += 1
+            lbl_12.config(text=(min_bag, '/', max_bag))
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+        else:
+            min_bag += 0
+            gold += 0
+            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
+            lbl_16.grid(row=13, column=0, columnspan=4)
+            print(full_bag)
+
 
 def level_up():
     global gold, level
@@ -131,7 +159,7 @@ lbl_15.grid(row=12, column=0, columnspan=4)
 btn_1 = Button(tab_1, text='Палки', font=('Arial', 13, 'normal'), width=9, command=stick_btn)
 btn_1.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
-btn_2 = Button(tab_1, text='Газ', font=('Arial', 13, 'normal'), width=9)
+btn_2 = Button(tab_1, text='Газ', font=('Arial', 13, 'normal'), width=9, command=gas_btn)
 btn_2.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
 
 btn_3 = Button(tab_1, text='Зажигалка', font=('Arial', 13, 'normal'), width=9)
