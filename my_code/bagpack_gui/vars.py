@@ -1,5 +1,7 @@
-gold = 300
+gold = 500
 level = 1
+min_bag = 0
+max_bag = 3
 
 sticks = 'Палки'
 gas = 'Газ'
@@ -11,8 +13,8 @@ sleeping_bag = 'Спальник'
 flashlight = 'Фонарь'
 
 level_bagpack = 'Повысить уровень рюкзака'
-
 no_money = 'Нет денег, идите работать!'
+full_bag = 'Нет места в рюкзаке, повысьте уровень!'
 
 sticks_cost = 100
 gas_cost = 60
