@@ -1,4 +1,4 @@
-gold = 500
+gold = 1500
 level = 1
 min_bag = 0
 max_bag = 3

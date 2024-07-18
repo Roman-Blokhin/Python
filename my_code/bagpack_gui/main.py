@@ -17,14 +17,18 @@ def stick_btn():  # кнопка - ПАЛКИ
         if min_bag < max_bag:
             gold -= sticks_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(sticks)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
+
         else:
             min_bag += 0
             gold += 0
@@ -45,14 +49,17 @@ def gas_btn():  # кнопка - ГАЗ
         if min_bag < max_bag:
             gold -= gas_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(gas)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -73,14 +80,17 @@ def lighter_btn():  # кнопка - ЗАЖИГАЛКА
         if min_bag < max_bag:
             gold -= lighter_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(lighter)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -101,14 +111,17 @@ def karemat_btn():  # кнопка - КАРЕМАТ
         if min_bag < max_bag:
             gold -= karemat_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(karemat)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -129,14 +142,17 @@ def fire_btn():  # кнопка - ГОРЕЛКА
         if min_bag < max_bag:
             gold -= fire_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(fire)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -157,14 +173,17 @@ def dishes_btn():  # кнопка - ПОСУДА
         if min_bag < max_bag:
             gold -= dishes_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(dishes)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -185,14 +204,17 @@ def sleeping_bag_btn():  # кнопка - СПАЛЬНИК
         if min_bag < max_bag:
             gold -= sleeping_bag_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(sleeping_bag)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -213,14 +235,17 @@ def flashlight_btn():  # кнопка - ФОНАРЬ
         if min_bag < max_bag:
             gold -= flashlight_cost
             lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
             print('\nДеньги:', gold)
             list_inventory.append(flashlight)
             lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
             print('Инвентарь:', list_inventory)
             min_bag += 1
             lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
             print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            lbl_19.config(text=gold)
         else:
             min_bag += 0
             gold += 0
@@ -235,11 +260,14 @@ def level_up():  # кнопка - ПОВЫСИТЬ УРОВЕНЬ РЮКЗАКА
         gold -= level_bagpack_cost
         level += 1
         lbl_11.config(text=gold)
+        lbl_19.config(text=gold)
+        lbl_26.config(text=gold)
         lbl_13.config(text=level)
+        lbl_28.config(text=level)
         print('\nДеньги:', gold)
         print('Уровень:', level)
         lbl_12.config(text=(min_bag, '/', max_bag + 5))
-        lbl_19.config(text=gold)
+        lbl_27.config(text=(min_bag, '/', max_bag + 5))
         max_bag += 5
     else:
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
@@ -255,6 +283,7 @@ def work():
     gold += 1
     lbl_19.config(text=gold)
     lbl_11.config(text=gold)
+    lbl_26.config(text=gold)
     print('Деньги:', gold)
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -326,7 +355,7 @@ lbl_11.grid(row=8, column=1, sticky='w')
 lbl_12 = Label(tab_1, text='0 / 3', font=('Arial', 13, 'normal'))  # заполненность рюкзака
 lbl_12.grid(row=9, column=1, sticky='w')
 
-lbl_13 = Label(tab_1, text='1', font=('Arial', 13, 'normal'))  # начальный уровень рюкзака
+lbl_13 = Label(tab_1, text=level, font=('Arial', 13, 'normal'))  # начальный уровень рюкзака
 lbl_13.grid(row=10, column=1, sticky='w')
 
 lbl_14 = Label(tab_1, text='Пусто', font=('Arial', 13, 'normal'))  # начальный инвентарь
@@ -399,6 +428,41 @@ lbl_19.grid(row=6, column=1)
 
 btn_10 = Button(tab_2, text='Работать', font=('Arial', 13, 'normal'), width=9, command=work)  # кнопка - Работать
 btn_10.grid(row=4, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
+
+# --------------------------------------- ВКЛАДКА - ИНВЕНТАРЬ ---------------------------------------
+
+lbl_23 = Label(tab_3, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_23.grid(row=0, column=0, columnspan=4)
+
+lbl_24 = Label(tab_3, text=('Ваш рюкзак:'), font=('Arial', 13, 'normal'))  # приветствие
+lbl_24.grid(row=1, column=0, columnspan=5)
+
+lbl_25 = Label(tab_3, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_25.grid(row=2, column=0, columnspan=4)
+
+lbl_26 = Label(tab_3, text='Деньги:', font=('Arial', 13, 'normal'))  # надпись деньги
+lbl_26.grid(row=3, column=0, sticky='w')
+
+lbl_26 = Label(tab_3, text=gold, font=('Arial', 13, 'normal'))  # начальная деньги
+lbl_26.grid(row=3, column=1, sticky='w')
+
+lbl_27 = Label(tab_3, text='Рюкзак:', font=('Arial', 13, 'normal'))  # надпись рюкзак
+lbl_27.grid(row=4, column=0, sticky='w')
+
+lbl_27 = Label(tab_3, text='0 / 3', font=('Arial', 13, 'normal'))  # начальная уровень рюкзака
+lbl_27.grid(row=4, column=1, sticky='w')
+
+lbl_28 = Label(tab_3, text='Уровень:', font=('Arial', 13, 'normal'))  # надпись уровень
+lbl_28.grid(row=5, column=0, sticky='w')
+
+lbl_28 = Label(tab_3, text=level, font=('Arial', 13, 'normal'))  # начальная уровень
+lbl_28.grid(row=5, column=1, sticky='w')
+
+lbl_29 = Label(tab_3, text='Инвентарь:', font=('Arial', 13, 'normal'))  # надпись инвентарь
+lbl_29.grid(row=6, column=0, sticky='w')
+
+lbl_29 = Label(tab_3, text='Пусто', font=('Arial', 13, 'normal'))  # начальная инвентарь
+lbl_29.grid(row=6, column=1, sticky='w')
 
 # --------------------------------------- СИСТЕМНОЕ ---------------------------------------
 
