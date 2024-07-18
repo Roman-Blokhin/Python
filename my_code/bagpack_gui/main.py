@@ -11,7 +11,7 @@ def stick_btn():  # кнопка - ПАЛКИ
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -37,7 +37,7 @@ def stick_btn():  # кнопка - ПАЛКИ
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -47,7 +47,7 @@ def gas_btn():  # кнопка - ГАЗ
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -73,7 +73,7 @@ def gas_btn():  # кнопка - ГАЗ
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -83,7 +83,7 @@ def lighter_btn():  # кнопка - ЗАЖИГАЛКА
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -109,7 +109,7 @@ def lighter_btn():  # кнопка - ЗАЖИГАЛКА
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -119,7 +119,7 @@ def karemat_btn():  # кнопка - КАРЕМАТ
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -145,7 +145,7 @@ def karemat_btn():  # кнопка - КАРЕМАТ
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -155,7 +155,7 @@ def fire_btn():  # кнопка - ГОРЕЛКА
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -181,7 +181,7 @@ def fire_btn():  # кнопка - ГОРЕЛКА
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -191,7 +191,7 @@ def dishes_btn():  # кнопка - ПОСУДА
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -217,7 +217,7 @@ def dishes_btn():  # кнопка - ПОСУДА
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -227,7 +227,7 @@ def sleeping_bag_btn():  # кнопка - СПАЛЬНИК
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -253,7 +253,7 @@ def sleeping_bag_btn():  # кнопка - СПАЛЬНИК
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -263,7 +263,7 @@ def flashlight_btn():  # кнопка - ФОНАРЬ
         gold += 0
         lbl_11.config(text=gold)
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         print(no_money)
     else:
         if min_bag < max_bag:
@@ -289,7 +289,7 @@ def flashlight_btn():  # кнопка - ФОНАРЬ
             min_bag += 0
             gold += 0
             lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=13, column=0, columnspan=4)
+            lbl_16.grid(row=14, column=0, columnspan=4)
             print(full_bag)
 
 
@@ -315,7 +315,7 @@ def level_up():  # кнопка - ПОВЫСИТЬ УРОВЕНЬ РЮКЗАКА
         lbl_42.config(fg='red')
     else:
         lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=12, column=0, columnspan=4)
+        lbl_15.grid(row=13, column=0, columnspan=4)
         gold -= 0
         level += 0
 
@@ -383,31 +383,76 @@ lbl_6 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
 lbl_6.grid(row=7, column=0, columnspan=4)
 
 lbl_7 = Label(tab_1, text='Деньги:', font=('Arial', 13, 'normal'))  # надпись деньги
-lbl_7.grid(row=8, column=0, sticky='w')
+lbl_7.grid(row=16, column=0, sticky='w')
 
 lbl_8 = Label(tab_1, text='Рюкзак:', font=('Arial', 13, 'normal'))  # надпись рюкзак
-lbl_8.grid(row=9, column=0, sticky='w')
+lbl_8.grid(row=17, column=0, sticky='w')
 
 lbl_9 = Label(tab_1, text='Уровень:', font=('Arial', 13, 'normal'))  # надпись уровень
-lbl_9.grid(row=10, column=0, sticky='w')
+lbl_9.grid(row=18, column=0, sticky='w')
 
 lbl_10 = Label(tab_1, text='Инвентарь:', font=('Arial', 13, 'normal'))  # надпись инвентарь
-lbl_10.grid(row=11, column=0, sticky='w')
+lbl_10.grid(row=19, column=0, sticky='w')
 
 lbl_11 = Label(tab_1, text=gold, font=('Arial', 13, 'normal'))  # деньги
-lbl_11.grid(row=8, column=1, sticky='w')
+lbl_11.grid(row=16, column=1, sticky='w')
 
 lbl_12 = Label(tab_1, text='0 / 3', font=('Arial', 13, 'normal'))  # заполненность рюкзака
-lbl_12.grid(row=9, column=1, sticky='w')
+lbl_12.grid(row=17, column=1, sticky='w')
 
 lbl_13 = Label(tab_1, text=level, font=('Arial', 13, 'normal'))  # начальный уровень рюкзака
-lbl_13.grid(row=10, column=1, sticky='w')
+lbl_13.grid(row=18, column=1, sticky='w')
 
 lbl_14 = Label(tab_1, text='Пусто', font=('Arial', 13, 'normal'))  # начальный инвентарь
-lbl_14.grid(row=11, column=1, columnspan=15, sticky='w')
+lbl_14.grid(row=19, column=1, columnspan=15, sticky='w')
 
 lbl_15 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'), fg='red')  # начальный пробел
 lbl_15.grid(row=12, column=0, columnspan=4)
+
+lbl_53 = Label(tab_1, text='70 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи палок
+lbl_53.grid(row=5, column=0)
+
+lbl_54 = Label(tab_1, text='42 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи газа
+lbl_54.grid(row=5, column=1)
+
+lbl_55 = Label(tab_1, text='14 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи зажигалки
+lbl_55.grid(row=5, column=2)
+
+lbl_56 = Label(tab_1, text='140 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи каремата
+lbl_56.grid(row=5, column=3)
+
+lbl_57 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_57.grid(row=6, column=0, columnspan=4)
+
+lbl_58 = Label(tab_1, text='84 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи горелки
+lbl_58.grid(row=8, column=0)
+
+lbl_59 = Label(tab_1, text='56 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи посуды
+lbl_59.grid(row=8, column=1)
+
+lbl_60 = Label(tab_1, text='175 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи спальника
+lbl_60.grid(row=8, column=2)
+
+lbl_61 = Label(tab_1, text='35 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи фонаря
+lbl_61.grid(row=8, column=3)
+
+lbl_62 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_62.grid(row=9, column=0, columnspan=4)
+
+lbl_63 = Label(tab_1, text='350 $', font=('Arial', 13, 'normal'), fg='grey')  # цена понижения уровня рюкзака
+lbl_63.grid(row=11, column=0, columnspan=4)
+
+lbl_64 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_64.grid(row=12, column=0, columnspan=4)
+
+lbl_65 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_65.grid(row=13, column=0, columnspan=4)
+
+lbl_66 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_66.grid(row=14, column=0, columnspan=4)
+
+lbl_67 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_67.grid(row=15, column=0, columnspan=4)
 
 
 # кнопка - ПАЛКИ
@@ -428,23 +473,23 @@ btn_4.grid(row=4, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ГОРЕЛКА
 btn_5 = Button(tab_1, text='Горелка', font=('Arial', 13, 'normal'), width=9, command=fire_btn)
-btn_5.grid(row=5, column=0, sticky='swen', padx=3, pady=3)
+btn_5.grid(row=7, column=0, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПОСУДА
 btn_6 = Button(tab_1, text='Посуда', font=('Arial', 13, 'normal'), width=9, command=dishes_btn)
-btn_6.grid(row=5, column=1, sticky='swen', padx=3, pady=3)
+btn_6.grid(row=7, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - СПАЛЬНИК
 btn_7 = Button(tab_1, text='Спальник', font=('Arial', 13, 'normal'), width=9, command=sleeping_bag_btn)
-btn_7.grid(row=5, column=2, sticky='swen', padx=3, pady=3)
+btn_7.grid(row=7, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - ФОНАРЬ
 btn_8 = Button(tab_1, text='Фонарь', font=('Arial', 13, 'normal'), width=9, command=flashlight_btn)
-btn_8.grid(row=5, column=3, sticky='swen', padx=3, pady=3)
+btn_8.grid(row=7, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПОВЫСИТЬ УРОВЕНЬ РЮКЗАКА
 btn_9 = Button(tab_1, text=level_bagpack, font=('Arial', 13, 'normal'), width=9, command=level_up)
-btn_9.grid(row=6, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
+btn_9.grid(row=10, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- ВКЛАДКА - РАБОТАТЬ ---------------------------------------
 
