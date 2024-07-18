@@ -374,22 +374,31 @@ btn_9.grid(row=6, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- ВКЛАДКА - РАБОТАТЬ ---------------------------------------
 
-lbl_16 = Label(tab_2, text='Что, деньги закончились? ', font=('Arial', 13, 'normal'))  # приветствие
-lbl_16.grid(row=0, column=0, columnspan=4)
+lbl_20 = Label(tab_2, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_20.grid(row=0, column=0, columnspan=4)
 
-lbl_17 = Label(tab_2, text='Кликай, чтобы заработать и покупай улучшения', font=('Arial', 13, 'normal'))  # приветствие
-lbl_17.grid(row=1, column=0, columnspan=4)
+lbl_16 = Label(tab_2, text='Что, деньги закончились? ', font=('Arial', 13, 'normal'))  # приветствие
+lbl_16.grid(row=1, column=0, columnspan=4)
+
+lbl_17 = Label(tab_2, text='Кликай, чтобы заработать и покупай улучшения!', font=('Arial', 13, 'normal'))  # приветствие
+lbl_17.grid(row=2, column=0, columnspan=4)
+
+lbl_21 = Label(tab_2, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_21.grid(row=3, column=0, columnspan=4)
+
+lbl_22 = Label(tab_2, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_22.grid(row=5, column=0, columnspan=4)
 
 lbl_18 = Label(tab_2, text='Деньги:', font=('Arial', 13, 'normal'))  # начальная деньги
-lbl_18.grid(row=4, column=0, columnspan=4)
+lbl_18.grid(row=6, column=0)
 
 lbl_19 = Label(tab_2, text=gold, font=('Arial', 13, 'normal'))  # деньги
-lbl_19.grid(row=4, column=1, columnspan=4)
+lbl_19.grid(row=6, column=1)
 
 
 
 btn_10 = Button(tab_2, text='Работать', font=('Arial', 13, 'normal'), width=9, command=work)  # кнопка - Работать
-btn_10.grid(row=2, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
+btn_10.grid(row=4, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- СИСТЕМНОЕ ---------------------------------------
 
