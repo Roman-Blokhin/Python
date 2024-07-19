@@ -355,7 +355,7 @@ def sell_stick_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
     if sticks not in list_inventory:
         btn_11.config(state='disabled')
         lbl_34.config(fg='grey')
-        print('\nВ рюкзаке нет:', sticks)
+        print('\nПродано:', sticks)
 
 def sell_gas_btn():  # кнопка - ПРОДАТЬ ГАЗ
     global gold, list_inventory, min_bag, max_bag
@@ -376,20 +376,20 @@ def sell_gas_btn():  # кнопка - ПРОДАТЬ ГАЗ
     lbl_48.config(text=(min_bag, '/', max_bag))
     print('Товаров в рюкзаке:', min_bag, '/', max_bag)
     if gas not in list_inventory:
-        btn_11.config(state='disabled')
-        lbl_34.config(fg='grey')
-        print('\nВ рюкзаке нет:', gas)
+        btn_12.config(state='disabled')
+        lbl_35.config(fg='grey')
+        print('\nПродано:', gas)
 
 
-def sell_gas_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
+def sell_lighter_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
     global gold, list_inventory, min_bag, max_bag
-    gold += gas_cost_sell
+    gold += lighter_cost_sell
     lbl_11.config(text=gold)
     lbl_19.config(text=gold)
     lbl_26.config(text=gold)
     lbl_46.config(text=gold)
     print('\nДеньги:', gold)
-    list_inventory.remove(gas)
+    list_inventory.remove(lighter)
     lbl_14.config(text=list_inventory)
     lbl_29.config(text=list_inventory)
     lbl_52.config(text=list_inventory)
@@ -399,10 +399,10 @@ def sell_gas_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
     lbl_27.config(text=(min_bag, '/', max_bag))
     lbl_48.config(text=(min_bag, '/', max_bag))
     print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-    if gas not in list_inventory:
-        btn_11.config(state='disabled')
-        lbl_34.config(fg='grey')
-        print('\nВ рюкзаке нет:', gas)
+    if lighter not in list_inventory:
+        btn_13.config(state='disabled')
+        lbl_36.config(fg='grey')
+        print('\nПродано:', lighter)
 
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -713,7 +713,8 @@ btn_12 = Button(tab_4, text='Газ', font=('Arial', 13, 'normal'), width=9, sta
 btn_12.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ЗАЖИГАЛКА
-btn_13 = Button(tab_4, text='Зажигалка', font=('Arial', 13, 'normal'), width=9, state='disabled', command=lighter_btn)
+btn_13 = Button(tab_4, text='Зажигалка', font=('Arial', 13, 'normal'), width=9, state='disabled',
+                command=sell_lighter_btn)
 btn_13.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ КАРЕМАТ
