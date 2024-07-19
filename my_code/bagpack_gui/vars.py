@@ -25,6 +25,16 @@ dishes_cost = 80
 sleeping_bag_cost = 250
 flashlight_cost = 50
 
+sticks_cost_sell = 70
+gas_cost_sell = 42
+lighter_cost_sell = 14
+karemat_cost_sell = 140
+fire_cost_sell = 84
+dishes_cost_sell = 56
+sleeping_bag_cost_sell = 175
+flashlight_cost_sell = 35
+
 level_bagpack_cost = 500
+level_bagpack_cost_sell = 350
 
 list_inventory = []

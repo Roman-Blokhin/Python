@@ -331,11 +331,50 @@ def work():
     lbl_46.config(text=gold)
     print('Деньги:', gold)
 
+
+# --------------------------------------- ФУНКЦИИ - ПРОДАЖА ---------------------------------------
+
+def sell_stick_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
+    global gold, list_inventory, min_bag, max_bag
+    if gold < sticks_cost:
+        gold += 0
+        lbl_11.config(text=gold)
+        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
+        lbl_15.grid(row=13, column=0, columnspan=4)
+        print(no_money)
+    else:
+        if min_bag < max_bag:
+            gold -= sticks_cost
+            lbl_11.config(text=gold)
+            lbl_19.config(text=gold)
+            lbl_26.config(text=gold)
+            lbl_46.config(text=gold)
+            print('\nДеньги:', gold)
+            list_inventory.append(sticks)
+            lbl_14.config(text=list_inventory)
+            lbl_29.config(text=list_inventory)
+            lbl_52.config(text=list_inventory)
+            print('Инвентарь:', list_inventory)
+            min_bag += 1
+            lbl_12.config(text=(min_bag, '/', max_bag))
+            lbl_27.config(text=(min_bag, '/', max_bag))
+            lbl_48.config(text=(min_bag, '/', max_bag))
+            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+            btn_11.config(state='normal')
+            lbl_34.config(fg='red')
+        else:
+            min_bag += 0
+            gold += 0
+            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
+            lbl_16.grid(row=14, column=0, columnspan=4)
+            print(full_bag)
+
+
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
 
 root = Tk()
 root.title('Собери рюкзак в поход')
-root.geometry('500x600+900+150')
+root.geometry('400x600+900+150')
 root.config(bg='grey')
 root.resizable(False, False)
 
@@ -409,37 +448,37 @@ lbl_14.grid(row=19, column=1, columnspan=15, sticky='w')
 lbl_15 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'), fg='red')  # начальный пробел
 lbl_15.grid(row=12, column=0, columnspan=4)
 
-lbl_53 = Label(tab_1, text='70 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи палок
+lbl_53 = Label(tab_1, text='100$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи палок
 lbl_53.grid(row=5, column=0)
 
-lbl_54 = Label(tab_1, text='42 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи газа
+lbl_54 = Label(tab_1, text='60$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи газа
 lbl_54.grid(row=5, column=1)
 
-lbl_55 = Label(tab_1, text='14 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи зажигалки
+lbl_55 = Label(tab_1, text='20$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи зажигалки
 lbl_55.grid(row=5, column=2)
 
-lbl_56 = Label(tab_1, text='140 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи каремата
+lbl_56 = Label(tab_1, text='200$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи каремата
 lbl_56.grid(row=5, column=3)
 
 lbl_57 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
 lbl_57.grid(row=6, column=0, columnspan=4)
 
-lbl_58 = Label(tab_1, text='84 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи горелки
+lbl_58 = Label(tab_1, text='120$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи горелки
 lbl_58.grid(row=8, column=0)
 
-lbl_59 = Label(tab_1, text='56 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи посуды
+lbl_59 = Label(tab_1, text='80$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи посуды
 lbl_59.grid(row=8, column=1)
 
-lbl_60 = Label(tab_1, text='175 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи спальника
+lbl_60 = Label(tab_1, text='250$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи спальника
 lbl_60.grid(row=8, column=2)
 
-lbl_61 = Label(tab_1, text='35 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи фонаря
+lbl_61 = Label(tab_1, text='50$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи фонаря
 lbl_61.grid(row=8, column=3)
 
 lbl_62 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
 lbl_62.grid(row=9, column=0, columnspan=4)
 
-lbl_63 = Label(tab_1, text='350 $', font=('Arial', 13, 'normal'), fg='grey')  # цена понижения уровня рюкзака
+lbl_63 = Label(tab_1, text='500$', font=('Arial', 13, 'normal'), fg='grey')  # цена понижения уровня рюкзака
 lbl_63.grid(row=11, column=0, columnspan=4)
 
 lbl_64 = Label(tab_1, text=' ', font=('Arial', 13, 'normal'))  # пробел
@@ -568,13 +607,13 @@ lbl_32.grid(row=2, column=0, columnspan=4)
 lbl_33 = Label(tab_4, text=' ', font=('Arial', 13, 'normal'))  # пробел
 lbl_33.grid(row=3, column=0, columnspan=4)
 
-lbl_34 = Label(tab_4, text='70 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи палок
+lbl_34 = Label(tab_4, text='70$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи палок
 lbl_34.grid(row=5, column=0)
 
-lbl_35 = Label(tab_4, text='42 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи газа
+lbl_35 = Label(tab_4, text='42$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи газа
 lbl_35.grid(row=5, column=1)
 
-lbl_36 = Label(tab_4, text='14 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи зажигалки
+lbl_36 = Label(tab_4, text='14$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи зажигалки
 lbl_36.grid(row=5, column=2)
 
 lbl_37 = Label(tab_4, text='140 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи каремата
@@ -583,22 +622,22 @@ lbl_37.grid(row=5, column=3)
 lbl_43 = Label(tab_4, text=' ', font=('Arial', 13, 'normal'))  # пробел
 lbl_43.grid(row=6, column=0, columnspan=4)
 
-lbl_38 = Label(tab_4, text='84 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи горелки
+lbl_38 = Label(tab_4, text='84$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи горелки
 lbl_38.grid(row=8, column=0)
 
-lbl_39 = Label(tab_4, text='56 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи посуды
+lbl_39 = Label(tab_4, text='56$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи посуды
 lbl_39.grid(row=8, column=1)
 
-lbl_40 = Label(tab_4, text='175 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи спальника
+lbl_40 = Label(tab_4, text='175$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи спальника
 lbl_40.grid(row=8, column=2)
 
-lbl_41 = Label(tab_4, text='35 $', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи фонаря
+lbl_41 = Label(tab_4, text='35$', font=('Arial', 13, 'normal'), fg='grey')  # цена продажи фонаря
 lbl_41.grid(row=8, column=3)
 
 lbl_42 = Label(tab_4, text=' ', font=('Arial', 13, 'normal'))  # пробел
 lbl_42.grid(row=9, column=0, columnspan=4)
 
-lbl_42 = Label(tab_4, text='350 $', font=('Arial', 13, 'normal'), fg='grey')  # цена понижения уровня рюкзака
+lbl_42 = Label(tab_4, text='350$', font=('Arial', 13, 'normal'), fg='grey')  # цена понижения уровня рюкзака
 lbl_42.grid(row=11, column=0, columnspan=4)
 
 lbl_44 = Label(tab_4, text=' ', font=('Arial', 13, 'normal'))  # пробел
@@ -631,7 +670,7 @@ lbl_52.grid(row=16, column=1, columnspan=15, sticky='w')
 
 
 # кнопка - ПРОДАТЬ ПАЛКИ
-btn_11 = Button(tab_4, text='Палки', font=('Arial', 13, 'normal'), width=9, state='disabled', command=stick_btn)
+btn_11 = Button(tab_4, text='Палки', font=('Arial', 13, 'normal'), width=9, state='disabled', command=sell_stick_btn)
 btn_11.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ГАЗ
