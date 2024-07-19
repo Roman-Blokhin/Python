@@ -458,6 +458,31 @@ def sell_fire_btn():  # кнопка - ПРОДАТЬ ГОРЕЛКА
         print('\nПродано:', fire)
 
 
+def sell_dishes_btn():  # кнопка - ПРОДАТЬ ПОСУДА
+    global gold, list_inventory, min_bag, max_bag
+    gold += dishes_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(dishes)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if dishes not in list_inventory:
+        btn_16.config(state='disabled')
+        lbl_39.config(fg='grey')
+        lbl_52.config(text='Пусто')
+        print('\nПродано:', dishes)
+
+
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
 
 root = Tk()
@@ -779,7 +804,7 @@ btn_15 = Button(tab_4, text='Горелка', font=('Arial', 13, 'normal'), widt
 btn_15.grid(row=7, column=0, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ПОСУДА
-btn_16 = Button(tab_4, text='Посуда', font=('Arial', 13, 'normal'), width=9, state='disabled', command=dishes_btn)
+btn_16 = Button(tab_4, text='Посуда', font=('Arial', 13, 'normal'), width=9, state='disabled', command=sell_dishes_btn)
 btn_16.grid(row=7, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ СПАЛЬНИК
