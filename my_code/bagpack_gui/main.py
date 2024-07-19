@@ -355,6 +355,7 @@ def sell_stick_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
     if sticks not in list_inventory:
         btn_11.config(state='disabled')
         lbl_34.config(fg='grey')
+        lbl_52.config(text='Пусто')
         print('\nПродано:', sticks)
 
 def sell_gas_btn():  # кнопка - ПРОДАТЬ ГАЗ
@@ -378,10 +379,11 @@ def sell_gas_btn():  # кнопка - ПРОДАТЬ ГАЗ
     if gas not in list_inventory:
         btn_12.config(state='disabled')
         lbl_35.config(fg='grey')
+        lbl_52.config(text='Пусто')
         print('\nПродано:', gas)
 
 
-def sell_lighter_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
+def sell_lighter_btn():  # кнопка - ПРОДАТЬ ЗАЖИГАЛКУ
     global gold, list_inventory, min_bag, max_bag
     gold += lighter_cost_sell
     lbl_11.config(text=gold)
@@ -402,7 +404,33 @@ def sell_lighter_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
     if lighter not in list_inventory:
         btn_13.config(state='disabled')
         lbl_36.config(fg='grey')
+        lbl_52.config(text='Пусто')
         print('\nПродано:', lighter)
+
+
+def sell_karemat_btn():  # кнопка - ПРОДАТЬ КАРЕМАТ
+    global gold, list_inventory, min_bag, max_bag
+    gold += karemat_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(karemat)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if karemat not in list_inventory:
+        btn_14.config(state='disabled')
+        lbl_37.config(fg='grey')
+        lbl_52.config(text='Пусто')
+        print('\nПродано:', karemat)
 
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -718,7 +746,7 @@ btn_13 = Button(tab_4, text='Зажигалка', font=('Arial', 13, 'normal'), 
 btn_13.grid(row=4, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ КАРЕМАТ
-btn_14 = Button(tab_4, text='Каремат', font=('Arial', 13, 'normal'), width=9, state='disabled', command=karemat_btn)
+btn_14 = Button(tab_4, text='Каремат', font=('Arial', 13, 'normal'), width=9, state='disabled', command=sell_karemat_btn)
 btn_14.grid(row=4, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ГОРЕЛКА
