@@ -483,7 +483,7 @@ def sell_dishes_btn():  # кнопка - ПРОДАТЬ ПОСУДА
         print('\nПродано:', dishes)
 
 
-def sell_sleeping_bag_btn():  # кнопка - ПРОДАТЬ ПОСУДА
+def sell_sleeping_bag_btn():  # кнопка - ПРОДАТЬ СПАЛЬНИК
     global gold, list_inventory, min_bag, max_bag
     gold += sleeping_bag_cost_sell
     lbl_11.config(text=gold)
@@ -506,6 +506,31 @@ def sell_sleeping_bag_btn():  # кнопка - ПРОДАТЬ ПОСУДА
         lbl_40.config(fg='grey')
         lbl_52.config(text='Пусто')
         print('\nПродано:', sleeping_bag)
+
+
+def sell_flashlight_btn():  # кнопка - ПРОДАТЬ ФОНАРЬ
+    global gold, list_inventory, min_bag, max_bag
+    gold += flashlight_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(flashlight)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if flashlight not in list_inventory:
+        btn_18.config(state='disabled')
+        lbl_41.config(fg='grey')
+        lbl_52.config(text='Пусто')
+        print('\nПродано:', flashlight)
 
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -839,7 +864,7 @@ btn_17.grid(row=7, column=2, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ФОНАРЬ
 btn_18 = Button(tab_4, text='Фонарь', font=('Arial', 13, 'normal'), width=9, state='disabled',
-                command=flashlight_btn)
+                command=sell_flashlight_btn)
 btn_18.grid(row=7, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПОНИЗИТЬ УРОВЕНЬ РЮКЗАКА
