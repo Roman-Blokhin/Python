@@ -533,6 +533,31 @@ def sell_flashlight_btn():  # кнопка - ПРОДАТЬ ФОНАРЬ
         print('\nПродано:', flashlight)
 
 
+def level_low_btn():  # кнопка - ПОНИЗИТЬ УРОВЕНЬ РЮКЗАКА
+    global gold, list_inventory, min_bag, max_bag, level
+    gold += level_low_bagpack_cost_sell
+    level -= 1
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    lbl_13.config(text=level)
+    lbl_28.config(text=level)
+    lbl_50.config(text=level)
+    print('Уровень:', level)
+    lbl_12.config(text=(min_bag, '/', max_bag - 5))
+    lbl_27.config(text=(min_bag, '/', max_bag - 5))
+    lbl_48.config(text=(min_bag, '/', max_bag - 5))
+    max_bag -= 5
+    lbl_42.config(fg='red')
+    print('\nУровень рюкзака понижен')
+    if level == 1:
+        btn_19.config(state='disabled')
+        lbl_42.config(fg='grey')
+        print('\nВсе, больше нельзя понижать уровень рюкзака!')
+
+
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
 
 root = Tk()
@@ -869,7 +894,7 @@ btn_18.grid(row=7, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПОНИЗИТЬ УРОВЕНЬ РЮКЗАКА
 btn_19 = Button(tab_4, text=level_bagpack_low, font=('Arial', 13, 'normal'), width=9, state='disabled',
-                command=level_up)
+                command=level_low_btn)
 btn_19.grid(row=10, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- СИСТЕМНОЕ ---------------------------------------

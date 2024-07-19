@@ -36,6 +36,6 @@ sleeping_bag_cost_sell = 175
 flashlight_cost_sell = 35
 
 level_bagpack_cost = 500
-level_bagpack_cost_sell = 350
+level_low_bagpack_cost_sell = 350
 
 list_inventory = []
