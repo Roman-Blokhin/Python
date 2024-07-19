@@ -336,38 +336,73 @@ def work():
 
 def sell_stick_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
     global gold, list_inventory, min_bag, max_bag
-    if gold < sticks_cost:
-        gold += 0
-        lbl_11.config(text=gold)
-        lbl_15 = Label(tab_1, text=no_money, font=('Arial', 13, 'normal'), fg='red')
-        lbl_15.grid(row=13, column=0, columnspan=4)
-        print(no_money)
-    else:
-        if min_bag < max_bag:
-            gold -= sticks_cost
-            lbl_11.config(text=gold)
-            lbl_19.config(text=gold)
-            lbl_26.config(text=gold)
-            lbl_46.config(text=gold)
-            print('\nДеньги:', gold)
-            list_inventory.append(sticks)
-            lbl_14.config(text=list_inventory)
-            lbl_29.config(text=list_inventory)
-            lbl_52.config(text=list_inventory)
-            print('Инвентарь:', list_inventory)
-            min_bag += 1
-            lbl_12.config(text=(min_bag, '/', max_bag))
-            lbl_27.config(text=(min_bag, '/', max_bag))
-            lbl_48.config(text=(min_bag, '/', max_bag))
-            print('Товаров в рюкзаке:', min_bag, '/', max_bag)
-            btn_11.config(state='normal')
-            lbl_34.config(fg='red')
-        else:
-            min_bag += 0
-            gold += 0
-            lbl_16 = Label(tab_1, text=full_bag, font=('Arial', 13, 'normal'), fg='red')
-            lbl_16.grid(row=14, column=0, columnspan=4)
-            print(full_bag)
+    gold += sticks_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(sticks)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if sticks not in list_inventory:
+        btn_11.config(state='disabled')
+        lbl_34.config(fg='grey')
+        print('\nВ рюкзаке нет:', sticks)
+
+def sell_gas_btn():  # кнопка - ПРОДАТЬ ГАЗ
+    global gold, list_inventory, min_bag, max_bag
+    gold += gas_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(gas)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if gas not in list_inventory:
+        btn_11.config(state='disabled')
+        lbl_34.config(fg='grey')
+        print('\nВ рюкзаке нет:', gas)
+
+
+def sell_gas_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
+    global gold, list_inventory, min_bag, max_bag
+    gold += gas_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(gas)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if gas not in list_inventory:
+        btn_11.config(state='disabled')
+        lbl_34.config(fg='grey')
+        print('\nВ рюкзаке нет:', gas)
 
 
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
@@ -674,7 +709,7 @@ btn_11 = Button(tab_4, text='Палки', font=('Arial', 13, 'normal'), width=9,
 btn_11.grid(row=4, column=0, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ГАЗ
-btn_12 = Button(tab_4, text='Газ', font=('Arial', 13, 'normal'), width=9, state='disabled', command=gas_btn)
+btn_12 = Button(tab_4, text='Газ', font=('Arial', 13, 'normal'), width=9, state='disabled', command=sell_gas_btn)
 btn_12.grid(row=4, column=1, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ЗАЖИГАЛКА
