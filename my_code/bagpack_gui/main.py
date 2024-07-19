@@ -433,6 +433,31 @@ def sell_karemat_btn():  # кнопка - ПРОДАТЬ КАРЕМАТ
         print('\nПродано:', karemat)
 
 
+def sell_fire_btn():  # кнопка - ПРОДАТЬ ГОРЕЛКА
+    global gold, list_inventory, min_bag, max_bag
+    gold += fire_cost_sell
+    lbl_11.config(text=gold)
+    lbl_19.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('\nДеньги:', gold)
+    list_inventory.remove(fire)
+    lbl_14.config(text=list_inventory)
+    lbl_29.config(text=list_inventory)
+    lbl_52.config(text=list_inventory)
+    print('Инвентарь:', list_inventory)
+    min_bag -= 1
+    lbl_12.config(text=(min_bag, '/', max_bag))
+    lbl_27.config(text=(min_bag, '/', max_bag))
+    lbl_48.config(text=(min_bag, '/', max_bag))
+    print('Товаров в рюкзаке:', min_bag, '/', max_bag)
+    if fire not in list_inventory:
+        btn_15.config(state='disabled')
+        lbl_38.config(fg='grey')
+        lbl_52.config(text='Пусто')
+        print('\nПродано:', fire)
+
+
 # --------------------------------------- ГЛАВНОЕ ОКНО ---------------------------------------
 
 root = Tk()
@@ -750,7 +775,7 @@ btn_14 = Button(tab_4, text='Каремат', font=('Arial', 13, 'normal'), widt
 btn_14.grid(row=4, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ГОРЕЛКА
-btn_15 = Button(tab_4, text='Горелка', font=('Arial', 13, 'normal'), width=9, state='disabled', command=fire_btn)
+btn_15 = Button(tab_4, text='Горелка', font=('Arial', 13, 'normal'), width=9, state='disabled', command=sell_fire_btn)
 btn_15.grid(row=7, column=0, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПРОДАТЬ ПОСУДА
@@ -767,7 +792,8 @@ btn_18 = Button(tab_4, text='Фонарь', font=('Arial', 13, 'normal'), width=
 btn_18.grid(row=7, column=3, sticky='swen', padx=3, pady=3)
 
 # кнопка - ПОНИЗИТЬ УРОВЕНЬ РЮКЗАКА
-btn_19 = Button(tab_4, text=level_bagpack, font=('Arial', 13, 'normal'), width=9, state='disabled', command=level_up)
+btn_19 = Button(tab_4, text=level_bagpack_low, font=('Arial', 13, 'normal'), width=9, state='disabled',
+                command=level_up)
 btn_19.grid(row=10, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
 
 # --------------------------------------- СИСТЕМНОЕ ---------------------------------------
