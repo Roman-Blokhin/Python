@@ -332,6 +332,17 @@ def work():
     print('Деньги:', gold)
 
 
+def work_x2():
+    global gold
+    btn_10.config(text='2')
+    gold += 2
+    lbl_19.config(text=gold)
+    lbl_11.config(text=gold)
+    lbl_26.config(text=gold)
+    lbl_46.config(text=gold)
+    print('Деньги:', gold)
+
+
 # --------------------------------------- ФУНКЦИИ - ПРОДАЖА ---------------------------------------
 
 def sell_stick_btn():  # кнопка - ПРОДАТЬ ПАЛКИ
@@ -741,10 +752,20 @@ lbl_18.grid(row=6, column=0)
 lbl_19 = Label(tab_2, text=gold, font=('Arial', 13, 'normal'))  # деньги
 lbl_19.grid(row=6, column=1)
 
+lbl_53 = Label(tab_2, text=' ', font=('Arial', 13, 'normal'))  # пробел
+lbl_53.grid(row=7, column=0)
 
 
-btn_10 = Button(tab_2, text='Работать', font=('Arial', 13, 'normal'), width=9, command=work)  # кнопка - Работать
+
+btn_10 = Button(tab_2, text='Работать', font=('Arial', 13, 'normal'), width=9, command=work)  # кнопка - работать
 btn_10.grid(row=4, column=0, columnspan=4, sticky='swen', padx=3, pady=3)
+
+btn_20 = Button(tab_2, text='x2', font=('Arial', 13, 'normal'), width=9, command=work_x2)  # кнопка - х2
+btn_20.grid(row=8, column=0, columnspan=1, sticky='swen', padx=3, pady=3)
+
+btn_21 = Button(tab_2, text='x3', font=('Arial', 13, 'normal'), width=9)  # кнопка - х3
+btn_21.grid(row=8, column=2, columnspan=2, sticky='swen', padx=3, pady=3)
+
 
 # --------------------------------------- ВКЛАДКА - ИНВЕНТАРЬ ---------------------------------------
 
