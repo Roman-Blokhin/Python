@@ -7,8 +7,8 @@ def main(page: ft.Page):
     text_name_label = ft.Text(value='Введите имя: ', color='red')
     text_age_label = ft.Text(value='Введите возраст: ', color='red')
 
-    name_enter = ft.TextField('')
-    age_enter = ft.TextField('')
+    name_enter = ft.TextField(hint_text='Введите текст', text_align=ft.TextAlign.RIGHT)  # hint_text - пример текста
+    age_enter = ft.TextField(label='Введите текст', text_align=ft.TextAlign.RIGHT)  # label - красивая анимация надписи
     
     name_label_text = ft.Text('Ваше имя: ')
     name_label = ft.Text('')
@@ -23,6 +23,7 @@ def main(page: ft.Page):
     def take_info(event):
         name_label.value = name_enter.value
         age_label.value = age_enter.value
+        # name_enter.focus()  # устанавливает фокус на поле ввода
         page.update()
 
 
@@ -43,7 +44,7 @@ def main(page: ft.Page):
         ),
         ft.Row(
             [
-                ft.Text(value='Выберите пол: '),
+                ft.Text(value='Выберите пол: ', color='red'),
                 ft.Text(value='М'),
                 ft.Checkbox(value=False),
                 ft.Text(value='Ж'),
