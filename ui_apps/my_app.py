@@ -37,65 +37,16 @@ def main(page: ft.Page):
 
 
     page.add(
-        ft.Row(
-            [
-                text_name_label,
-                name_enter,
-                name_label
-            ]
-        ),
-        ft.Row(
-            [
-                text_age_label,
-                age_enter,
-                age_label
-            ]
-        ),
-        ft.Row(
-            [
-                text_pass_label,
-                pass_enter,
-                pass_label
-            ]
-        ),
-        ft.Row(
-            [
-                ft.Text(value='Выберите пол: ', color='red'),
-                ft.Text(value='М'),
-                ft.Checkbox(value=False),
-                ft.Text(value='Ж'),
-                ft.Checkbox(value=False)
-            ]
-        ),
-        ft.Row(
-            [
-                ft.ElevatedButton('Отправить', on_click=take_info),
-            ]
-        ),
-        ft.Row(
-            [
-                name_label_text,
-                name_label,
-            ]
-        ),
-        ft.Row(
-            [
-                age_label_text,
-                age_label
-            ]
-        ),
-        ft.Row(
-            [
-                pass_label_text,
-                pass_label
-            ]
-        ),
-        ft.Row(
-            [
-                gender_label_text,
-                gender_label,
-            ]
-        )
+        ft.Row([text_name_label, name_enter, name_label]),
+        ft.Row([text_age_label, age_enter, age_label]),
+        ft.Row([text_pass_label, pass_enter, pass_label]),
+        ft.Row([ft.Text(value='Выберите пол: ', color='red'), ft.Text(value='М'), ft.Checkbox(value=False), 
+                ft.Text(value='Ж'), ft.Checkbox(value=False)]),
+        ft.Row([ft.ElevatedButton('Отправить', on_click=take_info),]),
+        ft.Row([name_label_text, name_label,]),
+        ft.Row([age_label_text, age_label]),
+        ft.Row([pass_label_text, pass_label]),
+        ft.Row([gender_label_text, gender_label,])
     )
 
 ft.app(target=main)
