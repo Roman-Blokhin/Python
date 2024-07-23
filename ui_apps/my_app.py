@@ -4,30 +4,33 @@ def main(page: ft.Page):
     page.title = 'Мой первый проект'
     page.theme_mode = 'dark'
 
-    text_name_label = ft.Text(value='Введите имя: ', color='green')
+    text_name_label = ft.Text(value='Введите имя: ', color='red')
+    text_age_label = ft.Text(value='Введите возраст: ', color='red')
+
     name_enter = ft.TextField('')
+    age_enter = ft.TextField('')
+    
     name_label_text = ft.Text('Ваше имя: ')
     name_label = ft.Text('')
 
-    text_age_label = ft.Text(value='Введите возраст: ', color='green')
-    age_enter = ft.TextField('')
-    age_label_text = ft.Text('Ваше имя: ')
+    age_label_text = ft.Text('Ваш возраст: ')
     age_label = ft.Text('')
 
-    def take_name(event):
-        name_label.value = name_enter.value
-        page.update()
+    gender_label_text = ft.Text('Ваш пол: ')
+    gender_label = ft.Text('')
 
-    def take_age(event):
+
+    def take_info(event):
+        name_label.value = name_enter.value
         age_label.value = age_enter.value
         page.update()
+
 
     page.add(
         ft.Row(
             [
                 text_name_label,
                 name_enter,
-                name_label_text,
                 name_label
             ]
         ),
@@ -35,7 +38,6 @@ def main(page: ft.Page):
             [
                 text_age_label,
                 age_enter,
-                age_label_text,
                 age_label
             ]
         ),
@@ -46,9 +48,31 @@ def main(page: ft.Page):
                 ft.Checkbox(value=False),
                 ft.Text(value='Ж'),
                 ft.Checkbox(value=False)
-
             ]
         ),
+        ft.Row(
+            [
+                ft.ElevatedButton('Отправить', on_click=take_info),
+            ]
+        ),
+        ft.Row(
+            [
+                name_label_text,
+                name_label,
+            ]
+        ),
+        ft.Row(
+            [
+                age_label_text,
+                age_label
+            ]
+        ),
+        ft.Row(
+            [
+                gender_label_text,
+                gender_label,
+            ]
+        )
     )
 
 ft.app(target=main)
