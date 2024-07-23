@@ -37,25 +37,31 @@ def main(page: ft.Page):
     # ------------------------------------- Функции ------------------------------------------------ #
 
     def take_info(event):
-        name_label.value = name_enter.value
-        age_label.value = age_enter.value
-        pass_label.value = pass_enter.value
-        # name_enter.focus()  # устанавливает фокус на поле ввода
-        checkbutton_clicked(event)  # срабатывает функция записи результата чекбатона
-        gender_label.value = ''.join(results)  # присваивает значение чекбатон и выводит без скобок и кавычек
-        name_enter.disabled = True  # блокирует поле после записи данных
-        pass_enter.disabled = True
-        age_enter.disabled = True
-        
+        if not name_enter.value:  # условие выпадающего текста с ошибкой
+            name_enter.error_text = 'Вы не ввели свое имя'
+        else:
+            name_enter.error_text = ''  # убирает надпись с ошибкой
+            name_label.value = name_enter.value
+            age_label.value = age_enter.value
+            pass_label.value = pass_enter.value
+            # name_enter.focus()  # устанавливает фокус на поле ввода
+            checkbutton_clicked(event)  # срабатывает функция записи результата чекбатона
+            gender_label.value = ''.join(results)  # присваивает значение чекбатон и выводит без скобок и кавычек
+
+            name_enter.disabled = True  # блокирует поле после записи данных
+            pass_enter.disabled = True
+            age_enter.disabled = True
         page.update()
 
     def checkbutton_clicked(event):  # функция, создает коллекцию, в нее записывает результат чекбатон и блокирует другой чекбатон
         if check_m.value:
             results.append('М')
             check_f.disabled = True
+            check_m.disabled = True
         if check_f.value:
             results.append('Ж')
             check_m.disabled = True
+            check_f.disabled = True
 
         if not results:
             results.append('Не выбрано')
