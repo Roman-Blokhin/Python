@@ -1,0 +1,9 @@
+import flet as ft
+
+def main(page: ft.Page):  
+    page.title = 'Погода'  
+    page.theme_mode = 'dark'  
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER  
+
+
+ft.app(target=main)  
