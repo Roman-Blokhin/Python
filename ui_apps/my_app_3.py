@@ -2,11 +2,11 @@ import flet as ft
 
 def main(page: ft.Page):
     page.title = 'Выпадающий список'
-    page.window_width='500'
+    page.window_width='500'  # размер окна программы
     page.window_height='500'
-    page.window_left='800'
+    page.window_left='800'  # координаты окна программы
     page.window_top='200'
-    page.bgcolor=ft.colors.WHITE
+    page.bgcolor=ft.colors.WHITE  # цвет фона окна программы
     
 
     def clicked_btn(event):
@@ -26,7 +26,7 @@ def main(page: ft.Page):
 
     btn = ft.OutlinedButton('Отправить', on_click=clicked_btn)
     text = ft.Text ()
-    color_dropdown = ft.Dropdown (
+    color_dropdown = ft.Dropdown (  # выпадающий список
         width=100,
         options=[
             ft.dropdown.Option('red'),
