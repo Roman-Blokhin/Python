@@ -15,9 +15,12 @@ def main(page: ft.Page):
         if len(user_data.value) <= 2:
             return
         API = 'af76dfe719bf598fba88c3b95130f5d0'  # ключ с сервиса погоды
-        URL = f'https://api.openweathermap.org/data/2.5/weather?q={user_data.value}&appid={API}'  # ссылка на сервис
+        URL = f'https://api.openweathermap.org/data/2.5/weather?q={user_data.value}&appid={API}&units=metric'  # ссылка на сервис
         res = requests.get(URL).json()  # используем формат .json для вывода информации
+        temp = res['main']['temp']
+        weather_deg.value = f'Погода в городе {user_data.value}: ' + str(temp)
         print(res)
+        page.update()
 
     def change_theme(e):
         page.theme_mode = 'light' if page.theme_mode == 'dark' else 'dark'
@@ -28,10 +31,12 @@ def main(page: ft.Page):
     btn_theme = ft.IconButton(ft.icons.SUNNY, on_click=change_theme)
     text_change_theme = ft.Text('Погодное приложение')
     btn_weather = ft.IconButton(ft.icons.PLAY_ARROW_SHARP, on_click=get_info)
+    weather_deg = ft.Text('')
 
     page.add(
         ft.Row([btn_theme, text_change_theme], alignment=ft.MainAxisAlignment.CENTER),
-        ft.Row([user_data, btn_weather], alignment=ft.MainAxisAlignment.CENTER)
+        ft.Row([user_data, btn_weather], alignment=ft.MainAxisAlignment.CENTER),
+        ft.Row([weather_deg], alignment=ft.MainAxisAlignment.CENTER)
     )
 
 
