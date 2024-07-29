@@ -1,17 +1,23 @@
 import flet as ft
+import requests
 
 def main(page: ft.Page):  
     page.title = 'Погода'  
-    page.theme_mode = 'dark'  
+    page.theme_mode = 'light'  
     page.vertical_alignment = ft.MainAxisAlignment.CENTER  
+    page.window_width='500'  
+    page.window_height='500'
+    page.window_left='800'  
+    page.window_top='200'
 
 
     def get_info(event):
         if len(user_data.value) <= 2:
             return
-
-        API = 'af76dfe719bf598fba88c3b95130f5d0'
-        URL = f'https://api.openweathermap.org/data/2.5/weather?q={user_data.value}&appid={API}'
+        API = 'af76dfe719bf598fba88c3b95130f5d0'  # ключ с сервиса погоды
+        URL = f'https://api.openweathermap.org/data/2.5/weather?q={user_data.value}&appid={API}'  # ссылка на сервис
+        res = requests.get(URL).json()  # используем формат .json для вывода информации
+        print(res)
 
     def change_theme(e):
         page.theme_mode = 'light' if page.theme_mode == 'dark' else 'dark'
