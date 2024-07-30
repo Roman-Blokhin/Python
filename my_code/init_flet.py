@@ -8,14 +8,15 @@ def main(page: ft.Page):
     page.window_height = '500'
     page.window_left = '800'
     page.window_top = '200'
+    page.window_resizable = False
     
     def info(event):
         page.update()
         pass
 
     page.add(
-        ft.Row([]),
-        ft.Row([]),
+        ft.Row([], alignment=ft.MainAxisAlignment.CENTER),
+        ft.Row([], alignment=ft.MainAxisAlignment.CENTER),
     )
 
 ft.app(target=main)
