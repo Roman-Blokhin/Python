@@ -12,10 +12,14 @@ def main(page: ft.Page):
 
 
     def register(event):
-        if user_name.value and user_pass.value:
-            btn_reg.disabled = False
-            page.update()
+        pass
         
+
+    def validate(event):
+        if all([user_name.value, user_pass.value]):
+            btn_reg.disabled = False
+        page.update()
+
 
     user_name = ft.TextField(label='Введите логин', width=200)
     user_pass = ft.TextField(label='Введите пароль', width=200, password=True)
