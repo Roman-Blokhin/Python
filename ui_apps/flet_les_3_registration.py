@@ -1,4 +1,5 @@
 import flet as ft
+import sqlite3
 
 def main(page: ft.Page):
     page.title = 'Регистрация'
@@ -12,8 +13,18 @@ def main(page: ft.Page):
 
 
     def register(event):
-        pass
-        
+        db = sqlite3.connect('db_reg')  # создаем базу данных, даем название
+        cur = db.cursor()  # создаем курсор
+        cur.execute(
+            """CREATE TABLE IF NOT EXSIST user (
+            id INTEGER PRIMARY KEY,
+            login TEXT,
+            pass TEXT
+            )"""
+        )  # прописываем команду для базы данных
+
+        db.close()  # обязательное закрытие базы данных
+
 
     def validate(event):  # условие об активации кнопки Отправить
         if all([user_name.value, user_pass.value]):
